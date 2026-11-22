@@ -1,0 +1,11 @@
+disallowed-methods = [
+    { path = "std::thread::sleep", reason = "blocks a scheduler thread; use a Timer or a task pool" },
+    { path = "std::thread::spawn", reason = "escapes Bevy scheduling; use AsyncComputeTaskPool or IoTaskPool" },
+    { path = "futures_lite::future::block_on", reason = "blocks a scheduler thread; poll the Task in a system" },
+    { path = "pollster::block_on", reason = "blocks a scheduler thread; poll the Task in a system" },
+]
+disallowed-macros = [
+    { path = "std::println", reason = "use bevy info!/warn!/error! with a target" },
+    { path = "std::eprintln", reason = "use bevy warn!/error! with a target" },
+    { path = "std::dbg", reason = "use bevy debug! with a target" },
+]

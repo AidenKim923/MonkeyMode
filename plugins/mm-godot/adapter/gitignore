@@ -1,0 +1,6 @@
+# Godot (added by MonkeyMode mm-setup)
+.godot/
+.mono/
+export/
+build/
+*.tmp

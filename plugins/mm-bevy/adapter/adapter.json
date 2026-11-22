@@ -1,0 +1,21 @@
+{
+  "name": "bevy",
+  "displayName": "Bevy",
+  "primaryPlatform": "other",
+  "languages": [
+    "Rust"
+  ],
+  "detect": [
+    {
+      "file": "Cargo.toml",
+      "contains": "bevy"
+    }
+  ],
+  "verification": "needs-community-verification",
+  "verificationNote": "Written for recent Bevy releases (0.14-0.16 era APIs) from documentation knowledge; Bevy changes quickly. Not field-tested in a MonkeyMode project yet.",
+  "guardrailProfile": "guardrails/bevy.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "BEVY_VIRTUAL_TIME_SPEED"
+  ]
+}

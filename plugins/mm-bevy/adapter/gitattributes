@@ -1,0 +1,7 @@
+# Bevy (added by MonkeyMode mm-setup)
+# LFS lines are commented out: run `git lfs install`, then uncomment the patterns you want.
+*.rs text eol=lf
+*.ron text eol=lf
+# assets/**/*.png filter=lfs diff=lfs merge=lfs -text
+# assets/**/*.glb filter=lfs diff=lfs merge=lfs -text
+# assets/**/*.ogg filter=lfs diff=lfs merge=lfs -text

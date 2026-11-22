@@ -1,0 +1,23 @@
+{
+  "name": "unity",
+  "displayName": "Unity",
+  "primaryPlatform": "unity",
+  "languages": [
+    "C#"
+  ],
+  "detect": [
+    {
+      "file": "ProjectSettings/ProjectVersion.txt"
+    }
+  ],
+  "verification": "field-tested",
+  "verificationNote": "Rules, tools and Mirror notes come from a real Unity 6 + Mirror project. Batch-mode tests and builds were run there; multi-client launch was not.",
+  "guardrailProfile": "guardrails/unity.json",
+  "extraGuardrails": [
+    "guardrails/module-rules.json"
+  ],
+  "multiplayerOnlyRules": [
+    "BANNED_TIMESCALE_WRITE",
+    "BANNED_MIRROR_NO_AUTHORITY_COMMAND"
+  ]
+}

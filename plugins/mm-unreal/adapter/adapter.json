@@ -1,0 +1,21 @@
+{
+  "name": "unreal",
+  "displayName": "Unreal Engine",
+  "primaryPlatform": "unreal",
+  "languages": [
+    "C++",
+    "Blueprint"
+  ],
+  "detect": [
+    {
+      "glob": "*.uproject"
+    }
+  ],
+  "verification": "needs-community-verification",
+  "verificationNote": "Written for Unreal Engine 5.x from documentation knowledge; not field-tested in a MonkeyMode project yet.",
+  "guardrailProfile": "guardrails/unreal.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "UE_GLOBAL_TIME_DILATION"
+  ]
+}

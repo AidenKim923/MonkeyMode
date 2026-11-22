@@ -1,0 +1,78 @@
+{
+  "description": "MonkeyMode guardrail preset: Bevy (Rust) under src/. Comments stay allowed (noComments false): Rust doc comments feed rustdoc and Clippy. Pair this with clippy.toml disallowed-methods for symbol-accurate checks (docs/engine/guardrails.md). Needs community verification: written from engine documentation knowledge, not field-tested in a MonkeyMode project yet.",
+  "engine": "bevy",
+  "scopeRoot": "",
+  "extensions": [
+    ".rs"
+  ],
+  "noComments": false,
+  "excludeDirs": [
+    "target",
+    ".git",
+    "assets"
+  ],
+  "skipFileSuffixes": [],
+  "skipHeaderMarkers": [],
+  "rules": [
+    {
+      "id": "BEVY_BLOCKING_SLEEP",
+      "pattern": "\\bstd::thread::sleep\\b|\\bthread::sleep\\(",
+      "message": "Sleeping inside a system blocks a scheduler thread and stalls the frame (and the server tick). Use a Timer component/resource, run conditions such as on_timer, or an AsyncComputeTaskPool task.",
+      "excludePaths": [
+        "/tests/",
+        "/benches/",
+        "/examples/"
+      ]
+    },
+    {
+      "id": "BEVY_BLOCK_ON",
+      "pattern": "\\b(block_on|futures_lite::future::block_on|pollster::block_on)\\(",
+      "message": "Blocking on a future inside the app blocks a scheduler thread. Spawn the work on IoTaskPool/AsyncComputeTaskPool and poll the Task in a system (future::poll_once / check_ready).",
+      "excludePaths": [
+        "/tests/",
+        "/benches/",
+        "/examples/",
+        "/build.rs"
+      ]
+    },
+    {
+      "id": "BEVY_RAW_THREAD",
+      "pattern": "\\bstd::thread::spawn\\b|\\bthread::spawn\\(",
+      "message": "Raw threads are banned. They escape Bevy's scheduling and cannot touch the World. Use AsyncComputeTaskPool::get().spawn(...) or IoTaskPool and bring results back through a component or channel resource.",
+      "excludePaths": [
+        "/tests/",
+        "/benches/",
+        "/build.rs"
+      ]
+    },
+    {
+      "id": "BEVY_PRINTLN",
+      "pattern": "(?<![\\w:])(println|eprintln|print|eprint|dbg)!\\(",
+      "message": "println!/dbg! are banned in game code. Agents judge behavior from logs, which needs levels and targets. Use bevy's info!/warn!/error!/debug! (tracing) with a target.",
+      "excludePaths": [
+        "/tests/",
+        "/benches/",
+        "/examples/",
+        "/build.rs",
+        "/src/bin/"
+      ]
+    },
+    {
+      "id": "BEVY_EXCLUSIVE_WORLD_SYSTEM",
+      "pattern": "fn\\s+\\w+\\s*\\(\\s*\\w+\\s*:\\s*&mut\\s+World\\b",
+      "message": "Exclusive systems taking &mut World are banned by default. They serialize the whole schedule and hide data dependencies from the scheduler. Use regular system parameters and Commands; if you truly need world access, propose it with the reason (user approval).",
+      "excludePaths": [
+        "/tests/",
+        "/benches/"
+      ]
+    },
+    {
+      "id": "BEVY_VIRTUAL_TIME_SPEED",
+      "pattern": "\\.set_relative_speed\\w*\\(|\\.pause\\(\\)\\s*;",
+      "message": "Changing virtual time speed or pausing Time<Virtual> is banned in networked games: peers drift and replicated simulation desyncs. Gate gameplay systems with a server-driven State or run condition instead. Remove this rule for single-player games (user approval).",
+      "excludePaths": [
+        "/tests/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Bevy (added by MonkeyMode mm-setup)
+/target/
+*.pdb

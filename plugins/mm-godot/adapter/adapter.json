@@ -1,0 +1,21 @@
+{
+  "name": "godot",
+  "displayName": "Godot",
+  "primaryPlatform": "godot",
+  "languages": [
+    "GDScript",
+    "C#"
+  ],
+  "detect": [
+    {
+      "file": "project.godot"
+    }
+  ],
+  "verification": "needs-community-verification",
+  "verificationNote": "Written for Godot 4.x from documentation knowledge; not field-tested in a MonkeyMode project yet.",
+  "guardrailProfile": "guardrails/godot.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "GODOT_TIMESCALE_WRITE"
+  ]
+}
