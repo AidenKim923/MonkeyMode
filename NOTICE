@@ -1,0 +1,34 @@
+MonkeyMode
+Copyright (c) 2026 MonkeyMode contributors
+Licensed under the MIT License (see LICENSE).
+
+This product bundles third-party software:
+
+1. BMad Method (core and BMM modules), version 6.12.4
+   Copyright (c) 2025 BMad Code, LLC. MIT License.
+   https://github.com/bmad-code-org/BMAD-METHOD
+   Files: skills/bmad-*/ and skills/monkeymode-init/template/_bmad/scripts/,
+   skills/monkeymode-init/template/_bmad/_config/bmad-help.csv,
+   skills/monkeymode-init/template/_bmad/{core,bmm}/module-help.csv
+   License text: licenses/BMAD-METHOD-LICENSE.txt
+
+2. BMad Game Dev Studio module, version 0.7.2
+   Copyright (c) 2026 BMad Code, LLC. MIT License.
+   https://github.com/bmad-code-org/bmad-module-game-dev-studio
+   Files: skills/gds-*/ and skills/monkeymode-init/template/_bmad/gds/module-help.csv
+   License text: licenses/BMAD-GAME-DEV-STUDIO-LICENSE.txt
+
+3. CLI-Anything skills (Blender, RenderDoc, Nsight Graphics)
+   Copyright the CLI-Anything authors (HKUDS). Apache License 2.0.
+   https://github.com/HKUDS/CLI-Anything
+   Files: skills/cli-anything-blender/, skills/cli-anything-renderdoc/,
+   skills/cli-anything-nsight-graphics/
+   License text: licenses/CLI-ANYTHING-LICENSE.txt
+
+BMad, BMad Method, BMad Core and BMad Code are trademarks of BMad Code, LLC.
+MonkeyMode is an independent project. It is not affiliated with, endorsed by,
+or certified by BMad Code, LLC. The bmad-* and gds-* skill names are kept
+only to identify the bundled upstream software accurately
+(see licenses/BMAD-TRADEMARK.md).
+
+Modifications to bundled files are listed in THIRD_PARTY_NOTICES.md.
