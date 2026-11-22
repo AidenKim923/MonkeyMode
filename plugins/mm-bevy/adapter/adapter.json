@@ -1,0 +1,21 @@
+{
+  "name": "bevy",
+  "displayName": "Bevy",
+  "primaryPlatform": "other",
+  "languages": [
+    "Rust"
+  ],
+  "detect": [
+    {
+      "file": "Cargo.toml",
+      "contains": "bevy"
+    }
+  ],
+  "verification": "docs-checked",
+  "verificationNote": "Checked against Bevy 0.20 (docs.rs, migration guides) and the networking crates. Items marked needs verification could not be confirmed.",
+  "guardrailProfile": "guardrails/bevy.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "BEVY_VIRTUAL_TIME_SPEED"
+  ]
+}

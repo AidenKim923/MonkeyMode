@@ -1,0 +1,52 @@
+# MonkeyMode defaults. Override per project in _mm/custom/mm-game-architecture.toml.
+#
+# Workflow customization surface for mm-game-architecture. Mirrors the
+# agent customization shape under the [workflow] namespace.
+
+[workflow]
+
+# --- Configurable below. Overrides merge per MonkeyMode structural rules: ---
+#   scalars: override wins • arrays (persistent_facts, activation_steps_*): append
+#   arrays-of-tables with `code`/`id`: replace matching items, append new ones.
+
+# Steps to run before the standard activation (config load, greet).
+# Overrides append. Use for pre-flight loads, compliance checks, etc.
+
+activation_steps_prepend = []
+
+# Steps to run after greet but before the workflow begins.
+# Overrides append. Use for context-heavy setup that should happen
+# once the user has been acknowledged.
+
+activation_steps_append = [
+  "Before Finalize, offer an independent read-only review of the draft by a fresh-context reviewer (a different model or a clean subagent) that receives only the draft, its inputs and docs/ai/03_VERIFICATION_PLAYBOOK.md section 8. Record each finding and what changed because of it.",
+]
+
+# Persistent facts the workflow keeps in mind for the whole run
+# (standards, compliance constraints, stylistic guardrails).
+# Distinct from the runtime memory sidecar — these are static context
+# loaded on activation. Overrides append.
+#
+# Each entry is either:
+#   - a literal sentence, e.g. "Architecture decisions must be justified against game-specific load, not generic best practices."
+#   - a file reference prefixed with `file:`, e.g. "file:{project-root}/docs/standards.md"
+#     (glob patterns are supported; the file's contents are loaded and treated as facts).
+
+persistent_facts = [
+  "MonkeyMode project rules in {project-root}/AGENTS.md and the docs folder AGENTS.md names (docs/ai/ by default) take precedence over this skill wherever they conflict.",
+  "Read {project-root}/.monkeymode/config.json if it exists. If coding_level is \"cannot-read-code\": verify your own work by running tests, the build or the game before saying done; explain results in plain words and screenshots instead of code; ask before risky actions (deleting files, large refactors, pushing). Otherwise report in reviewable form: a diff summary and why each change was made. If the file is missing, ask the user or suggest running mm-setup.",
+  "A claim is only as good as its evidence: tool output, a test result, a log, or a file. Mark anything you could not check as `unverified` (docs/ai/03_VERIFICATION_PLAYBOOK.md).",
+  "Items listed under 'Undecided' in AGENTS.md are the user's design decisions. Present options with their impact; never settle them silently.",
+  "Numbers written before playtesting (speeds, timings, budgets, durations, counts) are initial assumptions. Label them as assumptions and plan for them to live in tunable data assets, not code constants.",
+  "_mm-output/ holds working drafts. When the user approves a lasting decision, promote it to docs/project/ written as current fact (no dates, no change history). Progress notes and handoffs go to docs/work/.",
+  "For networked games, apply the authority rules in docs/ai/04_NETWORK_AUTHORITY_AND_TESTING.md: the server or host decides game state, ownership, physics and win/lose conditions; clients send requests and render.",
+  "Read docs/engine/architecture-addendum.md for the engine's structure, language and networking conventions before choosing patterns.",
+  "Isolate undecided technology (transport, save format, voice chat, platform services, engine plugin versions) behind interfaces instead of choosing it.",
+  "End the architecture with a 'Guardrail proposals' section listing the banned APIs or patterns and module dependency rules it implies. Do not edit guardrails/ yourself; guardrail changes need user approval.",
+]
+
+# Scalar: executed when the workflow reaches Step 9 (Completion),
+# after the final outputs are produced. Override wins.
+# Leave empty for no custom post-completion behavior.
+
+on_complete = ""

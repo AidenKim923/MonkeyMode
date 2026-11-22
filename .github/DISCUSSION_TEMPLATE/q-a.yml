@@ -1,0 +1,32 @@
+title: "[Q] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [user guide](https://github.com/AidenKim923/MonkeyMode/blob/main/docs/GUIDE.md) and its FAQ first. Mark the answer that solved it so others can find it.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Engine
+      options: [Godot, Unity, Unreal Engine, Bevy, Other, Not engine-specific]
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      options: [Claude Code, Codex, other AGENTS.md agent]
+  - type: dropdown
+    id: coding_level
+    attributes:
+      label: Coding level
+      options: [I can read code, I can't read code]
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you tried

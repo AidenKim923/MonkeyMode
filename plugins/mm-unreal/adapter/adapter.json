@@ -1,0 +1,21 @@
+{
+  "name": "unreal",
+  "displayName": "Unreal Engine",
+  "primaryPlatform": "unreal",
+  "languages": [
+    "C++",
+    "Blueprint"
+  ],
+  "detect": [
+    {
+      "glob": "*.uproject"
+    }
+  ],
+  "verification": "partly-docs-checked",
+  "verificationNote": "RPCs, replication, object handling, Iris status, automation command, BuildCookRun basics and TargetRules checked against the Unreal Engine 5.9 docs; build-script flags, network emulation names and Git LFS editor integration still need verification.",
+  "guardrailProfile": "guardrails/unreal.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "UE_GLOBAL_TIME_DILATION"
+  ]
+}

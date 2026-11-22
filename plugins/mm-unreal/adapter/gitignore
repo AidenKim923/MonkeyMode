@@ -1,0 +1,20 @@
+# Unreal (added by MonkeyMode mm-setup; follows github/gitignore UnrealEngine.gitignore)
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/*
+!Build/*/
+Build/**/*
+!Build/*/PakBlacklist*.txt
+!Build/**/*.ico
+*_BuiltData.uasset
+Plugins/**/Binaries/*
+Plugins/**/Intermediate/*
+.vs/
+.idea/
+*.sln
+*.slnx
+*.VC.db
+*.VC.opendb
+*.suo

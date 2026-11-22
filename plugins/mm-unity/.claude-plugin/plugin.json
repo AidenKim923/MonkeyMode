@@ -1,0 +1,22 @@
+{
+  "name": "mm-unity",
+  "displayName": "MonkeyMode for Unity",
+  "version": "0.1.0",
+  "description": "Unity adapter for MonkeyMode: C# banned APIs, assembly direction rules, batch-mode test/build scripts, Mirror and NGO multiplayer notes, asset import checklist, and the mm-unity-expert subagent.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/AidenKim923/MonkeyMode",
+  "repository": "https://github.com/AidenKim923/MonkeyMode",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "unity",
+    "csharp",
+    "mirror"
+  ],
+  "dependencies": [
+    "mm-core"
+  ]
+}

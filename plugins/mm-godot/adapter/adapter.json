@@ -1,0 +1,21 @@
+{
+  "name": "godot",
+  "displayName": "Godot",
+  "primaryPlatform": "godot",
+  "languages": [
+    "GDScript",
+    "C#"
+  ],
+  "detect": [
+    {
+      "file": "project.godot"
+    }
+  ],
+  "verification": "docs-checked",
+  "verificationNote": "Checked against the official Godot 4.7 docs and the GUT/gdUnit4 docs. Items marked needs verification in the docs could not be confirmed.",
+  "guardrailProfile": "guardrails/godot.json",
+  "extraGuardrails": [],
+  "multiplayerOnlyRules": [
+    "GODOT_TIMESCALE_WRITE"
+  ]
+}

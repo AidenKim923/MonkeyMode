@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --quiet \"${CLAUDE_PLUGIN_ROOT}/template/tools/guardrails/post_edit_hook.py\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

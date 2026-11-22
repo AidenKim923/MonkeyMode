@@ -1,0 +1,68 @@
+{
+  "description": "[Unity] Allowed assembly dependency directions, checked by tools/guardrails/asmdef_rules.py. Assemblies are named <assemblyPrefix><Module>; test assemblies (*.Tests) are skipped. This is a layered example: rename or add modules to match your architecture (user approval).",
+  "assemblyPrefix": "<AssemblyPrefix>",
+  "modules": {
+    "Core": {
+      "mayReference": []
+    },
+    "Domain": {
+      "mayReference": [
+        "Core"
+      ]
+    },
+    "Networking": {
+      "mayReference": [
+        "Core",
+        "Domain"
+      ]
+    },
+    "Physics": {
+      "mayReference": [
+        "Core",
+        "Domain",
+        "Networking"
+      ]
+    },
+    "Gameplay": {
+      "mayReference": [
+        "Core",
+        "Domain",
+        "Networking",
+        "Physics"
+      ]
+    },
+    "UI": {
+      "mayReference": [
+        "Core",
+        "Domain",
+        "Networking"
+      ]
+    },
+    "App": {
+      "mayReference": [
+        "Core",
+        "Domain",
+        "Networking",
+        "Physics",
+        "Gameplay",
+        "UI"
+      ]
+    },
+    "Editor": {
+      "mayReference": [
+        "Core",
+        "Domain",
+        "Networking",
+        "Physics",
+        "Gameplay",
+        "UI",
+        "App"
+      ]
+    }
+  },
+  "mustNotBeReferencedBy": {
+    "UI": "Only App and Editor may reference UI. When game logic depends on the screen, headless/server-only runs break. Invert it: UI reads state through a read contract in Core.",
+    "App": "App is the composition root; only Editor may reference it. Put the contract you need in Core and let App wire it up.",
+    "Editor": "Runtime code may not reference the Editor assembly. The player build breaks."
+  }
+}

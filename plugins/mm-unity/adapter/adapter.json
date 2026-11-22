@@ -1,0 +1,23 @@
+{
+  "name": "unity",
+  "displayName": "Unity",
+  "primaryPlatform": "unity",
+  "languages": [
+    "C#"
+  ],
+  "detect": [
+    {
+      "file": "ProjectSettings/ProjectVersion.txt"
+    }
+  ],
+  "verification": "needs-verification",
+  "verificationNote": "Targets Unity 6 (URP). The Mirror notes, batch-mode scripts and multi-client launch need community verification; NGO notes are from the Unity docs and need verification too.",
+  "guardrailProfile": "guardrails/unity.json",
+  "extraGuardrails": [
+    "guardrails/module-rules.json"
+  ],
+  "multiplayerOnlyRules": [
+    "BANNED_TIMESCALE_WRITE",
+    "BANNED_MIRROR_NO_AUTHORITY_COMMAND"
+  ]
+}

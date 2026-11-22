@@ -1,0 +1,53 @@
+name: Guardrail rule
+description: Report a false positive or a missing ban, or propose a new guardrail rule
+title: "[Guardrail]: "
+labels: ["guardrail"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - False positive (blocks correct code)
+        - Missing ban (a known mistake gets through)
+        - Message is unclear or suggests the wrong fix
+        - New rule proposal
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Profile
+      options: [secrets.json, unity.json, module-rules.json (Unity), godot.json, unreal.json, bevy.json, new profile, not sure]
+    validations:
+      required: true
+  - type: input
+    id: rule_id
+    attributes:
+      label: Rule id
+      description: From the hook message, if a rule fired.
+      placeholder: "BANNED_TIMESCALE_WRITE"
+  - type: dropdown
+    id: level
+    attributes:
+      label: Guardrail level
+      options: [strict, standard, relaxed, not sure]
+  - type: textarea
+    id: violating
+    attributes:
+      label: Code that should be blocked (or was wrongly blocked)
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: passing
+    attributes:
+      label: Code that should pass
+      render: text
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What breaks, what to use instead, and a source (official docs, issue, reproducible test).
+    validations:
+      required: true

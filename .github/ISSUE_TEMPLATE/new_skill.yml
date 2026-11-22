@@ -1,0 +1,62 @@
+name: New skill
+description: Propose a new mm- skill
+title: "[Skill]: mm-"
+labels: ["enhancement", "skill"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A skill is one step an agent can run, with a clear trigger and a file it produces. Conventions: [CONTRIBUTING.md → Adding a skill](https://github.com/AidenKim923/MonkeyMode/blob/main/CONTRIBUTING.md#adding-a-skill).
+  - type: input
+    id: name
+    attributes:
+      label: Proposed name
+      description: Uses the `mm-` prefix, lowercase and hyphens.
+      placeholder: "mm-level-design"
+    validations:
+      required: true
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: Plugin
+      options: [mm-core, mm-unity, mm-godot, mm-unreal, mm-bevy, mm-agents, mm-art-tools, new plugin]
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Workflow step
+      options: [Idea, Brief, Design (GDD / narrative / UX), Architecture, Stories and sprints, Dev, Review, Tests, Playtest, Retro, Helper or other]
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: What it does
+      description: The problem it solves and the steps the agent follows.
+    validations:
+      required: true
+  - type: textarea
+    id: triggers
+    attributes:
+      label: When it should run
+      description: Phrases or situations that should trigger it.
+      placeholder: |
+        "design a level", "block out the first level", after the GDD is approved
+  - type: textarea
+    id: output
+    attributes:
+      label: What it produces
+      description: Files and their default locations.
+      placeholder: "_mm-output/level-design-<name>.md"
+  - type: dropdown
+    id: engine_specific
+    attributes:
+      label: Engine-specific?
+      options: [No (engine-neutral), Yes (needs adapter content)]
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to write this skill

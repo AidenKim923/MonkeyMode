@@ -1,0 +1,22 @@
+{
+  "name": "mm-bevy",
+  "displayName": "MonkeyMode for Bevy",
+  "version": "0.1.0",
+  "description": "Bevy adapter for MonkeyMode: no blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes, and the mm-bevy-expert subagent. Checked against Bevy 0.20.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/AidenKim923/MonkeyMode",
+  "repository": "https://github.com/AidenKim923/MonkeyMode",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "bevy",
+    "rust",
+    "ecs"
+  ],
+  "dependencies": [
+    "mm-core"
+  ]
+}

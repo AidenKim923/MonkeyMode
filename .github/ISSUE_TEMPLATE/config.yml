@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or help
+    url: https://github.com/AidenKim923/MonkeyMode/discussions/categories/q-a
+    about: Ask how to install, set up or use MonkeyMode in Discussions (Q&A)
+  - name: Rough idea
+    url: https://github.com/AidenKim923/MonkeyMode/discussions/categories/ideas
+    about: Talk an idea through before it becomes a feature request
+  - name: Security vulnerability
+    url: https://github.com/AidenKim923/MonkeyMode/security/advisories/new
+    about: Report vulnerabilities privately, never in a public issue
+  - name: User guide
+    url: https://github.com/AidenKim923/MonkeyMode/blob/main/docs/GUIDE.md
+    about: Install, setup, the workflow, guardrails and troubleshooting

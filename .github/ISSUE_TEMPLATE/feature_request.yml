@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest an improvement to an existing skill, tool, hook or doc
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a brand-new `mm-` skill use the **New skill** form; for guardrail rules use **Guardrail rule**.
+        Rough ideas are also welcome in [Discussions → Ideas](https://github.com/AidenKim923/MonkeyMode/discussions/categories/ideas).
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What goes wrong or is missing today when you make a game with an agent?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should MonkeyMode do instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: Plugin
+      options: [mm-core, mm-unity, mm-godot, mm-unreal, mm-bevy, mm-agents, mm-art-tools, new plugin, not sure]
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who benefits
+      multiple: true
+      options: [People who read code, People who don't read code, Solo developers, Teams, Multiplayer projects, Contributors]
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to open a pull request for this

@@ -1,0 +1,7 @@
+#!/bin/sh
+root="$(git rev-parse --show-toplevel)"
+uv run --quiet "$root/tools/guardrails/check.py" --root "$root" --staged || exit 1
+if [ -f "$root/guardrails/module-rules.json" ]; then
+  uv run --quiet "$root/tools/guardrails/asmdef_rules.py" --root "$root" || exit 1
+fi
+exit 0

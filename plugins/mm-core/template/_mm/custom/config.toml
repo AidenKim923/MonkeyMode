@@ -1,0 +1,16 @@
+# Team overrides for _mm/config.toml (committed, applies to everyone).
+# Tables deep-merge over the base config; keyed entries merge by key.
+#
+# Per-skill overrides go next to this file as <skill-name>.toml, for example
+# mm-gdd.toml:
+#
+# [workflow]
+# persistent_facts = ["file:{project-root}/docs/project/style-guide.md"]
+#
+# Arrays append to the skill's defaults; scalars replace them.
+# Personal variants use the .user.toml suffix and are gitignored.
+#
+# Example: override an agent descriptor.
+#
+# [agents.mm-agent-pm]
+# description = "Prefers short, bulleted PRDs over narrative drafts."

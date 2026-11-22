@@ -1,0 +1,91 @@
+{
+  "description": "MonkeyMode guardrail preset: Godot 4 (GDScript; C# files are covered by the Unity-style C# rules only if you add them). Applies to scripts under scopeRoot. GDScript uses # comments, which the comment detector does not see, so noComments stays false. Checked against the Godot 4.7 docs.",
+  "engine": "godot",
+  "scopeRoot": "",
+  "extensions": [
+    ".gd"
+  ],
+  "stripLiterals": false,
+  "noComments": false,
+  "excludeDirs": [
+    ".godot",
+    ".import",
+    "addons",
+    "build",
+    "export",
+    ".git"
+  ],
+  "skipFileSuffixes": [],
+  "skipHeaderMarkers": [],
+  "rules": [
+    {
+      "id": "GODOT_PARENT_NODE_PATH",
+      "pattern": "(get_node(_or_null)?\\(\\s*\\\"\\.\\./|\\$\\\"?\\.\\./)",
+      "message": "Reaching up the tree with ../ node paths is banned. The script then depends on where its scene is instanced, and breaks silently when a scene is reparented. Export a typed reference (@export var target: Node3D), use a %UniqueName inside the same scene, or let the parent wire children up. See docs/engine/guardrails.md",
+      "excludePaths": [
+        "/tests/",
+        "/test/"
+      ]
+    },
+    {
+      "id": "GODOT_ABSOLUTE_NODE_PATH",
+      "pattern": "(get_node(_or_null)?\\(\\s*\\\"/root/|\\$\\\"?/root/)",
+      "message": "Absolute /root/ node paths are banned. They hard-code the scene tree layout and fail whenever load order or autoload names change. Use an autoload singleton by name, a typed export, or a group registry.",
+      "excludePaths": [
+        "/tests/",
+        "/test/"
+      ]
+    },
+    {
+      "id": "GODOT_RUNTIME_FIND",
+      "pattern": "\\bfind_children?\\(|\\bget_tree\\(\\)\\.root\\.find",
+      "message": "Scene-wide find_child/find_children lookups are banned at runtime. They depend on node names and hierarchy and are slow. Use typed exports, groups (add_to_group/get_nodes_in_group on a known group) or a registry autoload.",
+      "excludePaths": [
+        "/tests/",
+        "/test/",
+        "/editor/"
+      ]
+    },
+    {
+      "id": "GODOT_STRING_SIGNAL_CONNECT",
+      "pattern": "\\bconnect\\(\\s*\\\"[A-Za-z_]\\w*\\\"\\s*,",
+      "message": "String-name signal connections (Godot 3 style) are banned. Renames break silently. Connect the Signal object to a Callable: button.pressed.connect(_on_pressed).",
+      "excludePaths": []
+    },
+    {
+      "id": "GODOT_STRING_CALL",
+      "pattern": "\\.(call|call_deferred|callv|rpc|rpc_id)\\(\\s*\\\"",
+      "message": "Calling methods by string name is banned. Renames break silently and RPC targets become implicit. Use the method reference: _do_thing.call_deferred(), do_thing.rpc(), do_thing.rpc_id(peer_id).",
+      "excludePaths": []
+    },
+    {
+      "id": "GODOT_BLOCKING_DELAY",
+      "pattern": "\\bOS\\.delay_(msec|usec)\\(",
+      "message": "OS.delay_msec/delay_usec block the main thread and freeze the game (and the server, in multiplayer). Use await get_tree().create_timer(seconds).timeout or a Timer node.",
+      "excludePaths": [
+        "/tests/",
+        "/test/"
+      ]
+    },
+    {
+      "id": "GODOT_TIMESCALE_WRITE",
+      "pattern": "\\bEngine\\.time_scale\\s*=(?!=)",
+      "message": "Writing Engine.time_scale is banned in networked games: peers' clocks drift and physics sync breaks. Pause with a server-side gate and one session clock. Remove this rule for single-player games (user approval).",
+      "excludePaths": [
+        "/tests/",
+        "/test/"
+      ]
+    },
+    {
+      "id": "GODOT_DIRECT_PRINT",
+      "pattern": "(?<![\\w.])(print|print_rich|print_debug|printerr|printraw|prints|printt)\\(",
+      "message": "Direct print calls are banned in gameplay code. Agents judge behavior from logs, so every line needs a category and level. Use the project's logger autoload (for example Log.info(category, message)).",
+      "excludePaths": [
+        "/tests/",
+        "/test/",
+        "/addons/",
+        "/logging/"
+      ]
+    }
+  ]
+}

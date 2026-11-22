@@ -1,0 +1,107 @@
+# MonkeyMode defaults. Override per project in _mm/custom/mm-ux.toml.
+#
+# Workflow customization surface for mm-ux.
+# Overrides:
+#   {project-root}/_mm/custom/mm-ux.toml         (team)
+#   {project-root}/_mm/custom/mm-ux.user.toml    (personal)
+# Merge rules: scalars override, arrays append.
+
+[workflow]
+
+# Steps to run before/after standard activation. Append-only.
+activation_steps_prepend = []
+activation_steps_append = []
+
+# Persistent facts loaded at activation and kept in mind for the run.
+# Entries: literal sentence, `skill:NAME`, or `file:PATH` (glob ok).
+persistent_facts = [
+  "MonkeyMode project rules in {project-root}/AGENTS.md and the docs folder AGENTS.md names (docs/ai/ by default) take precedence over this skill wherever they conflict.",
+  "Read {project-root}/.monkeymode/config.json if it exists. If coding_level is \"cannot-read-code\": verify your own work by running tests, the build or the game before saying done; explain results in plain words and screenshots instead of code; ask before risky actions (deleting files, large refactors, pushing). Otherwise report in reviewable form: a diff summary and why each change was made. If the file is missing, ask the user or suggest running mm-setup.",
+  "A claim is only as good as its evidence: tool output, a test result, a log, or a file. Mark anything you could not check as `unverified` (docs/ai/03_VERIFICATION_PLAYBOOK.md).",
+  "Items listed under 'Undecided' in AGENTS.md are the user's design decisions. Present options with their impact; never settle them silently.",
+  "Numbers written before playtesting (speeds, timings, budgets, durations, counts) are initial assumptions. Label them as assumptions and plan for them to live in tunable data assets, not code constants.",
+  "_mm-output/ holds working drafts. When the user approves a lasting decision, promote it to docs/project/ written as current fact (no dates, no change history). Progress notes and handoffs go to docs/work/.",
+  "Feel, visuals, animation, audio and asset quality are not done until a human approves them. Automated checks passing means 'awaiting approval', not 'done'.",
+]
+
+# Runs at workflow completion. String or array of instructions.
+on_complete = ""
+
+# Reference DESIGN.md spines the distillation subagent reads to anchor shape
+# and editorial richness. Convention-compliant with the Google Labs DESIGN.md
+# spec (https://github.com/google-labs-code/design.md). Append entries via
+# override TOML to seed a studio-specific canonical aesthetic.
+# Each entry: `file:PATH` (or bare relative path, resolved skill-relative).
+design_md_examples = [
+  "assets/design-example-game.md",
+  "assets/design-example-mobile.md",
+  "assets/design-example-editorial.md",
+]
+
+# Reference EXPERIENCE.md spines for the behavioral/flow/IA layer. Each entry:
+# `file:PATH` (or bare relative path, resolved skill-relative).
+experience_md_examples = [
+  "assets/experience-example-game.md",
+  "assets/experience-example-mobile.md",
+]
+
+# Design handoff targets — external tools that can take over the design /
+# visual identity work. The developer runs the tool externally and saves
+# outputs (whatever the tool produces — DESIGN.md, Figma files, UI components,
+# HTML mocks) to {doc_workspace}.
+# Each entry: `tool:NAME: <directive>`, `skill:NAME`, or plain-text descriptor.
+# Default: Google Stitch (emits DESIGN.md + per-screen HTML). Other producers:
+# Vercel v0, Figma, Galileo, Anima, internal HUD generators.
+design_handoffs = [
+  "Google Stitch (https://stitch.withgoogle.com) — emits DESIGN.md + per-screen HTML. Paste assembled prompt; save outputs to {doc_workspace}.",
+]
+
+# HTML skeleton filled in by the validation synthesis pass.
+validation_report_template = "assets/validation-report-template.html"
+
+# Run folder. DESIGN.md, EXPERIENCE.md, .decision-log.md, .working/
+# (creative-tool artifacts), imports/ (developer-supplied screens / mood
+# boards / Figma exports / HUD sketches), optional mockups/ and wireframes/
+# (promoted artifacts), optional validation-report.* all land inside
+# {ux_output_path}/{run_folder_pattern}/.
+ux_output_path = "{planning_artifacts}/ux-designs"
+run_folder_pattern = "ux-{project_name}-{date}"
+
+# Creative tools registry. Collaborative renderers invoked on demand during
+# Discovery and at Finalize. Entry forms: `file:PATH`, `skill:NAME`,
+# `tool:MCP_TOOL: <directive>`, or plain text. Defaults ship for HTML color
+# themes, HTML design directions, Excalidraw wireframes (Discovery), and
+# 1:1 HTML key-screen mockups (Finalize). Working artifacts land in
+# {doc_workspace}/.working/; finalize promotes those with lasting reference
+# value to mockups/ or wireframes/. See references/creative-tools.md.
+creative_tools = [
+  "file:assets/color-themes.md",
+  "file:assets/design-directions.md",
+  "file:assets/excalidraw-wireframe.md",
+  "file:assets/key-screens.md",
+]
+
+# Polish passes applied to DESIGN.md and EXPERIENCE.md at finalize.
+# Entries: `skill:NAME`, `file:PATH`, or plain text directive.
+# Suggested order: structural → content/voice → prose mechanics.
+doc_standards = [
+  "skill:mm-review",
+  "skill:mm-review",
+]
+
+# Information retrieval registry. Consulted on demand when the conversation
+# surfaces a matching need. Distinct from creative_tools (artifact production).
+# Example: "When researching HUD patterns, consult studio:ui_pattern_library."
+external_sources = []
+
+# Routes outputs beyond local files at Finalize. Returned URLs/IDs surfaced
+# to the user. Unavailable tools skipped and flagged.
+# Example: "Upload DESIGN.md to Confluence via corp:confluence_upload (space_key='DESIGN')."
+external_handoffs = []
+
+# Reviewers spawned at Finalize step 4 and at Validate intent, alongside
+# the rubric walker. Entries: `skill:NAME`, `file:PATH`, or plain text.
+# Common ad-hoc add (judged by the skill): accessibility-focused reviewer
+# for commercial / wide-audience titles; input-scheme or HUD-legibility lens
+# per target platform.
+finalize_reviewers = []

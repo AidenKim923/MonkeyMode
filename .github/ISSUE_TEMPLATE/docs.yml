@@ -1,0 +1,51 @@
+name: Docs or translation fix
+description: A mistake, gap or awkward wording in the docs or a translated README
+title: "[Docs]: "
+labels: ["docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Translation fixes get the `translation` label from a maintainer. Translations must keep the same structure as README.md (`uv run tools/readme_parity.py`).
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [Wrong or outdated docs, Missing docs, Translation fix, Broken link or image]
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - English (README.md and all docs)
+        - Korean (README.ko.md)
+        - Japanese (README.ja.md)
+        - Simplified Chinese (README.zh-CN.md)
+        - Traditional Chinese (README.zh-TW.md)
+        - Spanish (README.es.md)
+        - Portuguese, Brazil (README.pt-BR.md)
+        - French (README.fr.md)
+        - German (README.de.md)
+        - Russian (README.ru.md)
+        - Vietnamese (README.vi.md)
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File and section
+      placeholder: "docs/GUIDE.md, section 5"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested text

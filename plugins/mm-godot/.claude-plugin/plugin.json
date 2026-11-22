@@ -1,0 +1,21 @@
+{
+  "name": "mm-godot",
+  "displayName": "MonkeyMode for Godot",
+  "version": "0.1.0",
+  "description": "Godot 4 adapter for MonkeyMode: GDScript node path and signal rules, headless test commands, high-level multiplayer notes, and the mm-godot-expert subagent. Checked against the Godot 4.7 docs.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/AidenKim923/MonkeyMode",
+  "repository": "https://github.com/AidenKim923/MonkeyMode",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "godot",
+    "gdscript"
+  ],
+  "dependencies": [
+    "mm-core"
+  ]
+}

@@ -1,0 +1,56 @@
+name: Engine adapter correction
+description: Something in the Godot, Unity, Unreal or Bevy adapter is wrong, outdated or unverified
+title: "[Adapter]: "
+labels: ["engine-adapter"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are very welcome. Please link the official documentation (or a reproducible test) that shows the correct behavior.
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Engine
+      options: [Godot, Unity, Unreal Engine, Bevy, new engine]
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of correction
+      options:
+        - Wrong statement
+        - Outdated for a newer engine version
+        - Resolves an item marked "needs verification"
+        - Missing rule, command or note
+        - Broken build or test command
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Engine version you checked against
+      placeholder: "Godot 4.7, Unreal 5.9, Bevy 0.20, Unity 6000.x"
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File and statement
+      placeholder: "plugins/mm-bevy/adapter/docs/build-and-test.md, 'run_schedule(FixedUpdate)'"
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What is correct
+      description: The correct fact, with a link to official documentation or a reproducible test.
+    validations:
+      required: true
+  - type: checkboxes
+    id: verified
+    attributes:
+      label: Verification
+      options:
+        - label: I checked this against the official docs or a reproducible test
+          required: true

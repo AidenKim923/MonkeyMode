@@ -1,0 +1,101 @@
+{
+  "description": "MonkeyMode guardrail preset: Unreal Engine 5 C++ under Source/. Comments stay allowed (noComments false) because Unreal turns UPROPERTY/UFUNCTION comments into editor tooltips. Partly checked against the Unreal Engine 5.9 docs.",
+  "engine": "unreal",
+  "scopeRoot": "Source",
+  "extensions": [
+    ".cpp",
+    ".h",
+    ".hpp",
+    ".inl"
+  ],
+  "noComments": false,
+  "excludeDirs": [
+    "Intermediate",
+    "Binaries",
+    "ThirdParty"
+  ],
+  "skipFileSuffixes": [
+    ".generated.h",
+    ".gen.cpp"
+  ],
+  "skipHeaderMarkers": [],
+  "rules": [
+    {
+      "id": "UE_RAW_NEW_UOBJECT",
+      "pattern": "\\bnew\\s+[UA][A-Z]\\w*\\s*[\\(;{]",
+      "message": "Creating UObjects or Actors with raw new is banned. The garbage collector does not know about them, reflection data is missing and they crash on collection. Use NewObject<T>(Outer), CreateDefaultSubobject<T>() in constructors, or GetWorld()->SpawnActor<T>().",
+      "excludePaths": []
+    },
+    {
+      "id": "UE_DELETE_UOBJECT",
+      "pattern": "\\bdelete\\s+(this\\b|[A-Z]\\w*(Actor|Component|Object)\\b)",
+      "message": "Deleting UObjects is banned. The garbage collector owns them. Call Actor->Destroy(), Component->DestroyComponent(), or drop the last UPROPERTY reference.",
+      "excludePaths": []
+    },
+    {
+      "id": "UE_RAW_UOBJECT_MEMBER",
+      "pattern": "^\\s*(TArray<\\s*)?[UA][A-Z]\\w*\\s*\\*\\s*>?\\s*\\w+\\s*(=\\s*nullptr\\s*)?;",
+      "extensions": [
+        ".h"
+      ],
+      "message": "Raw UObject pointer members are banned in headers. Without UPROPERTY the GC can collect the object and leave a dangling pointer. Declare UPROPERTY() TObjectPtr<UType> Member; (TWeakObjectPtr for non-owning references). If this line is inside a function body, move it to the .cpp.",
+      "excludePaths": []
+    },
+    {
+      "id": "UE_RUNTIME_ACTOR_SEARCH",
+      "pattern": "\\b(UGameplayStatics::GetAllActorsOf\\w*|TActorIterator<)",
+      "message": "World-wide actor searches are banned at runtime. They are O(actors), and they depend on spawn and streaming order. Register actors with a subsystem (UWorldSubsystem) on BeginPlay and query that, or pass references explicitly.",
+      "excludePaths": [
+        "/Editor/",
+        "/Tests/",
+        "/Private/Tests/"
+      ]
+    },
+    {
+      "id": "UE_SYNC_LOAD",
+      "pattern": "\\b(StaticLoadObject|LoadObject<|StaticLoadClass|LoadSynchronous\\(|FSoftObjectPath\\([^)]*\\)\\.TryLoad)",
+      "message": "Synchronous loads at runtime are banned. They hitch the game thread and hide hard asset dependencies. Use TSoftObjectPtr with the AssetManager / FStreamableManager async loads, or a hard UPROPERTY reference when the asset is always needed.",
+      "excludePaths": [
+        "/Editor/",
+        "/Tests/"
+      ]
+    },
+    {
+      "id": "UE_STD_THREAD",
+      "pattern": "\\bstd::(thread|async)\\b",
+      "message": "std::thread and std::async are banned. They bypass Unreal's task graph and are unsafe with UObjects. Use UE::Tasks::Launch, Async(EAsyncExecution::ThreadPool, ...), FRunnable, or AsyncTask(ENamedThreads::GameThread, ...) to get back to the game thread.",
+      "excludePaths": []
+    },
+    {
+      "id": "UE_BLOCKING_SLEEP",
+      "pattern": "\\bFPlatformProcess::Sleep\\w*\\(",
+      "message": "Sleeping blocks the calling thread; on the game thread it freezes the game and the server. Use FTimerManager timers, latent actions, or a task.",
+      "excludePaths": [
+        "/Tests/"
+      ]
+    },
+    {
+      "id": "UE_LOGTEMP",
+      "pattern": "\\bUE_LOG\\(\\s*LogTemp\\b",
+      "message": "UE_LOG(LogTemp, ...) is banned. Agents judge behavior from logs and need a category per module. Declare DECLARE_LOG_CATEGORY_EXTERN(Log<Module>, Log, All) and use it.",
+      "excludePaths": []
+    },
+    {
+      "id": "UE_ONSCREEN_DEBUG",
+      "pattern": "\\bGEngine\\s*->\\s*AddOnScreenDebugMessage\\b",
+      "message": "On-screen debug messages are banned in shipped code paths. They cannot be checked from logs and leak into builds. Log with a category; draw debug only behind a console variable in non-shipping builds.",
+      "excludePaths": [
+        "/Editor/",
+        "/Tests/"
+      ]
+    },
+    {
+      "id": "UE_GLOBAL_TIME_DILATION",
+      "pattern": "\\bSetGlobalTimeDilation\\(",
+      "message": "Global time dilation is banned in networked games: server and client time drift and movement correction fights it. Pause through game state on the server. Remove this rule for single-player games (user approval).",
+      "excludePaths": [
+        "/Tests/"
+      ]
+    }
+  ]
+}
