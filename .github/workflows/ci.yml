@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Scrub, manifests and README parity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Release scrub
+        run: uv run tools/scrub.py
+      - name: Manifest checks (offline stand-in for claude plugin validate)
+        run: uv run tools/check_manifests.py
+      - name: README parity
+        run: uv run tools/readme_parity.py
+
+  tests:
+    name: Script tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Run pytest suites
+        run: |
+          status=0
+          for t in plugins/*/skills/*/scripts/tests; do
+            echo "::group::$t"
+            (cd "$(dirname "$t")" && uv run --python 3.11 --with pytest python -m pytest -q tests) || status=1
+            echo "::endgroup::"
+          done
+          exit $status
+      - name: Setup smoke test
+        run: |
+          target="$RUNNER_TEMP/mm-smoke"
+          mkdir -p "$target"
+          uv run plugins/mm-core/skills/mm-setup/scripts/setup_project.py --target "$target" --apply \
+            --set engine=godot --set coding_level=can-read-code --set uses_chatgpt=no --set team=solo \
+            --set multiplayer=no --set stage=idea --set guardrail_level=standard
+          test -f "$target/AGENTS.md"
+          test -f "$target/.monkeymode/config.json"
