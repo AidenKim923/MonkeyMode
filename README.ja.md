@@ -44,16 +44,16 @@ Claude Code のプラグインマーケットプレイスとして配布され�
 
 | 内容 | 数 | できること |
 |---|---:|---|
-| 🧭 ワークフロースキル | 43 | `mm-core`: ブリーフ、GDD、ナラティブ、UX、アーキテクチャ、エピックとストーリー、開発、レビュー、テスト、プレイテスト、振り返り、そして `/mm-setup` |
-| 🎭 ペルソナエージェント | 9 | `mm-agents`: ゲームデザイナー、アーキテクト、開発者、ソロ開発者、アナリスト、PM、UX デザイナー、テクニカルライター、パーティーモード |
-| 🎨 アート・グラフィックツール | 4 | `mm-art-tools`: コンセプトアートと Blender、RenderDoc、Nsight Graphics の CLI ハーネス |
-| 🎮 エンジンアダプター | 4 | Godot、Unity、Unreal、Bevy: ドキュメント、禁止パターン、ビルド・テストコマンド、マルチプレイのメモ |
-| 🛡️ ガードレール | 3 段階 | 編集のたびに、必要ならコミットのたびに機械的にチェックするルール |
-| 📜 エージェント運用ドキュメント | 15 | `docs/ai/`: 実行ポリシー、検証プレイブック、ネットワーク権限、引き継ぎ、コミット前の手順 |
+| ワークフロースキル | 43 | `mm-core`: ブリーフ、GDD、ナラティブ、UX、アーキテクチャ、エピックとストーリー、開発、レビュー、テスト、プレイテスト、振り返り、そして `/mm-setup` |
+| ペルソナエージェント | 9 | `mm-agents`: ゲームデザイナー、アーキテクト、開発者、ソロ開発者、アナリスト、PM、UX デザイナー、テクニカルライター、パーティーモード |
+| アート・グラフィックツール | 4 | `mm-art-tools`: コンセプトアートと Blender、RenderDoc、Nsight Graphics の CLI ハーネス |
+| エンジンアダプター | 4 | Godot、Unity、Unreal、Bevy: ドキュメント、禁止パターン、ビルド・テストコマンド、マルチプレイのメモ |
+| ガードレール | 3 段階 | 編集のたびに、必要ならコミットのたびに機械的にチェックするルール |
+| エージェント運用ドキュメント | 15 | `docs/ai/`: 実行ポリシー、検証プレイブック、ネットワーク権限、引き継ぎ、コミット前の手順 |
 
 <a id="install"></a>
 
-## ⚡ クイックスタート
+## クイックスタート
 
 **1. インストール** (Claude Code)
 
@@ -74,31 +74,31 @@ Claude Code のプラグインマーケットプレイスとして配布され�
 
 <a id="features"></a>
 
-## ✨ MonkeyMode を使う理由
+## MonkeyMode を使う理由
 
-| | 機能 | 意味 |
-|---|---|---|
-| 🗺️ | **企画からリリースまでのワークフロー** | 各ステップがスキルで、残しておける実際のファイルを書きます: ブリーフ、GDD、アーキテクチャ、ストーリー、レビューメモ、プレイテスト計画 |
-| ✅ | **主張せずに確かめる** | エージェントは「完了」と言う前にビルド、テスト、実行、スクリーンショットで確かめ、確かめられなかったものは `unverified` と書きます |
-| 🛡️ | **ガードレール** | 壊れやすいシーン検索、ブロッキング呼び出し、安全でないネットワーク処理、リポジトリ内の秘密情報を編集のたびに止めます |
-| 🎮 | **エンジンの知識** | Godot、Unity、Unreal、Bevy はそれぞれ専用のルール、コマンド、マルチプレイのメモを持ち、それ以外はすべて共通です |
-| 🙈 | **あなたに合わせる** | コードが読めないと答えると、エージェントはやさしい言葉とスクリーンショットで説明し、すべてを自分で確かめ、危険な操作の前に確認します |
-| 🌐 | **マルチプレイ対応** | ネットワーク処理のためのエンジン非依存の権限ルールとテスト等級(M0-M3) |
+| 機能 | 意味 |
+|---|---|
+| **企画からリリースまでのワークフロー** | 各ステップがスキルで、残しておける実際のファイルを書きます: ブリーフ、GDD、アーキテクチャ、ストーリー、レビューメモ、プレイテスト計画 |
+| **主張せずに確かめる** | エージェントは「完了」と言う前にビルド、テスト、実行、スクリーンショットで確かめ、確かめられなかったものは `unverified` と書きます |
+| **ガードレール** | 壊れやすいシーン検索、ブロッキング呼び出し、安全でないネットワーク処理、リポジトリ内の秘密情報を編集のたびに止めます |
+| **エンジンの知識** | Godot、Unity、Unreal、Bevy はそれぞれ専用のルール、コマンド、マルチプレイのメモを持ち、それ以外はすべて共通です |
+| **あなたに合わせる** | コードが読めないと答えると、エージェントはやさしい言葉とスクリーンショットで説明し、すべてを自分で確かめ、危険な操作の前に確認します |
+| **マルチプレイ対応** | ネットワーク処理のためのエンジン非依存の権限ルールとテスト等級(M0-M3) |
 
 <a id="workflow"></a>
 
-## 🗺️ ワークフロー
+## ワークフロー
 
 ```mermaid
 flowchart LR
-    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
-    B --> C["📖 GDD<br/>mm-gdd"]
-    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
-    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
-    E --> F["⌨️ Dev<br/>mm-dev-story"]
-    F --> G["🔍 Review<br/>mm-code-review"]
-    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
-    H --> I["🔁 Retro<br/>mm-retrospective"]
+    A["Idea<br/>mm-brainstorm-game"] --> B["Brief<br/>mm-create-game-brief"]
+    B --> C["GDD<br/>mm-gdd"]
+    C --> D["Architecture<br/>mm-game-architecture"]
+    D --> E["Stories<br/>mm-create-epics-and-stories"]
+    E --> F["Dev<br/>mm-dev-story"]
+    F --> G["Review<br/>mm-code-review"]
+    G --> H["Playtest<br/>mm-playtest-plan"]
+    H --> I["Retro<br/>mm-retrospective"]
     I -.-> E
 ```
 
@@ -130,7 +130,7 @@ flowchart LR
 
 <a id="plugins"></a>
 
-## 📦 プラグイン
+## プラグイン
 
 | プラグイン | 内容 |
 |---|---|
@@ -143,7 +143,7 @@ flowchart LR
 | `mm-art-tools` (任意) | `mm-concept-art`(ChatGPT プロンプト、Codex CLI、または代替手段)と Blender、RenderDoc、Nsight Graphics の CLI ハーネス |
 
 <details>
-<summary><strong>🧭 mm-core: 全 43 スキル</strong></summary>
+<summary><strong>mm-core: 全 43 スキル</strong></summary>
 
 | 分野 | スキル |
 |---|---|
@@ -156,7 +156,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><strong>🎭 mm-agents と 🎨 mm-art-tools</strong></summary>
+<summary><strong>mm-agents と mm-art-tools</strong></summary>
 
 | プラグイン | スキル |
 |---|---|
@@ -181,7 +181,7 @@ flowchart LR
 
 <a id="engines"></a>
 
-## 🎮 エンジン
+## エンジン
 
 | エンジン | プラグイン | 主な内容 | 検証状況 |
 |---|---|---|---|
@@ -194,7 +194,7 @@ flowchart LR
 
 <a id="guardrails"></a>
 
-## 🛡️ ガードレールとコーディングレベル
+## ガードレールとコーディングレベル
 
 `mm-core` にはあなたについての設定が 2 つあり、`/plugin` → MonkeyMode core → configure(または `claude plugin configure mm-core@monkeymode`)で設定します。未設定なら `/mm-setup` が代わりに質問します。
 
@@ -205,8 +205,8 @@ flowchart LR
 
 | コーディングレベル | ガードレール | エージェントの働き方 |
 |---|---|---|
-| 🙈 **コードを読めない** | 常に **strict** | すべてを自分で確かめ(テスト、ビルド、ゲームの実行)、やさしい言葉とスクリーンショットで説明し、削除・リファクタリング・インストール・コミット・プッシュの前に確認します |
-| 👀 **コードを読める** | **strict**、**standard**(既定)、**relaxed** | 変更ごとの理由をつけた diff の要約で報告します |
+| **コードを読めない** | 常に **strict** | すべてを自分で確かめ(テスト、ビルド、ゲームの実行)、やさしい言葉とスクリーンショットで説明し、削除・リファクタリング・インストール・コミット・プッシュの前に確認します |
+| **コードを読める** | **strict**、**standard**(既定)、**relaxed** | 変更ごとの理由をつけた diff の要約で報告します |
 
 | レベル | 効果 |
 |---|---|
@@ -216,7 +216,7 @@ flowchart LR
 
 <a id="setup"></a>
 
-## 🧭 `/mm-setup` が聞くこと
+## `/mm-setup` が聞くこと
 
 <details>
 <summary><strong>9 つの質問</strong></summary>
@@ -260,7 +260,7 @@ tools/               guardrail checker, verification tools
 
 <a id="without-claude-code"></a>
 
-## 🤖 Claude Code なしで使う (AGENTS.md エージェント)
+## Claude Code なしで使う (AGENTS.md エージェント)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -269,7 +269,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 同じ質問をし、同じファイルをインストールし、スキルを `.agents/skills/` にコピーします。[`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents) を参照してください。
 
-## 🧩 カスタマイズ
+## カスタマイズ
 
 | 対象 | 場所 |
 |---|---|
@@ -278,7 +278,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 | ガードレール | `guardrails/<engine>.json` または新しい `guardrails/<name>.json` プロファイル(形式は `docs/ai/12`)。エージェントが自分でルールを緩めることはありません |
 
 <details>
-<summary><strong>🧪 インストールのテスト</strong></summary>
+<summary><strong>インストールのテスト</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -290,20 +290,20 @@ claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 
 </details>
 
-## 📚 ドキュメント
+## ドキュメント
 
 | ドキュメント | 内容 |
 |---|---|
-| 📘 [ユーザーガイド](docs/GUIDE.md) | インストール、セットアップの質問、ステップごとのスキルと出力ファイルを含む全ワークフロー、ガードレール、画像、エンジンのメモ、FAQ |
-| 🧭 [オンボーディング](docs/ONBOARDING.md) | セットアップのフローチャートと各回答が変えること |
-| 📋 [インベントリ](docs/INVENTORY.md) | 共通 vs. エンジン別、スキル名の対応表 |
-| 🤝 [コントリビュート](CONTRIBUTING.md) | スキル、エンジンアダプター、ガードレールルールの追加; テスト; PR チェックリスト |
+| [ユーザーガイド](docs/GUIDE.md) | インストール、セットアップの質問、ステップごとのスキルと出力ファイルを含む全ワークフロー、ガードレール、画像、エンジンのメモ、FAQ |
+| [オンボーディング](docs/ONBOARDING.md) | セットアップのフローチャートと各回答が変えること |
+| [インベントリ](docs/INVENTORY.md) | 共通 vs. エンジン別、スキル名の対応表 |
+| [コントリビュート](CONTRIBUTING.md) | スキル、エンジンアダプター、ガードレールルールの追加; テスト; PR チェックリスト |
 
-## 🤝 コントリビュート
+## コントリビュート
 
 コントリビュートを歓迎します。[CONTRIBUTING.md](CONTRIBUTING.md) と[行動規範](CODE_OF_CONDUCT.md)をご覧ください。エンジンアダプターの修正は特に歓迎です。未解決の項目は各アダプターで *needs verification* と記されています。
 
-## 📜 クレジットとライセンス
+## クレジットとライセンス
 
 MonkeyMode は MIT ライセンスです([LICENSE](LICENSE))。ワークフロースキルは [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) と BMad Game Dev Studio モジュール(MIT)を、グラフィックツールのスキルは [CLI-Anything](https://github.com/HKUDS/CLI-Anything)(Apache-2.0)をもとにしています。MonkeyMode は独立したプロジェクトで、元の作者による保証は受けていません。詳細とすべての変更点: [NOTICE](NOTICE)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -311,7 +311,7 @@ MonkeyMode は MIT ライセンスです([LICENSE](LICENSE))。ワークフロ�
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
-  <sub><strong>I'm Monkey Game Developer 🐒</strong> · MonkeyMode がゲーム作りの役に立ったら ⭐ をお願いします</sub>
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · MonkeyMode がゲーム作りの役に立ったらスターをお願いします</sub>
 </p>
 
 <!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.

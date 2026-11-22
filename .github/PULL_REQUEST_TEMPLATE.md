@@ -4,12 +4,12 @@
 
 ## Type of change
 
-- [ ] 🐛 Bug fix
-- [ ] ✨ New or improved skill, tool or hook
-- [ ] 🎮 Engine adapter correction or addition
-- [ ] 🛡️ Guardrail rule
-- [ ] 📚 Docs or translation
-- [ ] 🔧 CI, tooling or repository maintenance
+- [ ] Bug fix
+- [ ] New or improved skill, tool or hook
+- [ ] Engine adapter correction or addition
+- [ ] Guardrail rule
+- [ ] Docs or translation
+- [ ] CI, tooling or repository maintenance
 
 ## Plugins touched
 

@@ -44,16 +44,16 @@ Claude Code 플러그인 마켓플레이스로 배포되며, `AGENTS.md`를 읽�
 
 | 구성 | 수 | 내용 |
 |---|---:|---|
-| 🧭 워크플로 스킬 | 43 | `mm-core`: 브리프, GDD, 내러티브, UX, 아키텍처, 에픽과 스토리, 개발, 리뷰, 테스트, 플레이테스트, 회고, 그리고 `/mm-setup` |
-| 🎭 페르소나 에이전트 | 9 | `mm-agents`: 게임 디자이너, 아키텍트, 개발자, 1인 개발자, 분석가, PM, UX 디자이너, 테크니컬 라이터, 파티 모드 |
-| 🎨 아트·그래픽 도구 | 4 | `mm-art-tools`: 콘셉트 아트와 Blender, RenderDoc, Nsight Graphics CLI 하네스 |
-| 🎮 엔진 어댑터 | 4 | Godot, Unity, Unreal, Bevy: 문서, 금지 패턴, 빌드·테스트 명령, 멀티플레이 노트 |
-| 🛡️ 가드레일 | 3단계 | 편집할 때마다, 원하면 커밋할 때마다 기계적으로 검사하는 규칙 |
-| 📜 에이전트 운영 문서 | 15 | `docs/ai/`: 실행 정책, 검증 플레이북, 네트워크 권한, 인수인계, 커밋 전 절차 |
+| 워크플로 스킬 | 43 | `mm-core`: 브리프, GDD, 내러티브, UX, 아키텍처, 에픽과 스토리, 개발, 리뷰, 테스트, 플레이테스트, 회고, 그리고 `/mm-setup` |
+| 페르소나 에이전트 | 9 | `mm-agents`: 게임 디자이너, 아키텍트, 개발자, 1인 개발자, 분석가, PM, UX 디자이너, 테크니컬 라이터, 파티 모드 |
+| 아트·그래픽 도구 | 4 | `mm-art-tools`: 콘셉트 아트와 Blender, RenderDoc, Nsight Graphics CLI 하네스 |
+| 엔진 어댑터 | 4 | Godot, Unity, Unreal, Bevy: 문서, 금지 패턴, 빌드·테스트 명령, 멀티플레이 노트 |
+| 가드레일 | 3단계 | 편집할 때마다, 원하면 커밋할 때마다 기계적으로 검사하는 규칙 |
+| 에이전트 운영 문서 | 15 | `docs/ai/`: 실행 정책, 검증 플레이북, 네트워크 권한, 인수인계, 커밋 전 절차 |
 
 <a id="install"></a>
 
-## ⚡ 빠른 시작
+## 빠른 시작
 
 **1. 설치** (Claude Code)
 
@@ -74,31 +74,31 @@ Claude Code 플러그인 마켓플레이스로 배포되며, `AGENTS.md`를 읽�
 
 <a id="features"></a>
 
-## ✨ 왜 MonkeyMode인가
+## 왜 MonkeyMode인가
 
-| | 기능 | 의미 |
-|---|---|---|
-| 🗺️ | **기획부터 출시까지의 워크플로** | 단계마다 스킬이 있고, 각 스킬은 남겨 둘 실제 파일을 씁니다: 브리프, GDD, 아키텍처, 스토리, 리뷰 노트, 플레이테스트 계획 |
-| ✅ | **주장하지 말고 확인하기** | 에이전트는 "완료"라고 말하기 전에 빌드, 테스트, 실행, 스크린샷으로 확인하고, 확인하지 못한 것은 `unverified`로 적습니다 |
-| 🛡️ | **가드레일** | 깨지기 쉬운 씬 탐색, 블로킹 호출, 안전하지 않은 네트워킹, 저장소 안의 비밀 정보를 편집할 때마다 막습니다 |
-| 🎮 | **엔진 지식** | Godot, Unity, Unreal, Bevy는 각자 규칙, 명령, 멀티플레이 노트를 갖고, 나머지는 모두 공유합니다 |
-| 🙈 | **사용자에게 맞춤** | 코드를 읽지 못한다고 하면 에이전트가 쉬운 말과 스크린샷으로 설명하고, 모든 것을 직접 확인하고, 위험한 작업 전에는 묻습니다 |
-| 🌐 | **멀티플레이 대응** | 네트워크 작업을 위한 엔진 중립 권한 규칙과 테스트 등급(M0-M3) |
+| 기능 | 의미 |
+|---|---|
+| **기획부터 출시까지의 워크플로** | 단계마다 스킬이 있고, 각 스킬은 남겨 둘 실제 파일을 씁니다: 브리프, GDD, 아키텍처, 스토리, 리뷰 노트, 플레이테스트 계획 |
+| **주장하지 말고 확인하기** | 에이전트는 "완료"라고 말하기 전에 빌드, 테스트, 실행, 스크린샷으로 확인하고, 확인하지 못한 것은 `unverified`로 적습니다 |
+| **가드레일** | 깨지기 쉬운 씬 탐색, 블로킹 호출, 안전하지 않은 네트워킹, 저장소 안의 비밀 정보를 편집할 때마다 막습니다 |
+| **엔진 지식** | Godot, Unity, Unreal, Bevy는 각자 규칙, 명령, 멀티플레이 노트를 갖고, 나머지는 모두 공유합니다 |
+| **사용자에게 맞춤** | 코드를 읽지 못한다고 하면 에이전트가 쉬운 말과 스크린샷으로 설명하고, 모든 것을 직접 확인하고, 위험한 작업 전에는 묻습니다 |
+| **멀티플레이 대응** | 네트워크 작업을 위한 엔진 중립 권한 규칙과 테스트 등급(M0-M3) |
 
 <a id="workflow"></a>
 
-## 🗺️ 워크플로
+## 워크플로
 
 ```mermaid
 flowchart LR
-    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
-    B --> C["📖 GDD<br/>mm-gdd"]
-    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
-    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
-    E --> F["⌨️ Dev<br/>mm-dev-story"]
-    F --> G["🔍 Review<br/>mm-code-review"]
-    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
-    H --> I["🔁 Retro<br/>mm-retrospective"]
+    A["Idea<br/>mm-brainstorm-game"] --> B["Brief<br/>mm-create-game-brief"]
+    B --> C["GDD<br/>mm-gdd"]
+    C --> D["Architecture<br/>mm-game-architecture"]
+    D --> E["Stories<br/>mm-create-epics-and-stories"]
+    E --> F["Dev<br/>mm-dev-story"]
+    F --> G["Review<br/>mm-code-review"]
+    G --> H["Playtest<br/>mm-playtest-plan"]
+    H --> I["Retro<br/>mm-retrospective"]
     I -.-> E
 ```
 
@@ -130,7 +130,7 @@ flowchart LR
 
 <a id="plugins"></a>
 
-## 📦 플러그인
+## 플러그인
 
 | 플러그인 | 내용 |
 |---|---|
@@ -143,7 +143,7 @@ flowchart LR
 | `mm-art-tools` (선택) | `mm-concept-art`(ChatGPT 프롬프트, Codex CLI 또는 대안)와 Blender, RenderDoc, Nsight Graphics CLI 하네스 |
 
 <details>
-<summary><strong>🧭 mm-core: 스킬 43개 전체</strong></summary>
+<summary><strong>mm-core: 스킬 43개 전체</strong></summary>
 
 | 영역 | 스킬 |
 |---|---|
@@ -156,7 +156,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><strong>🎭 mm-agents와 🎨 mm-art-tools</strong></summary>
+<summary><strong>mm-agents와 mm-art-tools</strong></summary>
 
 | 플러그인 | 스킬 |
 |---|---|
@@ -181,7 +181,7 @@ flowchart LR
 
 <a id="engines"></a>
 
-## 🎮 엔진
+## 엔진
 
 | 엔진 | 플러그인 | 주요 내용 | 검증 상태 |
 |---|---|---|---|
@@ -194,7 +194,7 @@ flowchart LR
 
 <a id="guardrails"></a>
 
-## 🛡️ 가드레일과 코딩 수준
+## 가드레일과 코딩 수준
 
 `mm-core`에는 사용자에 관한 설정이 두 가지 있습니다. `/plugin` → MonkeyMode core → configure(또는 `claude plugin configure mm-core@monkeymode`)에서 정합니다. 비워 두면 `/mm-setup`이 대신 물어봅니다.
 
@@ -205,8 +205,8 @@ flowchart LR
 
 | 코딩 수준 | 가드레일 | 에이전트의 작업 방식 |
 |---|---|---|
-| 🙈 **코드를 읽을 수 없다** | 항상 **strict** | 모든 것을 직접 확인(테스트, 빌드, 게임 실행)하고, 쉬운 말과 스크린샷으로 설명하고, 삭제·리팩터링·설치·커밋·푸시 전에 묻습니다 |
-| 👀 **코드를 읽을 수 있다** | **strict**, **standard**(기본) 또는 **relaxed** | 변경마다 이유를 붙인 diff 요약으로 보고합니다 |
+| **코드를 읽을 수 없다** | 항상 **strict** | 모든 것을 직접 확인(테스트, 빌드, 게임 실행)하고, 쉬운 말과 스크린샷으로 설명하고, 삭제·리팩터링·설치·커밋·푸시 전에 묻습니다 |
+| **코드를 읽을 수 있다** | **strict**, **standard**(기본) 또는 **relaxed** | 변경마다 이유를 붙인 diff 요약으로 보고합니다 |
 
 | 단계 | 효과 |
 |---|---|
@@ -216,7 +216,7 @@ flowchart LR
 
 <a id="setup"></a>
 
-## 🧭 `/mm-setup`이 묻는 것
+## `/mm-setup`이 묻는 것
 
 <details>
 <summary><strong>아홉 가지 질문</strong></summary>
@@ -260,7 +260,7 @@ tools/               guardrail checker, verification tools
 
 <a id="without-claude-code"></a>
 
-## 🤖 Claude Code 없이 쓰기 (AGENTS.md 에이전트)
+## Claude Code 없이 쓰기 (AGENTS.md 에이전트)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -269,7 +269,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 같은 질문을 하고, 같은 파일을 설치하고, 스킬을 `.agents/skills/`에 복사합니다. [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents)를 보세요.
 
-## 🧩 커스터마이징
+## 커스터마이징
 
 | 대상 | 위치 |
 |---|---|
@@ -278,7 +278,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 | 가드레일 | `guardrails/<engine>.json` 또는 새 `guardrails/<name>.json` 프로필(형식은 `docs/ai/12`). 에이전트는 스스로 규칙을 느슨하게 하지 않습니다 |
 
 <details>
-<summary><strong>🧪 설치 테스트</strong></summary>
+<summary><strong>설치 테스트</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -290,20 +290,20 @@ claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 
 </details>
 
-## 📚 문서
+## 문서
 
 | 문서 | 내용 |
 |---|---|
-| 📘 [사용자 가이드](docs/GUIDE.md) | 설치, 설정 인터뷰, 단계별 스킬과 출력 파일이 담긴 전체 워크플로, 가드레일, 이미지, 엔진 노트, FAQ |
-| 🧭 [온보딩](docs/ONBOARDING.md) | 설정 흐름도와 각 답이 바꾸는 것 |
-| 📋 [인벤토리](docs/INVENTORY.md) | 공통 vs. 엔진별, 스킬 이름 대응표 |
-| 🤝 [기여하기](CONTRIBUTING.md) | 스킬, 엔진 어댑터, 가드레일 규칙 추가; 테스트; PR 체크리스트 |
+| [사용자 가이드](docs/GUIDE.md) | 설치, 설정 인터뷰, 단계별 스킬과 출력 파일이 담긴 전체 워크플로, 가드레일, 이미지, 엔진 노트, FAQ |
+| [온보딩](docs/ONBOARDING.md) | 설정 흐름도와 각 답이 바꾸는 것 |
+| [인벤토리](docs/INVENTORY.md) | 공통 vs. 엔진별, 스킬 이름 대응표 |
+| [기여하기](CONTRIBUTING.md) | 스킬, 엔진 어댑터, 가드레일 규칙 추가; 테스트; PR 체크리스트 |
 
-## 🤝 기여하기
+## 기여하기
 
 기여를 환영합니다. [CONTRIBUTING.md](CONTRIBUTING.md)와 [행동 강령](CODE_OF_CONDUCT.md)을 참고하세요. 엔진 어댑터 수정은 특히 환영합니다. 아직 남은 항목은 각 어댑터에 *needs verification*으로 표시되어 있습니다.
 
-## 📜 크레딧과 라이선스
+## 크레딧과 라이선스
 
 MonkeyMode는 MIT 라이선스입니다([LICENSE](LICENSE)). 워크플로 스킬은 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD)와 BMad Game Dev Studio 모듈(MIT)을, 그래픽 도구 스킬은 [CLI-Anything](https://github.com/HKUDS/CLI-Anything)(Apache-2.0)을 바탕으로 합니다. MonkeyMode는 독립 프로젝트이며 원저작자의 보증을 받지 않았습니다. 자세한 내용과 모든 수정 사항: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
@@ -311,7 +311,7 @@ MonkeyMode는 MIT 라이선스입니다([LICENSE](LICENSE)). 워크플로 스킬
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
-  <sub><strong>I'm Monkey Game Developer 🐒</strong> · MonkeyMode가 게임 만들기에 도움이 됐다면 ⭐를 눌러 주세요</sub>
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · MonkeyMode가 게임 만들기에 도움이 됐다면 스타를 눌러 주세요</sub>
 </p>
 
 <!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.

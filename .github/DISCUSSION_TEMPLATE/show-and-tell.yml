@@ -3,7 +3,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        🐒 Show your MonkeyMode game! Screenshots, GIFs, a playable link, or a story about how the workflow went. Only share what you have the rights to share.
+        Show your MonkeyMode game! Screenshots, GIFs, a playable link, or a story about how the workflow went. Only share what you have the rights to share.
   - type: input
     id: name
     attributes:

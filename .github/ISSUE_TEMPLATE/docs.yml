@@ -1,4 +1,4 @@
-name: 📚 Docs or translation fix
+name: Docs or translation fix
 description: A mistake, gap or awkward wording in the docs or a translated README
 title: "[Docs]: "
 labels: ["docs"]

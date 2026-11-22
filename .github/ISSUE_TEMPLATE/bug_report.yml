@@ -1,4 +1,4 @@
-name: 🐛 Bug report
+name: Bug report
 description: Something in MonkeyMode does not work as documented
 title: "[Bug]: "
 labels: ["bug"]

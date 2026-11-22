@@ -1,4 +1,4 @@
-name: 🎮 Engine adapter correction
+name: Engine adapter correction
 description: Something in the Godot, Unity, Unreal or Bevy adapter is wrong, outdated or unverified
 title: "[Adapter]: "
 labels: ["engine-adapter"]

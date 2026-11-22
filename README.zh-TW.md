@@ -44,16 +44,16 @@ idea → brief → GDD → architecture → stories → dev → review → playt
 
 | 內容 | 數量 | 用途 |
 |---|---:|---|
-| 🧭 工作流程技能 | 43 | `mm-core`:簡報、GDD、敘事、UX、架構、史詩與故事、開發、審查、測試、試玩、回顧,以及 `/mm-setup` |
-| 🎭 角色代理 | 9 | `mm-agents`:遊戲設計師、架構師、開發者、獨立開發者、分析師、產品經理、UX 設計師、技術寫作者、派對模式 |
-| 🎨 美術與圖形工具 | 4 | `mm-art-tools`:概念圖,以及 Blender、RenderDoc、Nsight Graphics 的 CLI 工具 |
-| 🎮 引擎轉接器 | 4 | Godot、Unity、Unreal、Bevy:文件、禁用模式、建置與測試指令、多人遊戲筆記 |
-| 🛡️ 護欄 | 3 個等級 | 每次編輯後(可選:每次提交前)自動檢查的規則 |
-| 📜 代理運作文件 | 15 | `docs/ai/`:執行政策、驗證手冊、網路權威、交接、提交前程序 |
+| 工作流程技能 | 43 | `mm-core`:簡報、GDD、敘事、UX、架構、史詩與故事、開發、審查、測試、試玩、回顧,以及 `/mm-setup` |
+| 角色代理 | 9 | `mm-agents`:遊戲設計師、架構師、開發者、獨立開發者、分析師、產品經理、UX 設計師、技術寫作者、派對模式 |
+| 美術與圖形工具 | 4 | `mm-art-tools`:概念圖,以及 Blender、RenderDoc、Nsight Graphics 的 CLI 工具 |
+| 引擎轉接器 | 4 | Godot、Unity、Unreal、Bevy:文件、禁用模式、建置與測試指令、多人遊戲筆記 |
+| 護欄 | 3 個等級 | 每次編輯後(可選:每次提交前)自動檢查的規則 |
+| 代理運作文件 | 15 | `docs/ai/`:執行政策、驗證手冊、網路權威、交接、提交前程序 |
 
 <a id="install"></a>
 
-## ⚡ 快速開始
+## 快速開始
 
 **1. 安裝**(Claude Code)
 
@@ -74,31 +74,31 @@ idea → brief → GDD → architecture → stories → dev → review → playt
 
 <a id="features"></a>
 
-## ✨ 為什麼選擇 MonkeyMode
+## 為什麼選擇 MonkeyMode
 
-| | 特色 | 意義 |
-|---|---|---|
-| 🗺️ | **從設計到發行的工作流程** | 每一步都是一個技能,都會寫出你能保留的真實檔案:簡報、GDD、架構、故事、審查筆記、試玩計畫 |
-| ✅ | **驗證,而不是宣稱** | 代理在說「完成」之前會建置、測試、執行並截圖;沒檢查過的內容一律寫成 `unverified` |
-| 🛡️ | **護欄** | 每次編輯後攔下脆弱的場景搜尋、阻塞呼叫、不安全的網路程式碼,以及儲存庫中的機密 |
-| 🎮 | **引擎知識** | Godot、Unity、Unreal 與 Bevy 各有自己的規則、指令與多人遊戲筆記;其餘全部共用 |
-| 🙈 | **配合你** | 如果你說自己看不懂程式碼,代理會用淺白的話和截圖說明,所有事情都自己驗證,並在高風險操作前先詢問 |
-| 🌐 | **支援多人遊戲** | 針對連線功能的引擎中立權威規則與測試等級(M0-M3) |
+| 特色 | 意義 |
+|---|---|
+| **從設計到發行的工作流程** | 每一步都是一個技能,都會寫出你能保留的真實檔案:簡報、GDD、架構、故事、審查筆記、試玩計畫 |
+| **驗證,而不是宣稱** | 代理在說「完成」之前會建置、測試、執行並截圖;沒檢查過的內容一律寫成 `unverified` |
+| **護欄** | 每次編輯後攔下脆弱的場景搜尋、阻塞呼叫、不安全的網路程式碼,以及儲存庫中的機密 |
+| **引擎知識** | Godot、Unity、Unreal 與 Bevy 各有自己的規則、指令與多人遊戲筆記;其餘全部共用 |
+| **配合你** | 如果你說自己看不懂程式碼,代理會用淺白的話和截圖說明,所有事情都自己驗證,並在高風險操作前先詢問 |
+| **支援多人遊戲** | 針對連線功能的引擎中立權威規則與測試等級(M0-M3) |
 
 <a id="workflow"></a>
 
-## 🗺️ 工作流程
+## 工作流程
 
 ```mermaid
 flowchart LR
-    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
-    B --> C["📖 GDD<br/>mm-gdd"]
-    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
-    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
-    E --> F["⌨️ Dev<br/>mm-dev-story"]
-    F --> G["🔍 Review<br/>mm-code-review"]
-    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
-    H --> I["🔁 Retro<br/>mm-retrospective"]
+    A["Idea<br/>mm-brainstorm-game"] --> B["Brief<br/>mm-create-game-brief"]
+    B --> C["GDD<br/>mm-gdd"]
+    C --> D["Architecture<br/>mm-game-architecture"]
+    D --> E["Stories<br/>mm-create-epics-and-stories"]
+    E --> F["Dev<br/>mm-dev-story"]
+    F --> G["Review<br/>mm-code-review"]
+    G --> H["Playtest<br/>mm-playtest-plan"]
+    H --> I["Retro<br/>mm-retrospective"]
     I -.-> E
 ```
 
@@ -130,7 +130,7 @@ flowchart LR
 
 <a id="plugins"></a>
 
-## 📦 外掛
+## 外掛
 
 | 外掛 | 內容 |
 |---|---|
@@ -143,7 +143,7 @@ flowchart LR
 | `mm-art-tools`(選用) | `mm-concept-art`(ChatGPT 提示詞、Codex CLI 或其他方案)以及 Blender、RenderDoc、Nsight Graphics 的 CLI 工具 |
 
 <details>
-<summary><strong>🧭 mm-core:全部 43 個技能</strong></summary>
+<summary><strong>mm-core:全部 43 個技能</strong></summary>
 
 | 領域 | 技能 |
 |---|---|
@@ -156,7 +156,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><strong>🎭 mm-agents 與 🎨 mm-art-tools</strong></summary>
+<summary><strong>mm-agents 與 mm-art-tools</strong></summary>
 
 | 外掛 | 技能 |
 |---|---|
@@ -181,7 +181,7 @@ flowchart LR
 
 <a id="engines"></a>
 
-## 🎮 引擎
+## 引擎
 
 | 引擎 | 外掛 | 重點 | 驗證狀態 |
 |---|---|---|---|
@@ -194,7 +194,7 @@ flowchart LR
 
 <a id="guardrails"></a>
 
-## 🛡️ 護欄與程式能力
+## 護欄與程式能力
 
 `mm-core` 有兩項關於你本人的設定,在 `/plugin` → MonkeyMode core → configure(或 `claude plugin configure mm-core@monkeymode`)中設定。若不設定,`/mm-setup` 會改為詢問你。
 
@@ -205,8 +205,8 @@ flowchart LR
 
 | 程式能力 | 護欄 | 代理如何工作 |
 |---|---|---|
-| 🙈 **我看不懂程式碼** | 一律 **strict** | 所有事情都自己驗證(測試、建置、執行遊戲),用淺白的話和截圖說明,在刪除、重構、安裝、提交或推送前先詢問 |
-| 👀 **我看得懂程式碼** | **strict**、**standard**(預設)或 **relaxed** | 以 diff 摘要回報,並說明每處變更的原因 |
+| **我看不懂程式碼** | 一律 **strict** | 所有事情都自己驗證(測試、建置、執行遊戲),用淺白的話和截圖說明,在刪除、重構、安裝、提交或推送前先詢問 |
+| **我看得懂程式碼** | **strict**、**standard**(預設)或 **relaxed** | 以 diff 摘要回報,並說明每處變更的原因 |
 
 | 等級 | 效果 |
 |---|---|
@@ -216,7 +216,7 @@ flowchart LR
 
 <a id="setup"></a>
 
-## 🧭 `/mm-setup` 會問什麼
+## `/mm-setup` 會問什麼
 
 <details>
 <summary><strong>九個問題</strong></summary>
@@ -260,7 +260,7 @@ tools/               guardrail checker, verification tools
 
 <a id="without-claude-code"></a>
 
-## 🤖 不使用 Claude Code(AGENTS.md 代理)
+## 不使用 Claude Code(AGENTS.md 代理)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -269,7 +269,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 它會問同樣的問題、安裝同樣的檔案,並把技能複製到 `.agents/skills/`。請參閱 [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents)。
 
-## 🧩 自訂
+## 自訂
 
 | 對象 | 位置 |
 |---|---|
@@ -278,7 +278,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 | 護欄 | `guardrails/<engine>.json` 或新的 `guardrails/<name>.json` 設定檔(格式見 `docs/ai/12`)。代理絕不會自行放寬規則 |
 
 <details>
-<summary><strong>🧪 測試安裝</strong></summary>
+<summary><strong>測試安裝</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -290,20 +290,20 @@ claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 
 </details>
 
-## 📚 文件
+## 文件
 
 | 文件 | 內容 |
 |---|---|
-| 📘 [使用者指南](docs/GUIDE.md) | 安裝、設定問答、包含每一步技能與輸出檔案的完整工作流程、護欄、圖片、引擎筆記、常見問題 |
-| 🧭 [引導](docs/ONBOARDING.md) | 設定流程圖以及每個答案會改變什麼 |
-| 📋 [清單](docs/INVENTORY.md) | 共用 vs. 各引擎、技能名稱對照表 |
-| 🤝 [參與貢獻](CONTRIBUTING.md) | 新增技能、引擎轉接器與護欄規則;測試;PR 檢查表 |
+| [使用者指南](docs/GUIDE.md) | 安裝、設定問答、包含每一步技能與輸出檔案的完整工作流程、護欄、圖片、引擎筆記、常見問題 |
+| [引導](docs/ONBOARDING.md) | 設定流程圖以及每個答案會改變什麼 |
+| [清單](docs/INVENTORY.md) | 共用 vs. 各引擎、技能名稱對照表 |
+| [參與貢獻](CONTRIBUTING.md) | 新增技能、引擎轉接器與護欄規則;測試;PR 檢查表 |
 
-## 🤝 參與貢獻
+## 參與貢獻
 
 歡迎貢獻:請參閱 [CONTRIBUTING.md](CONTRIBUTING.md) 與[行為準則](CODE_OF_CONDUCT.md)。特別歡迎對引擎轉接器的修正:尚未解決的項目在每個轉接器中都標為 *needs verification*。
 
-## 📜 致謝與授權
+## 致謝與授權
 
 MonkeyMode 採用 MIT 授權([LICENSE](LICENSE))。其工作流程技能以 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) 與 BMad Game Dev Studio 模組(MIT)為基礎,圖形工具技能以 [CLI-Anything](https://github.com/HKUDS/CLI-Anything)(Apache-2.0)為基礎。MonkeyMode 是獨立專案,未獲原作者背書。詳情與所有修改:[NOTICE](NOTICE)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -311,7 +311,7 @@ MonkeyMode 採用 MIT 授權([LICENSE](LICENSE))。其工作流程技能以 [BMa
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
-  <sub><strong>I'm Monkey Game Developer 🐒</strong> · 如果 MonkeyMode 對你的遊戲有幫助,請給個 ⭐</sub>
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · 如果 MonkeyMode 對你的遊戲有幫助,請給個 Star</sub>
 </p>
 
 <!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.

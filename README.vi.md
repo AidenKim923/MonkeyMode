@@ -44,16 +44,16 @@ Nó được phát hành dưới dạng marketplace plugin cho Claude Code và c
 
 | Bao gồm | Số lượng | Bạn nhận được gì |
 |---|---:|---|
-| 🧭 Skill quy trình | 43 | `mm-core`: brief, GDD, cốt truyện, UX, kiến trúc, epic và story, phát triển, review, kiểm thử, playtest, retrospective, cùng `/mm-setup` |
-| 🎭 Agent nhân vật | 9 | `mm-agents`: game designer, kiến trúc sư, lập trình viên, dev độc lập, chuyên viên phân tích, PM, UX designer, người viết tài liệu kỹ thuật, chế độ party |
-| 🎨 Công cụ mỹ thuật và đồ họa | 4 | `mm-art-tools`: concept art và CLI cho Blender, RenderDoc, Nsight Graphics |
-| 🎮 Adapter engine | 4 | Godot, Unity, Unreal, Bevy: tài liệu, mẫu bị cấm, lệnh build và kiểm thử, ghi chú multiplayer |
-| 🛡️ Guardrail | 3 mức | Quy tắc được kiểm tra tự động sau mỗi lần sửa và, nếu muốn, trước mỗi commit |
-| 📜 Tài liệu vận hành cho agent | 15 | `docs/ai/`: chính sách thực thi, sổ tay kiểm chứng, quyền mạng, bàn giao, quy trình trước commit |
+| Skill quy trình | 43 | `mm-core`: brief, GDD, cốt truyện, UX, kiến trúc, epic và story, phát triển, review, kiểm thử, playtest, retrospective, cùng `/mm-setup` |
+| Agent nhân vật | 9 | `mm-agents`: game designer, kiến trúc sư, lập trình viên, dev độc lập, chuyên viên phân tích, PM, UX designer, người viết tài liệu kỹ thuật, chế độ party |
+| Công cụ mỹ thuật và đồ họa | 4 | `mm-art-tools`: concept art và CLI cho Blender, RenderDoc, Nsight Graphics |
+| Adapter engine | 4 | Godot, Unity, Unreal, Bevy: tài liệu, mẫu bị cấm, lệnh build và kiểm thử, ghi chú multiplayer |
+| Guardrail | 3 mức | Quy tắc được kiểm tra tự động sau mỗi lần sửa và, nếu muốn, trước mỗi commit |
+| Tài liệu vận hành cho agent | 15 | `docs/ai/`: chính sách thực thi, sổ tay kiểm chứng, quyền mạng, bàn giao, quy trình trước commit |
 
 <a id="install"></a>
 
-## ⚡ Bắt đầu nhanh
+## Bắt đầu nhanh
 
 **1. Cài đặt** (Claude Code)
 
@@ -74,31 +74,31 @@ Gói tùy chọn: `/plugin install mm-agents@monkeymode`, `/plugin install mm-ar
 
 <a id="features"></a>
 
-## ✨ Vì sao chọn MonkeyMode
+## Vì sao chọn MonkeyMode
 
-| | Tính năng | Ý nghĩa |
-|---|---|---|
-| 🗺️ | **Quy trình từ thiết kế đến phát hành** | Mỗi bước là một skill viết ra một tệp thật mà bạn giữ lại: brief, GDD, kiến trúc, story, ghi chú review, kế hoạch playtest |
-| ✅ | **Kiểm chứng, không tuyên bố** | Agent build, kiểm thử, chạy và chụp màn hình trước khi nói "xong"; những gì chưa kiểm tra được ghi là `unverified` |
-| 🛡️ | **Guardrail** | Tìm kiếm scene dễ vỡ, lời gọi chặn, mã mạng không an toàn và bí mật trong repository bị chặn sau mỗi lần sửa |
-| 🎮 | **Kiến thức engine** | Godot, Unity, Unreal và Bevy mỗi engine có quy tắc, lệnh và ghi chú multiplayer riêng; mọi thứ khác dùng chung |
-| 🙈 | **Thích ứng với bạn** | Nếu bạn nói mình không đọc code, agent giải thích bằng lời đơn giản kèm ảnh chụp màn hình, tự kiểm chứng mọi thứ và hỏi trước các bước rủi ro |
-| 🌐 | **Sẵn sàng cho multiplayer** | Quy tắc quyền độc lập với engine và các mức kiểm thử (M0-M3) cho phần chơi mạng |
+| Tính năng | Ý nghĩa |
+|---|---|
+| **Quy trình từ thiết kế đến phát hành** | Mỗi bước là một skill viết ra một tệp thật mà bạn giữ lại: brief, GDD, kiến trúc, story, ghi chú review, kế hoạch playtest |
+| **Kiểm chứng, không tuyên bố** | Agent build, kiểm thử, chạy và chụp màn hình trước khi nói "xong"; những gì chưa kiểm tra được ghi là `unverified` |
+| **Guardrail** | Tìm kiếm scene dễ vỡ, lời gọi chặn, mã mạng không an toàn và bí mật trong repository bị chặn sau mỗi lần sửa |
+| **Kiến thức engine** | Godot, Unity, Unreal và Bevy mỗi engine có quy tắc, lệnh và ghi chú multiplayer riêng; mọi thứ khác dùng chung |
+| **Thích ứng với bạn** | Nếu bạn nói mình không đọc code, agent giải thích bằng lời đơn giản kèm ảnh chụp màn hình, tự kiểm chứng mọi thứ và hỏi trước các bước rủi ro |
+| **Sẵn sàng cho multiplayer** | Quy tắc quyền độc lập với engine và các mức kiểm thử (M0-M3) cho phần chơi mạng |
 
 <a id="workflow"></a>
 
-## 🗺️ Quy trình
+## Quy trình
 
 ```mermaid
 flowchart LR
-    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
-    B --> C["📖 GDD<br/>mm-gdd"]
-    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
-    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
-    E --> F["⌨️ Dev<br/>mm-dev-story"]
-    F --> G["🔍 Review<br/>mm-code-review"]
-    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
-    H --> I["🔁 Retro<br/>mm-retrospective"]
+    A["Idea<br/>mm-brainstorm-game"] --> B["Brief<br/>mm-create-game-brief"]
+    B --> C["GDD<br/>mm-gdd"]
+    C --> D["Architecture<br/>mm-game-architecture"]
+    D --> E["Stories<br/>mm-create-epics-and-stories"]
+    E --> F["Dev<br/>mm-dev-story"]
+    F --> G["Review<br/>mm-code-review"]
+    G --> H["Playtest<br/>mm-playtest-plan"]
+    H --> I["Retro<br/>mm-retrospective"]
     I -.-> E
 ```
 
@@ -130,7 +130,7 @@ Bảng đầy đủ các bước cùng đường dẫn đầu ra có trong [hư�
 
 <a id="plugins"></a>
 
-## 📦 Plugin
+## Plugin
 
 | Plugin | Bạn nhận được |
 |---|---|
@@ -143,7 +143,7 @@ Bảng đầy đủ các bước cùng đường dẫn đầu ra có trong [hư�
 | `mm-art-tools` (tùy chọn) | `mm-concept-art` (prompt ChatGPT, Codex CLI hoặc phương án khác) và CLI cho Blender, RenderDoc, Nsight Graphics |
 
 <details>
-<summary><strong>🧭 mm-core: toàn bộ 43 skill</strong></summary>
+<summary><strong>mm-core: toàn bộ 43 skill</strong></summary>
 
 | Lĩnh vực | Skill |
 |---|---|
@@ -156,7 +156,7 @@ Bảng đầy đủ các bước cùng đường dẫn đầu ra có trong [hư�
 </details>
 
 <details>
-<summary><strong>🎭 mm-agents và 🎨 mm-art-tools</strong></summary>
+<summary><strong>mm-agents và mm-art-tools</strong></summary>
 
 | Plugin | Skill |
 |---|---|
@@ -181,7 +181,7 @@ Bảng đầy đủ các bước cùng đường dẫn đầu ra có trong [hư�
 
 <a id="engines"></a>
 
-## 🎮 Engine
+## Engine
 
 | Engine | Plugin | Điểm nổi bật | Kiểm chứng |
 |---|---|---|---|
@@ -194,7 +194,7 @@ Những gì adapter chưa xác nhận được đều được đánh dấu *nee
 
 <a id="guardrails"></a>
 
-## 🛡️ Guardrail và trình độ lập trình
+## Guardrail và trình độ lập trình
 
 `mm-core` có hai thiết lập về bạn, đặt trong `/plugin` → MonkeyMode core → configure (hoặc `claude plugin configure mm-core@monkeymode`). Nếu để trống, `/mm-setup` sẽ hỏi thay.
 
@@ -205,8 +205,8 @@ Những gì adapter chưa xác nhận được đều được đánh dấu *nee
 
 | Trình độ | Guardrail | Cách agent làm việc |
 |---|---|---|
-| 🙈 **Tôi không đọc được code** | Luôn là **strict** | Tự kiểm chứng mọi thứ (kiểm thử, build, chạy game), giải thích bằng lời đơn giản kèm ảnh chụp màn hình, và hỏi trước khi xóa, refactor, cài đặt, commit hoặc push |
-| 👀 **Tôi đọc được code** | **strict**, **standard** (mặc định) hoặc **relaxed** | Báo cáo dưới dạng tóm tắt diff kèm lý do của từng thay đổi |
+| **Tôi không đọc được code** | Luôn là **strict** | Tự kiểm chứng mọi thứ (kiểm thử, build, chạy game), giải thích bằng lời đơn giản kèm ảnh chụp màn hình, và hỏi trước khi xóa, refactor, cài đặt, commit hoặc push |
+| **Tôi đọc được code** | **strict**, **standard** (mặc định) hoặc **relaxed** | Báo cáo dưới dạng tóm tắt diff kèm lý do của từng thay đổi |
 
 | Mức | Tác dụng |
 |---|---|
@@ -216,7 +216,7 @@ Những gì adapter chưa xác nhận được đều được đánh dấu *nee
 
 <a id="setup"></a>
 
-## 🧭 `/mm-setup` hỏi gì
+## `/mm-setup` hỏi gì
 
 <details>
 <summary><strong>Chín câu hỏi</strong></summary>
@@ -260,7 +260,7 @@ Chạy lại `/mm-setup` sẽ hiển thị câu trả lời hiện tại và h�
 
 <a id="without-claude-code"></a>
 
-## 🤖 Không dùng Claude Code (agent đọc AGENTS.md)
+## Không dùng Claude Code (agent đọc AGENTS.md)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -269,7 +269,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 Lệnh này hỏi cùng các câu hỏi, cài cùng các tệp và sao chép skill vào `.agents/skills/`. Xem [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents).
 
-## 🧩 Tùy biến
+## Tùy biến
 
 | Đối tượng | Vị trí |
 |---|---|
@@ -278,7 +278,7 @@ Lệnh này hỏi cùng các câu hỏi, cài cùng các tệp và sao chép ski
 | Guardrail | `guardrails/<engine>.json` hoặc một hồ sơ mới `guardrails/<name>.json` (định dạng trong `docs/ai/12`). Agent không bao giờ tự nới lỏng chúng |
 
 <details>
-<summary><strong>🧪 Kiểm tra cài đặt</strong></summary>
+<summary><strong>Kiểm tra cài đặt</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -290,20 +290,20 @@ Lệnh cuối khởi động Claude Code với các plugin được nạp trong 
 
 </details>
 
-## 📚 Tài liệu
+## Tài liệu
 
 | Tài liệu | Nội dung |
 |---|---|
-| 📘 [Hướng dẫn sử dụng](docs/GUIDE.md) | Cài đặt, buổi hỏi đáp thiết lập, toàn bộ quy trình với skill và tệp đầu ra của từng bước, guardrail, hình ảnh, ghi chú engine, FAQ |
-| 🧭 [Onboarding](docs/ONBOARDING.md) | Sơ đồ luồng thiết lập và mỗi câu trả lời thay đổi điều gì |
-| 📋 [Danh mục](docs/INVENTORY.md) | Dùng chung vs. theo engine, bảng tên skill |
-| 🤝 [Đóng góp](CONTRIBUTING.md) | Thêm skill, adapter engine và quy tắc guardrail; kiểm thử; checklist PR |
+| [Hướng dẫn sử dụng](docs/GUIDE.md) | Cài đặt, buổi hỏi đáp thiết lập, toàn bộ quy trình với skill và tệp đầu ra của từng bước, guardrail, hình ảnh, ghi chú engine, FAQ |
+| [Onboarding](docs/ONBOARDING.md) | Sơ đồ luồng thiết lập và mỗi câu trả lời thay đổi điều gì |
+| [Danh mục](docs/INVENTORY.md) | Dùng chung vs. theo engine, bảng tên skill |
+| [Đóng góp](CONTRIBUTING.md) | Thêm skill, adapter engine và quy tắc guardrail; kiểm thử; checklist PR |
 
-## 🤝 Đóng góp
+## Đóng góp
 
 Mọi đóng góp đều được hoan nghênh: xem [CONTRIBUTING.md](CONTRIBUTING.md) và [Bộ quy tắc ứng xử](CODE_OF_CONDUCT.md). Đặc biệt hoan nghênh các chỉnh sửa cho adapter engine: các mục còn mở được đánh dấu *needs verification* trong từng adapter.
 
-## 📜 Ghi công và giấy phép
+## Ghi công và giấy phép
 
 MonkeyMode dùng giấy phép MIT ([LICENSE](LICENSE)). Các skill quy trình dựa trên [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) và module BMad Game Dev Studio (MIT), còn các skill công cụ đồ họa dựa trên [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode là dự án độc lập và không được các tác giả đó bảo chứng. Chi tiết và mọi thay đổi: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
@@ -311,7 +311,7 @@ MonkeyMode dùng giấy phép MIT ([LICENSE](LICENSE)). Các skill quy trình d�
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
-  <sub><strong>I'm Monkey Game Developer 🐒</strong> · Nếu MonkeyMode giúp ích cho game của bạn, hãy tặng một ⭐</sub>
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · Nếu MonkeyMode giúp ích cho game của bạn, hãy tặng một ngôi sao</sub>
 </p>
 
 <!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.

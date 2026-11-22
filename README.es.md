@@ -44,16 +44,16 @@ Se distribuye como un marketplace de plugins de Claude Code y también funciona 
 
 | Incluye | Cantidad | Qué te aporta |
 |---|---:|---|
-| 🧭 Skills de flujo de trabajo | 43 | `mm-core`: brief, GDD, narrativa, UX, arquitectura, épicas e historias, desarrollo, revisión, pruebas, playtest, retrospectiva, y `/mm-setup` |
-| 🎭 Agentes con personalidad | 9 | `mm-agents`: diseñador de juegos, arquitecto, desarrollador, dev en solitario, analista, PM, diseñador UX, redactor técnico, modo fiesta |
-| 🎨 Herramientas de arte y gráficos | 4 | `mm-art-tools`: arte conceptual y CLI para Blender, RenderDoc, Nsight Graphics |
-| 🎮 Adaptadores de motor | 4 | Godot, Unity, Unreal, Bevy: documentación, patrones prohibidos, comandos de build y pruebas, notas de multijugador |
-| 🛡️ Guardarraíles | 3 niveles | Reglas comprobadas automáticamente tras cada edición y, si quieres, antes de cada commit |
-| 📜 Documentos operativos para agentes | 15 | `docs/ai/`: política de ejecución, guía de verificación, autoridad de red, traspaso, procedimiento previo al commit |
+| Skills de flujo de trabajo | 43 | `mm-core`: brief, GDD, narrativa, UX, arquitectura, épicas e historias, desarrollo, revisión, pruebas, playtest, retrospectiva, y `/mm-setup` |
+| Agentes con personalidad | 9 | `mm-agents`: diseñador de juegos, arquitecto, desarrollador, dev en solitario, analista, PM, diseñador UX, redactor técnico, modo fiesta |
+| Herramientas de arte y gráficos | 4 | `mm-art-tools`: arte conceptual y CLI para Blender, RenderDoc, Nsight Graphics |
+| Adaptadores de motor | 4 | Godot, Unity, Unreal, Bevy: documentación, patrones prohibidos, comandos de build y pruebas, notas de multijugador |
+| Guardarraíles | 3 niveles | Reglas comprobadas automáticamente tras cada edición y, si quieres, antes de cada commit |
+| Documentos operativos para agentes | 15 | `docs/ai/`: política de ejecución, guía de verificación, autoridad de red, traspaso, procedimiento previo al commit |
 
 <a id="install"></a>
 
-## ⚡ Inicio rápido
+## Inicio rápido
 
 **1. Instala** (Claude Code)
 
@@ -74,31 +74,31 @@ Paquetes opcionales: `/plugin install mm-agents@monkeymode`, `/plugin install mm
 
 <a id="features"></a>
 
-## ✨ Por qué MonkeyMode
+## Por qué MonkeyMode
 
-| | Función | Qué significa |
-|---|---|---|
-| 🗺️ | **Flujo del diseño al lanzamiento** | Cada paso es una skill que escribe un archivo real que conservas: brief, GDD, arquitectura, historias, notas de revisión, planes de playtest |
-| ✅ | **Verificar, no afirmar** | Los agentes compilan, prueban, ejecutan y hacen capturas antes de decir "hecho"; lo que no se comprobó se escribe como `unverified` |
-| 🛡️ | **Guardarraíles** | Búsquedas frágiles en la escena, llamadas bloqueantes, red insegura y secretos en el repositorio se bloquean tras cada edición |
-| 🎮 | **Conocimiento del motor** | Godot, Unity, Unreal y Bevy tienen sus propias reglas, comandos y notas de multijugador; todo lo demás es común |
-| 🙈 | **Se adapta a ti** | Si dices que no lees código, los agentes explican con palabras sencillas y capturas, lo verifican todo y preguntan antes de los pasos arriesgados |
-| 🌐 | **Preparado para multijugador** | Reglas de autoridad independientes del motor y grados de prueba (M0-M3) para el trabajo en red |
+| Función | Qué significa |
+|---|---|
+| **Flujo del diseño al lanzamiento** | Cada paso es una skill que escribe un archivo real que conservas: brief, GDD, arquitectura, historias, notas de revisión, planes de playtest |
+| **Verificar, no afirmar** | Los agentes compilan, prueban, ejecutan y hacen capturas antes de decir "hecho"; lo que no se comprobó se escribe como `unverified` |
+| **Guardarraíles** | Búsquedas frágiles en la escena, llamadas bloqueantes, red insegura y secretos en el repositorio se bloquean tras cada edición |
+| **Conocimiento del motor** | Godot, Unity, Unreal y Bevy tienen sus propias reglas, comandos y notas de multijugador; todo lo demás es común |
+| **Se adapta a ti** | Si dices que no lees código, los agentes explican con palabras sencillas y capturas, lo verifican todo y preguntan antes de los pasos arriesgados |
+| **Preparado para multijugador** | Reglas de autoridad independientes del motor y grados de prueba (M0-M3) para el trabajo en red |
 
 <a id="workflow"></a>
 
-## 🗺️ El flujo de trabajo
+## El flujo de trabajo
 
 ```mermaid
 flowchart LR
-    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
-    B --> C["📖 GDD<br/>mm-gdd"]
-    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
-    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
-    E --> F["⌨️ Dev<br/>mm-dev-story"]
-    F --> G["🔍 Review<br/>mm-code-review"]
-    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
-    H --> I["🔁 Retro<br/>mm-retrospective"]
+    A["Idea<br/>mm-brainstorm-game"] --> B["Brief<br/>mm-create-game-brief"]
+    B --> C["GDD<br/>mm-gdd"]
+    C --> D["Architecture<br/>mm-game-architecture"]
+    D --> E["Stories<br/>mm-create-epics-and-stories"]
+    E --> F["Dev<br/>mm-dev-story"]
+    F --> G["Review<br/>mm-code-review"]
+    G --> H["Playtest<br/>mm-playtest-plan"]
+    H --> I["Retro<br/>mm-retrospective"]
     I -.-> E
 ```
 
@@ -130,7 +130,7 @@ La tabla completa de pasos con rutas de salida está en la [guía de usuario](do
 
 <a id="plugins"></a>
 
-## 📦 Plugins
+## Plugins
 
 | Plugin | Qué incluye |
 |---|---|
@@ -143,7 +143,7 @@ La tabla completa de pasos con rutas de salida está en la [guía de usuario](do
 | `mm-art-tools` (opcional) | `mm-concept-art` (prompts para ChatGPT, Codex CLI u otras opciones) y CLI para Blender, RenderDoc, Nsight Graphics |
 
 <details>
-<summary><strong>🧭 mm-core: las 43 skills</strong></summary>
+<summary><strong>mm-core: las 43 skills</strong></summary>
 
 | Área | Skills |
 |---|---|
@@ -156,7 +156,7 @@ La tabla completa de pasos con rutas de salida está en la [guía de usuario](do
 </details>
 
 <details>
-<summary><strong>🎭 mm-agents y 🎨 mm-art-tools</strong></summary>
+<summary><strong>mm-agents y mm-art-tools</strong></summary>
 
 | Plugin | Skills |
 |---|---|
@@ -181,7 +181,7 @@ La tabla completa de pasos con rutas de salida está en la [guía de usuario](do
 
 <a id="engines"></a>
 
-## 🎮 Motores
+## Motores
 
 | Motor | Plugin | Lo más destacado | Verificación |
 |---|---|---|---|
@@ -194,7 +194,7 @@ Todo lo que un adaptador no pudo confirmar está marcado como *needs verificatio
 
 <a id="guardrails"></a>
 
-## 🛡️ Guardarraíles y nivel de programación
+## Guardarraíles y nivel de programación
 
 `mm-core` tiene dos ajustes sobre ti, que se configuran en `/plugin` → MonkeyMode core → configure (o `claude plugin configure mm-core@monkeymode`). Si los dejas sin definir, `/mm-setup` te los pregunta.
 
@@ -205,8 +205,8 @@ Todo lo que un adaptador no pudo confirmar está marcado como *needs verificatio
 
 | Nivel de programación | Guardarraíles | Cómo trabajan los agentes |
 |---|---|---|
-| 🙈 **No sé leer código** | Siempre **strict** | Lo verifican todo ellos mismos (pruebas, build, ejecutar el juego), explican con palabras sencillas y capturas, y preguntan antes de borrar, refactorizar, instalar, hacer commit o push |
-| 👀 **Sé leer código** | **strict**, **standard** (por defecto) o **relaxed** | Informan con un resumen del diff y el motivo de cada cambio |
+| **No sé leer código** | Siempre **strict** | Lo verifican todo ellos mismos (pruebas, build, ejecutar el juego), explican con palabras sencillas y capturas, y preguntan antes de borrar, refactorizar, instalar, hacer commit o push |
+| **Sé leer código** | **strict**, **standard** (por defecto) o **relaxed** | Informan con un resumen del diff y el motivo de cada cambio |
 
 | Nivel | Efecto |
 |---|---|
@@ -216,7 +216,7 @@ Todo lo que un adaptador no pudo confirmar está marcado como *needs verificatio
 
 <a id="setup"></a>
 
-## 🧭 Qué pregunta `/mm-setup`
+## Qué pregunta `/mm-setup`
 
 <details>
 <summary><strong>Las nueve preguntas</strong></summary>
@@ -260,7 +260,7 @@ Si vuelves a ejecutar `/mm-setup`, te muestra tus respuestas actuales y te pregu
 
 <a id="without-claude-code"></a>
 
-## 🤖 Sin Claude Code (agentes con AGENTS.md)
+## Sin Claude Code (agentes con AGENTS.md)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -269,7 +269,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 Hace las mismas preguntas, instala los mismos archivos y copia las skills en `.agents/skills/`. Consulta [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents).
 
-## 🧩 Personalización
+## Personalización
 
 | Qué | Dónde |
 |---|---|
@@ -278,7 +278,7 @@ Hace las mismas preguntas, instala los mismos archivos y copia las skills en `.a
 | Guardarraíles | `guardrails/<engine>.json` o un perfil nuevo `guardrails/<name>.json` (formato en `docs/ai/12`). Los agentes nunca los relajan por su cuenta |
 
 <details>
-<summary><strong>🧪 Probar la instalación</strong></summary>
+<summary><strong>Probar la instalación</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -290,20 +290,20 @@ El último comando inicia Claude Code con los plugins cargados durante una sesi�
 
 </details>
 
-## 📚 Documentación
+## Documentación
 
 | Documento | Contenido |
 |---|---|
-| 📘 [Guía de usuario](docs/GUIDE.md) | Instalación, la entrevista de configuración, el flujo completo con la skill y el archivo de salida de cada paso, guardarraíles, imágenes, notas de motores, FAQ |
-| 🧭 [Incorporación](docs/ONBOARDING.md) | El diagrama del flujo de configuración y qué cambia cada respuesta |
-| 📋 [Inventario](docs/INVENTORY.md) | Común vs. por motor, tabla de nombres de skills |
-| 🤝 [Contribuir](CONTRIBUTING.md) | Añadir skills, adaptadores de motor y reglas de guardarraíles; pruebas; lista para PR |
+| [Guía de usuario](docs/GUIDE.md) | Instalación, la entrevista de configuración, el flujo completo con la skill y el archivo de salida de cada paso, guardarraíles, imágenes, notas de motores, FAQ |
+| [Incorporación](docs/ONBOARDING.md) | El diagrama del flujo de configuración y qué cambia cada respuesta |
+| [Inventario](docs/INVENTORY.md) | Común vs. por motor, tabla de nombres de skills |
+| [Contribuir](CONTRIBUTING.md) | Añadir skills, adaptadores de motor y reglas de guardarraíles; pruebas; lista para PR |
 
-## 🤝 Contribuir
+## Contribuir
 
 Las contribuciones son bienvenidas: consulta [CONTRIBUTING.md](CONTRIBUTING.md) y el [Código de conducta](CODE_OF_CONDUCT.md). Las correcciones a los adaptadores de motor son especialmente bienvenidas: los puntos pendientes están marcados como *needs verification* en cada adaptador.
 
-## 📜 Créditos y licencia
+## Créditos y licencia
 
 MonkeyMode tiene licencia MIT ([LICENSE](LICENSE)). Sus skills de flujo de trabajo se basan en [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) y el módulo BMad Game Dev Studio (MIT), y las skills de herramientas gráficas en [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode es independiente y no cuenta con el respaldo de sus autores. Detalles y cada modificación: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
@@ -311,7 +311,7 @@ MonkeyMode tiene licencia MIT ([LICENSE](LICENSE)). Sus skills de flujo de traba
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
-  <sub><strong>I'm Monkey Game Developer 🐒</strong> · Si MonkeyMode te ayuda con tu juego, dale una ⭐</sub>
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · Si MonkeyMode te ayuda con tu juego, dale una estrella</sub>
 </p>
 
 <!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.

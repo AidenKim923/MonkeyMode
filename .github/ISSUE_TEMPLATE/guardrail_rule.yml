@@ -1,4 +1,4 @@
-name: 🛡️ Guardrail rule
+name: Guardrail rule
 description: Report a false positive or a missing ban, or propose a new guardrail rule
 title: "[Guardrail]: "
 labels: ["guardrail"]

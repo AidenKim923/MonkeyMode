@@ -6,8 +6,8 @@ MonkeyMode is pre-1.0. Security fixes go into the latest release on `main` only.
 
 | Version | Supported |
 |---|---|
-| 0.1.x (latest) | ✅ |
-| older | ❌ |
+| 0.1.x (latest) | Yes |
+| older | No |
 
 ## Reporting a vulnerability
 
