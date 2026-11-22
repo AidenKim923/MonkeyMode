@@ -8,7 +8,7 @@
 
 MonkeyMode 是一个面向 AI 编程智能体的开源游戏开发工具包。它给智能体一套经过实践检验的工作方式:从设计到发布的完整工作流(简报 → GDD → 架构 → 用户故事 → 开发 → 评审 → 试玩),要求它在宣布成功之前先自行验证结果的规则,拦截智能体在游戏代码中反复犯下的错误的护栏,以及针对 **Godot、Unity、Unreal 和 Bevy** 的引擎专属知识。
 
-它提取自一个真实的 Unity + Mirror 合作游戏项目并做了通用化处理。它以 Claude Code 插件市场的形式发布,也适用于读取 `AGENTS.md` 的智能体(如 Codex)。
+它以 Claude Code 插件市场的形式发布,也适用于读取 `AGENTS.md` 的智能体(如 Codex)。
 
 ## 包含什么
 
@@ -32,8 +32,6 @@ MonkeyMode 是一个面向 AI 编程智能体的开源游戏开发工具包。�
 | 自我验证工具(日志、截图、多实例启动) | 构建与测试命令(Unity 还附带脚本) |
 | 与引擎无关的网络权威规则与测试等级 | 多人游戏说明(Mirror/NGO、复制、高级多人游戏、lightyear/renet) |
 | 资源与角色制作流程指南 | `.gitignore` / LFS 提示、资源导入(Unity) |
-
-每个部分的来源清单见 [`docs/INVENTORY.md`](docs/INVENTORY.md)(英文)。
 
 ## 安装 (Claude Code)
 
@@ -89,7 +87,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 - [用户指南](docs/GUIDE.md):安装、设置问答、包含每一步技能与产出文件的完整工作流、护栏、图像、引擎说明、常见问题(英文)
 - [引导设置](docs/ONBOARDING.md):设置流程图以及每个回答会改变什么(英文)
-- [清单](docs/INVENTORY.md):来源、通用与引擎专属的划分、技能名称对照表(英文)
+- [清单](docs/INVENTORY.md):通用与引擎专属的划分、技能名称对照表(英文)
 - [贡献指南](CONTRIBUTING.md):添加技能、引擎适配器与护栏规则,测试,PR 清单(英文)
 
 ## 自定义

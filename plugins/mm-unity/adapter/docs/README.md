@@ -2,7 +2,7 @@
 
 > Installed by `mm-setup` into `docs/engine/`. These docs are the Unity half of the rules; the engine-neutral half is in [`docs/ai/`](../ai/README.md).
 
-**Verification status:** field-tested. The guardrails, tools and Mirror notes come from a real Unity 6 (URP) + Mirror co-op project. Batch-mode tests and builds were run there; launching several clients through `Start-Game.ps1` was not exercised end to end. Netcode for GameObjects (NGO) notes are from documentation knowledge and need community verification.
+**Verification status:** field-tested. Tested with Unity 6 (URP) + Mirror: batch-mode tests and builds were run; launching several clients through `Start-Game.ps1` was not exercised end to end. Netcode for GameObjects (NGO) notes are from documentation knowledge and need community verification.
 
 | Doc | Content |
 |---|---|

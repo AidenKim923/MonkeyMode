@@ -1,6 +1,6 @@
 # Contributing to MonkeyMode
 
-Thanks for helping. MonkeyMode is a Claude Code plugin marketplace plus a setup script for other agents. Read [AGENTS.md](AGENTS.md) for the repository rules (agents working on this repo follow them too) and [docs/INVENTORY.md](docs/INVENTORY.md) for where things came from.
+Thanks for helping. MonkeyMode is a Claude Code plugin marketplace plus a setup script for other agents. Read [AGENTS.md](AGENTS.md) for the repository rules (agents working on this repo follow them too) and [docs/INVENTORY.md](docs/INVENTORY.md) for the shared vs. per-engine split and the skill name map.
 
 By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
 

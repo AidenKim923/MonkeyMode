@@ -8,7 +8,7 @@
 
 O MonkeyMode é um kit de desenvolvimento de jogos de código aberto para agentes de programação com IA. Ele dá ao agente um jeito comprovado de trabalhar em um jogo: um fluxo de trabalho do design ao lançamento (brief → GDD → arquitetura → histórias → desenvolvimento → revisão → playtest), regras que fazem o agente verificar o próprio trabalho em vez de simplesmente declarar sucesso, guardrails que bloqueiam os erros que agentes vivem cometendo em código de jogos e conhecimento específico para **Godot, Unity, Unreal e Bevy**.
 
-Ele foi extraído de um projeto real de jogo cooperativo em Unity + Mirror e generalizado. É distribuído como um marketplace de plugins do Claude Code e também funciona com agentes que leem `AGENTS.md` (Codex e outros).
+É distribuído como um marketplace de plugins do Claude Code e também funciona com agentes que leem `AGENTS.md` (Codex e outros).
 
 ## O que vem incluído
 
@@ -32,8 +32,6 @@ Ele foi extraído de um projeto real de jogo cooperativo em Unity + Mirror e gen
 | Ferramentas de autoverificação (logs, capturas de tela, várias instâncias) | Comandos de build e teste (a Unity também traz scripts) |
 | Regras de autoridade de rede e níveis de teste independentes da engine | Notas de multiplayer (Mirror/NGO, replicação, multiplayer de alto nível, lightyear/renet) |
 | Guias de produção de assets e personagens | Dicas de `.gitignore` / LFS, importação de assets (Unity) |
-
-A lista completa do que veio de onde está em [`docs/INVENTORY.md`](docs/INVENTORY.md) (em inglês).
 
 ## Instalação (Claude Code)
 
@@ -89,7 +87,7 @@ Ele faz as mesmas perguntas, instala os mesmos arquivos e copia as skills para `
 
 - [Guia do usuário](docs/GUIDE.md): instalação, a entrevista de configuração, o fluxo completo com a skill e o arquivo gerado em cada etapa, guardrails, imagens, notas por engine, perguntas frequentes (em inglês)
 - [Integração](docs/ONBOARDING.md): o fluxograma da configuração e o que cada resposta muda (em inglês)
-- [Inventário](docs/INVENTORY.md): de onde veio cada parte, comum vs. por engine, tabela de nomes das skills (em inglês)
+- [Inventário](docs/INVENTORY.md): comum vs. por engine, tabela de nomes das skills (em inglês)
 - [Como contribuir](CONTRIBUTING.md): adicionar skills, adaptadores de engine e regras de guardrails; testes; checklist de PR (em inglês)
 
 ## Personalização

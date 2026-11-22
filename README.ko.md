@@ -8,7 +8,7 @@
 
 MonkeyMode는 AI 코딩 에이전트를 위한 오픈소스 게임 개발 키트입니다. 에이전트에게 검증된 작업 방식을 줍니다. 기획부터 출시까지 이어지는 워크플로(브리프 → GDD → 아키텍처 → 스토리 → 개발 → 리뷰 → 플레이테스트), 성공했다고 말하기 전에 스스로 결과를 확인하게 하는 규칙, 에이전트가 게임 코드에서 자주 저지르는 실수를 막는 가드레일, 그리고 **Godot, Unity, Unreal, Bevy** 엔진별 지식이 들어 있습니다.
 
-실제 Unity + Mirror 협동 게임 프로젝트에서 추출해 일반화했습니다. Claude Code 플러그인 마켓플레이스로 배포되며, `AGENTS.md`를 읽는 에이전트(Codex 등)에서도 동작합니다.
+Claude Code 플러그인 마켓플레이스로 배포되며, `AGENTS.md`를 읽는 에이전트(Codex 등)에서도 동작합니다.
 
 ## 구성
 
@@ -32,8 +32,6 @@ MonkeyMode는 AI 코딩 에이전트를 위한 오픈소스 게임 개발 키트
 | 자가 검증 도구(로그, 스크린샷, 다중 인스턴스 실행) | 빌드·테스트 명령(Unity는 스크립트도 포함) |
 | 엔진 중립 네트워크 권위 규칙과 테스트 등급 | 멀티플레이 노트(Mirror/NGO, 리플리케이션, 고수준 멀티플레이, lightyear/renet) |
 | 에셋·캐릭터 파이프라인 가이드 | `.gitignore` / LFS 힌트, 에셋 임포트(Unity) |
-
-무엇이 어디서 왔는지는 [`docs/INVENTORY.md`](docs/INVENTORY.md)에 정리되어 있습니다(영문).
 
 ## 설치 (Claude Code)
 
@@ -89,7 +87,7 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 - [사용자 가이드](docs/GUIDE.md): 설치, 설정 인터뷰, 단계별 스킬과 산출 파일이 포함된 전체 워크플로, 가드레일, 이미지, 엔진별 노트, FAQ (영문)
 - [온보딩](docs/ONBOARDING.md): 설정 흐름도와 각 답이 바꾸는 것 (영문)
-- [인벤토리](docs/INVENTORY.md): 출처, 공통/엔진별 구분, 스킬 이름 대응표 (영문)
+- [인벤토리](docs/INVENTORY.md): 공통/엔진별 구분, 스킬 이름 대응표 (영문)
 - [기여 가이드](CONTRIBUTING.md): 스킬·엔진 어댑터·가드레일 규칙 추가, 테스트, PR 체크리스트 (영문)
 
 ## 커스터마이징

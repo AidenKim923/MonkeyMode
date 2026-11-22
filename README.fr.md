@@ -8,7 +8,7 @@
 
 MonkeyMode est un kit open source de développement de jeux pour les agents de programmation IA. Il donne à l'agent une méthode de travail éprouvée : un flux de travail de la conception à la sortie (brief → GDD → architecture → stories → développement → revue → playtest), des règles qui l'obligent à vérifier son propre travail au lieu de crier victoire, des garde-fous qui bloquent les erreurs que les agents répètent dans le code de jeu, et des connaissances propres à **Godot, Unity, Unreal et Bevy**.
 
-Il a été extrait d'un vrai projet de jeu coopératif Unity + Mirror, puis généralisé. Il est distribué comme une marketplace de plugins Claude Code et fonctionne aussi avec les agents qui lisent `AGENTS.md` (Codex et d'autres).
+Il est distribué comme une marketplace de plugins Claude Code et fonctionne aussi avec les agents qui lisent `AGENTS.md` (Codex et d'autres).
 
 ## Contenu
 
@@ -32,8 +32,6 @@ Il a été extrait d'un vrai projet de jeu coopératif Unity + Mirror, puis gén
 | Outils d'autovérification (logs, captures d'écran, lancement de plusieurs instances) | Commandes de build et de test (Unity fournit aussi des scripts) |
 | Règles d'autorité réseau et niveaux de test indépendants du moteur | Notes multijoueur (Mirror/NGO, réplication, multijoueur haut niveau, lightyear/renet) |
 | Guides de production d'assets et de personnages | Conseils `.gitignore` / LFS, import d'assets (Unity) |
-
-La liste complète de la provenance de chaque élément se trouve dans [`docs/INVENTORY.md`](docs/INVENTORY.md) (en anglais).
 
 ## Installation (Claude Code)
 
@@ -89,7 +87,7 @@ Il pose les mêmes questions, installe les mêmes fichiers et copie les skills d
 
 - [Guide de l'utilisateur](docs/GUIDE.md) : installation, l'entretien de configuration, le flux complet avec la skill et le fichier produit à chaque étape, garde-fous, images, notes par moteur, FAQ (en anglais)
 - [Prise en main](docs/ONBOARDING.md) : le schéma de configuration et ce que change chaque réponse (en anglais)
-- [Inventaire](docs/INVENTORY.md) : provenance de chaque élément, commun vs. par moteur, table des noms de skills (en anglais)
+- [Inventaire](docs/INVENTORY.md) : commun vs. par moteur, table des noms de skills (en anglais)
 - [Contribuer](CONTRIBUTING.md) : ajouter des skills, des adaptateurs de moteur et des règles de garde-fous ; tests ; check-list de PR (en anglais)
 
 ## Personnalisation

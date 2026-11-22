@@ -8,7 +8,7 @@
 
 MonkeyMode is an open-source game-dev kit for AI coding agents. It gives an agent a tested way to work on a game: a design-to-ship workflow (brief → GDD → architecture → stories → dev → review → playtest), rules that make it verify its own work instead of claiming success, guardrails that block the mistakes agents keep making in game code, and per-engine knowledge for **Godot, Unity, Unreal and Bevy**.
 
-It was extracted from a real Unity + Mirror co-op project and generalized. It ships as a Claude Code plugin marketplace and also works for agents that read `AGENTS.md` (Codex and others).
+It ships as a Claude Code plugin marketplace and also works for agents that read `AGENTS.md` (Codex and others).
 
 ## What's inside
 
@@ -32,8 +32,6 @@ It was extracted from a real Unity + Mirror co-op project and generalized. It sh
 | Self-verification tools (logs, screenshots, multi-instance launch) | Build and test commands (Unity also ships scripts) |
 | Engine-neutral network authority rules and test grades | Multiplayer notes (Mirror/NGO, replication, high-level multiplayer, lightyear/renet) |
 | Asset and character pipeline guides | `.gitignore` / LFS hints, asset import (Unity) |
-
-The full list of what came from where is in [`docs/INVENTORY.md`](docs/INVENTORY.md).
 
 ## Install (Claude Code)
 
@@ -89,7 +87,7 @@ This asks the same questions, installs the same files, and copies the skills to 
 
 - [User guide](docs/GUIDE.md): install, the setup interview, the full workflow with the skill and output file for each step, guardrails, images, engine notes, FAQ
 - [Onboarding](docs/ONBOARDING.md): the setup flow chart and what each answer changes
-- [Inventory](docs/INVENTORY.md): where every part came from, shared vs. per-engine, skill name map
+- [Inventory](docs/INVENTORY.md): shared vs. per-engine, skill name map
 - [Contributing](CONTRIBUTING.md): adding skills, engine adapters and guardrail rules; tests; PR checklist
 
 ## Customizing

@@ -8,7 +8,7 @@
 
 MonkeyMode là bộ công cụ phát triển game mã nguồn mở dành cho các AI agent viết code. Nó cho agent một cách làm việc đã được kiểm chứng: quy trình từ thiết kế đến phát hành (brief → GDD → kiến trúc → story → phát triển → review → playtest), các quy tắc buộc agent tự kiểm tra kết quả thay vì chỉ tuyên bố đã xong, các guardrail chặn những lỗi mà agent hay lặp lại trong code game, và kiến thức riêng cho từng engine **Godot, Unity, Unreal và Bevy**.
 
-Bộ công cụ được tách ra từ một dự án game co-op Unity + Mirror thật rồi khái quát hóa. Nó được phát hành dưới dạng marketplace plugin của Claude Code và cũng hoạt động với các agent đọc `AGENTS.md` (Codex và các agent khác).
+Nó được phát hành dưới dạng marketplace plugin của Claude Code và cũng hoạt động với các agent đọc `AGENTS.md` (Codex và các agent khác).
 
 ## Bên trong có gì
 
@@ -32,8 +32,6 @@ Bộ công cụ được tách ra từ một dự án game co-op Unity + Mirror 
 | Công cụ tự kiểm chứng (log, ảnh chụp màn hình, chạy nhiều phiên bản) | Lệnh build và test (Unity còn kèm script) |
 | Quy tắc quyền quyết định mạng và cấp độ kiểm thử không phụ thuộc engine | Ghi chú multiplayer (Mirror/NGO, replication, multiplayer cấp cao, lightyear/renet) |
 | Hướng dẫn quy trình sản xuất asset và nhân vật | Gợi ý `.gitignore` / LFS, nhập asset (Unity) |
-
-Danh sách đầy đủ phần nào lấy từ đâu có trong [`docs/INVENTORY.md`](docs/INVENTORY.md) (tiếng Anh).
 
 ## Cài đặt (Claude Code)
 
@@ -89,7 +87,7 @@ Script đặt cùng những câu hỏi, cài cùng những tệp và sao chép s
 
 - [Hướng dẫn sử dụng](docs/GUIDE.md): cài đặt, phần hỏi đáp thiết lập, toàn bộ quy trình kèm skill và tệp kết quả của từng bước, guardrail, hình ảnh, ghi chú theo engine, câu hỏi thường gặp (tiếng Anh)
 - [Thiết lập ban đầu](docs/ONBOARDING.md): sơ đồ thiết lập và mỗi câu trả lời thay đổi điều gì (tiếng Anh)
-- [Danh mục](docs/INVENTORY.md): nguồn gốc từng phần, dùng chung và riêng cho engine, bảng tên skill (tiếng Anh)
+- [Danh mục](docs/INVENTORY.md): dùng chung và riêng cho engine, bảng tên skill (tiếng Anh)
 - [Đóng góp](CONTRIBUTING.md): thêm skill, adapter engine và quy tắc guardrail; kiểm thử; checklist PR (tiếng Anh)
 
 ## Tùy chỉnh

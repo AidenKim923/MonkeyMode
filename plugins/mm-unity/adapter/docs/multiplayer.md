@@ -6,7 +6,7 @@
 
 | Library | Notes | Status of these notes |
 |---|---|---|
-| **Mirror** | Open source, community-maintained, UNET-style API (`NetworkBehaviour`, `[Command]`, `[ClientRpc]`, `[SyncVar]`, `NetworkIdentity`). Transports are pluggable (KCP default, Steam and relays via add-ons) | Field-tested in a listen-server co-op project |
+| **Mirror** | Open source, community-maintained, UNET-style API (`NetworkBehaviour`, `[Command]`, `[ClientRpc]`, `[SyncVar]`, `NetworkIdentity`). Transports are pluggable (KCP default, Steam and relays via add-ons) | Field-tested (listen server) |
 | **Netcode for GameObjects (NGO)** | Unity's first-party library (`NetworkObject`, `NetworkVariable<T>`, `[Rpc(SendTo.Server)]`, Unity Transport, Relay/Lobby services) | Documentation knowledge; needs community verification |
 | Fish-Net, Photon Fusion, others | Different authority models; read their docs | Not covered |
 

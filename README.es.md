@@ -8,7 +8,7 @@
 
 MonkeyMode es un kit de desarrollo de videojuegos de código abierto para agentes de programación con IA. Le da al agente una forma probada de trabajar en un juego: un flujo de trabajo del diseño al lanzamiento (brief → GDD → arquitectura → historias → desarrollo → revisión → playtest), reglas que lo obligan a verificar su propio trabajo en lugar de declarar éxito, barreras de protección que bloquean los errores que los agentes repiten en el código de juegos, y conocimiento específico para **Godot, Unity, Unreal y Bevy**.
 
-Se extrajo de un proyecto real de juego cooperativo con Unity + Mirror y se generalizó. Se distribuye como un marketplace de plugins de Claude Code y también funciona con agentes que leen `AGENTS.md` (Codex y otros).
+Se distribuye como un marketplace de plugins de Claude Code y también funciona con agentes que leen `AGENTS.md` (Codex y otros).
 
 ## Qué incluye
 
@@ -32,8 +32,6 @@ Se extrajo de un proyecto real de juego cooperativo con Unity + Mirror y se gene
 | Herramientas de autoverificación (logs, capturas, lanzamiento de varias instancias) | Comandos de compilación y pruebas (Unity también incluye scripts) |
 | Reglas de autoridad de red y niveles de prueba independientes del motor | Notas de multijugador (Mirror/NGO, replicación, multijugador de alto nivel, lightyear/renet) |
 | Guías de producción de assets y personajes | Pistas para `.gitignore` / LFS, importación de assets (Unity) |
-
-La lista completa de qué vino de dónde está en [`docs/INVENTORY.md`](docs/INVENTORY.md) (en inglés).
 
 ## Instalación (Claude Code)
 
@@ -89,7 +87,7 @@ Hace las mismas preguntas, instala los mismos archivos y copia las skills en `.a
 
 - [Guía de usuario](docs/GUIDE.md): instalación, la entrevista de configuración, el flujo completo con la skill y el archivo que produce cada paso, barreras, imágenes, notas por motor, preguntas frecuentes (en inglés)
 - [Incorporación](docs/ONBOARDING.md): el diagrama de configuración y qué cambia cada respuesta (en inglés)
-- [Inventario](docs/INVENTORY.md): de dónde viene cada parte, común vs. por motor, tabla de nombres de skills (en inglés)
+- [Inventario](docs/INVENTORY.md): común vs. por motor, tabla de nombres de skills (en inglés)
 - [Cómo contribuir](CONTRIBUTING.md): añadir skills, adaptadores de motor y reglas de barreras; pruebas; lista para PR (en inglés)
 
 ## Personalización

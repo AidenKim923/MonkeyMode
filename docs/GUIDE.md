@@ -1,6 +1,6 @@
 # MonkeyMode user guide
 
-> **I'm Monkey Game Developer 🐒** This guide covers everything from installing MonkeyMode to shipping a playtested build. The README is the short version; [ONBOARDING.md](ONBOARDING.md) has the full setup flow chart; [INVENTORY.md](INVENTORY.md) says where every part came from.
+> **I'm Monkey Game Developer 🐒** This guide covers everything from installing MonkeyMode to shipping a playtested build. The README is the short version; [ONBOARDING.md](ONBOARDING.md) has the full setup flow chart; [INVENTORY.md](INVENTORY.md) lists what is shared and what is per engine.
 
 ## Contents
 

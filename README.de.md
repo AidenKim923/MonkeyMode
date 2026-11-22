@@ -8,7 +8,7 @@
 
 MonkeyMode ist ein Open-Source-Kit für die Spieleentwicklung mit KI-Coding-Agenten. Es gibt dem Agenten eine erprobte Arbeitsweise: einen Ablauf vom Entwurf bis zum Release (Brief → GDD → Architektur → Stories → Entwicklung → Review → Playtest), Regeln, die ihn seine eigene Arbeit prüfen lassen, statt Erfolg nur zu behaupten, Leitplanken, die die Fehler blockieren, die Agenten in Spielecode immer wieder machen, und Engine-Wissen für **Godot, Unity, Unreal und Bevy**.
 
-Es wurde aus einem echten Unity + Mirror Koop-Spielprojekt herausgelöst und verallgemeinert. Es wird als Claude-Code-Plugin-Marketplace ausgeliefert und funktioniert auch mit Agenten, die `AGENTS.md` lesen (Codex und andere).
+Es wird als Claude-Code-Plugin-Marketplace ausgeliefert und funktioniert auch mit Agenten, die `AGENTS.md` lesen (Codex und andere).
 
 ## Was enthalten ist
 
@@ -32,8 +32,6 @@ Es wurde aus einem echten Unity + Mirror Koop-Spielprojekt herausgelöst und ver
 | Werkzeuge zur Selbstprüfung (Logs, Screenshots, Start mehrerer Instanzen) | Build- und Testbefehle (Unity bringt zusätzlich Skripte mit) |
 | Engine-neutrale Regeln zur Netzwerkautorität und Teststufen | Multiplayer-Hinweise (Mirror/NGO, Replikation, High-Level-Multiplayer, lightyear/renet) |
 | Leitfäden für Asset- und Charakterproduktion | Hinweise zu `.gitignore` / LFS, Asset-Import (Unity) |
-
-Die vollständige Liste, was woher stammt, steht in [`docs/INVENTORY.md`](docs/INVENTORY.md) (auf Englisch).
 
 ## Installation (Claude Code)
 
@@ -89,7 +87,7 @@ Das stellt dieselben Fragen, installiert dieselben Dateien und kopiert die Skill
 
 - [Benutzerhandbuch](docs/GUIDE.md): Installation, das Einrichtungsgespräch, der komplette Ablauf mit Skill und Ergebnisdatei für jeden Schritt, Leitplanken, Bilder, Engine-Hinweise, FAQ (auf Englisch)
 - [Onboarding](docs/ONBOARDING.md): das Ablaufdiagramm der Einrichtung und was jede Antwort ändert (auf Englisch)
-- [Inventar](docs/INVENTORY.md): Herkunft jedes Teils, gemeinsam vs. pro Engine, Tabelle der Skill-Namen (auf Englisch)
+- [Inventar](docs/INVENTORY.md): gemeinsam vs. pro Engine, Tabelle der Skill-Namen (auf Englisch)
 - [Mitwirken](CONTRIBUTING.md): Skills, Engine-Adapter und Leitplanken-Regeln hinzufügen; Tests; PR-Checkliste (auf Englisch)
 
 ## Anpassen

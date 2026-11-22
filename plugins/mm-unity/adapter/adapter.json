@@ -11,7 +11,7 @@
     }
   ],
   "verification": "field-tested",
-  "verificationNote": "Rules, tools and Mirror notes come from a real Unity 6 + Mirror project. Batch-mode tests and builds were run there; multi-client launch was not.",
+  "verificationNote": "Field-tested with Unity 6 + Mirror: batch-mode tests and builds were run; multi-client launch was not.",
   "guardrailProfile": "guardrails/unity.json",
   "extraGuardrails": [
     "guardrails/module-rules.json"
