@@ -1,0 +1,34 @@
+title: "[Show] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🐒 Show your MonkeyMode game! Screenshots, GIFs, a playable link, or a story about how the workflow went. Only share what you have the rights to share.
+  - type: input
+    id: name
+    attributes:
+      label: Game name
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Engine
+      options: [Godot, Unity, Unreal Engine, Bevy, Other]
+  - type: textarea
+    id: about
+    attributes:
+      label: What you made
+      description: Genre, what the agent built, what you are proud of. Drag images or GIFs in here.
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: How MonkeyMode helped
+      description: Which skills you used, what worked, what got in the way.
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      placeholder: "itch.io page, store page, repository or video"

@@ -1,0 +1,35 @@
+name: 🤝 Code of Conduct report
+description: Report behavior that breaks the Code of Conduct
+title: "Code of Conduct report"
+labels: ["conduct"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form follows the [Code of Conduct](https://github.com/<owner>/MonkeyMode/blob/main/CODE_OF_CONDUCT.md#enforcement).
+
+        **Issues are public.** If the report is sensitive (harassment, personal information, anything you do not want others to read), do not describe it here: open a [private security advisory](https://github.com/<owner>/MonkeyMode/security/advisories/new) instead, which only the maintainers can see. You may still open this issue with a one-line note that a private report follows.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Describe the behavior. Do not repeat personal information about anyone.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Link to the issue, pull request, discussion or comment.
+  - type: input
+    id: when
+    attributes:
+      label: When
+      placeholder: "YYYY-MM-DD"
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand this issue is public and it contains nothing sensitive
+          required: true

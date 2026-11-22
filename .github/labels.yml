@@ -1,0 +1,62 @@
+# Labels used by the issue forms, discussion forms and triage.
+# Sync them to GitHub as described in CONTRIBUTING.md ("Labels").
+- name: bug
+  color: d73a4a
+  description: Something does not work as documented
+- name: enhancement
+  color: a2eeef
+  description: New feature or improvement
+- name: skill
+  color: 5319e7
+  description: New or changed mm- skill
+- name: guardrail
+  color: b60205
+  description: Guardrail rule, profile or checker
+- name: engine-adapter
+  color: 0e8a16
+  description: Correction or addition to an engine adapter
+- name: engine:godot
+  color: 478cbf
+  description: Godot adapter (mm-godot)
+- name: engine:unity
+  color: 222222
+  description: Unity adapter (mm-unity)
+- name: engine:unreal
+  color: 0e1128
+  description: Unreal Engine adapter (mm-unreal)
+- name: engine:bevy
+  color: 4a4a55
+  description: Bevy adapter (mm-bevy)
+- name: plugin:core
+  color: fbca04
+  description: mm-core
+- name: plugin:agents
+  color: f9d0c4
+  description: mm-agents
+- name: plugin:art-tools
+  color: c5def5
+  description: mm-art-tools
+- name: docs
+  color: 0075ca
+  description: Documentation
+- name: translation
+  color: 1d76db
+  description: Translated README files
+- name: question
+  color: d876e3
+  description: Question or support request
+- name: conduct
+  color: e99695
+  description: Code of Conduct report
+- name: good first issue
+  color: 7057ff
+  description: Good for newcomers
+- name: help wanted
+  color: 008672
+  description: Extra attention is wanted
+- name: dependencies
+  color: 0366d6
+  description: Dependency updates (Dependabot)
+- name: ci
+  color: ededed
+  description: Continuous integration and tooling

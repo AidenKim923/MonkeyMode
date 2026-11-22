@@ -1,12 +1,35 @@
-name: Bug report
+name: 🐛 Bug report
 description: Something in MonkeyMode does not work as documented
+title: "[Bug]: "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please search [existing issues](https://github.com/<owner>/MonkeyMode/issues) first.
+        Security problems go to a [private security advisory](https://github.com/<owner>/MonkeyMode/security/advisories/new), not here.
   - type: textarea
     id: what
     attributes:
       label: What happened
-      description: What you did, what you expected, what happened instead. Paste error messages as text.
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run /mm-setup in an empty Godot project
+        2. Answer "I can't read code"
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: Plugin
+      options: [mm-core, mm-unity, mm-godot, mm-unreal, mm-bevy, mm-agents, mm-art-tools, not sure]
     validations:
       required: true
   - type: input
@@ -15,27 +38,65 @@ body:
       label: Skill, hook or script
       placeholder: "mm-setup, the guardrail hook, setup_project.py, ..."
   - type: dropdown
-    id: plugin
+    id: engine
     attributes:
-      label: Plugin
-      options: [mm-core, mm-unity, mm-godot, mm-unreal, mm-bevy, mm-agents, mm-art-tools, not sure]
+      label: Engine
+      options: [Godot, Unity, Unreal Engine, Bevy, Other, Not engine-specific]
     validations:
       required: true
+  - type: dropdown
+    id: coding_level
+    attributes:
+      label: Coding level setting
+      options: [I can read code, I can't read code, not set]
+  - type: dropdown
+    id: guardrail_level
+    attributes:
+      label: Guardrail level
+      options: [strict, standard, relaxed, not sure]
   - type: dropdown
     id: agent
     attributes:
       label: Agent
-      options: [Claude Code (plugin), Claude Code (--plugin-dir), Codex, other AGENTS.md agent]
+      options: [Claude Code (marketplace plugin), Claude Code (--plugin-dir), Codex, other AGENTS.md agent]
     validations:
       required: true
   - type: input
-    id: versions
+    id: claude_version
     attributes:
-      label: Versions
-      placeholder: "MonkeyMode 0.1.0, Claude Code 2.1.x, engine and version, OS"
+      label: Claude Code version
+      description: Output of `claude --version`, if you use Claude Code.
+      placeholder: "2.1.271"
+  - type: input
+    id: mm_version
+    attributes:
+      label: MonkeyMode version
+      placeholder: "0.1.0"
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Windows, macOS, Linux, WSL, other]
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error output
+      description: Paste error messages or hook output as text.
+      render: shell
   - type: textarea
     id: config
     attributes:
       label: .monkeymode/config.json
       description: Paste it if the problem is project-specific. Remove anything private first.
       render: json
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: I removed secrets, personal paths and private project details from everything above
+          required: true

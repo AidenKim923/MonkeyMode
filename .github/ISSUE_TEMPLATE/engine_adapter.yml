@@ -1,12 +1,29 @@
-name: Engine adapter correction
+name: 🎮 Engine adapter correction
 description: Something in the Godot, Unity, Unreal or Bevy adapter is wrong, outdated or unverified
+title: "[Adapter]: "
 labels: ["engine-adapter"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are very welcome. Please link the official documentation (or a reproducible test) that shows the correct behavior.
   - type: dropdown
     id: engine
     attributes:
       label: Engine
-      options: [Godot, Unity, Unreal, Bevy, new engine]
+      options: [Godot, Unity, Unreal Engine, Bevy, new engine]
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of correction
+      options:
+        - Wrong statement
+        - Outdated for a newer engine version
+        - Resolves an item marked "needs verification"
+        - Missing rule, command or note
+        - Broken build or test command
     validations:
       required: true
   - type: input
@@ -35,5 +52,5 @@ body:
     attributes:
       label: Verification
       options:
-        - label: This resolves an item marked "needs verification"
         - label: I checked this against the official docs or a reproducible test
+          required: true

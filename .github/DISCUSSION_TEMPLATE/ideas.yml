@@ -1,0 +1,24 @@
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share an idea for MonkeyMode: a skill, a rule, an engine, a better default. Half-formed ideas are welcome; once it is concrete, it can become a feature request or a new-skill issue.
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What would you like an agent to do better when making a game?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Workflow skills, Guardrails, Engine adapters, Persona agents, Art tools, Setup and onboarding, Docs, Other]
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: The game, engine or situation that made you think of it.
