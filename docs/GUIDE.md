@@ -184,7 +184,7 @@ Each adapter installs into `docs/engine/` with the same seven docs: README, proj
 
 | Engine | Highlights | Checked against |
 |---|---|---|
-| **Unity** | No scene-wide `Find*`, `Resources.Load`, `async void`, tween libraries or direct `Debug.Log`; assembly dependency rules (`.asmdef`); batch-mode test and build scripts; Mirror and Netcode for GameObjects notes; asset import checklist | Field-tested in a Unity 6 + Mirror project |
+| **Unity** | No scene-wide `Find*`, `Resources.Load`, `async void`, tween libraries or direct `Debug.Log`; assembly dependency rules (`.asmdef`); batch-mode test and build scripts; Mirror and Netcode for GameObjects notes; asset import checklist | Unity 6 target; needs community verification |
 | **Godot** | Call down, signal up: no `../` or `/root/` node paths, no `find_child` at runtime, no string-name `connect`/`call`/`rpc`; typed GDScript; resources are shared until duplicated; `@rpc("any_peer")` validates the sender; headless import, GUT and gdUnit4 commands | Godot 4.7 docs |
 | **Unreal** | No raw `new`/`delete` of UObjects; `UPROPERTY() TObjectPtr<>` members; no world-wide actor searches or synchronous loads at runtime; per-module log categories; Server RPCs on owned actors with validation; `Automation RunTest` from the command line; LFS and locks for `.uasset`/`.umap` | Unreal Engine 5.9 docs (partly) |
 | **Bevy** | Systems never block; explicit system ordering; simulation in `FixedUpdate`; buffered events are `Message`s since 0.17; logs via `info!`/`warn!`; Clippy `disallowed-methods`; lightyear, bevy_replicon, bevy_renet options | Bevy 0.20 docs |

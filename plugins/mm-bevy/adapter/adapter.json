@@ -12,7 +12,7 @@
     }
   ],
   "verification": "docs-checked",
-  "verificationNote": "Checked against Bevy 0.20 (docs.rs, migration guides) and the networking crates; not field-tested in a MonkeyMode project. Items marked needs verification could not be confirmed.",
+  "verificationNote": "Checked against Bevy 0.20 (docs.rs, migration guides) and the networking crates. Items marked needs verification could not be confirmed.",
   "guardrailProfile": "guardrails/bevy.json",
   "extraGuardrails": [],
   "multiplayerOnlyRules": [

@@ -2,7 +2,7 @@
 
 > Installed by `mm-setup` into `docs/engine/`. The engine-neutral half of the rules is in [`docs/ai/`](../ai/README.md).
 
-**Verification status: checked against the official Godot 4.7 docs** (command line, version control, high-level multiplayer, class reference, dedicated server export) and the GUT and gdUnit4 docs. Items still marked *needs verification* below could not be confirmed there. Not yet field-tested in a MonkeyMode project.
+**Verification status: checked against the official Godot 4.7 docs** (command line, version control, high-level multiplayer, class reference, dedicated server export) and the GUT and gdUnit4 docs. Items still marked *needs verification* below could not be confirmed there.
 
 | Doc | Content |
 |---|---|

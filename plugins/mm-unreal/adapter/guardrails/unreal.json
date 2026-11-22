@@ -1,5 +1,5 @@
 {
-  "description": "MonkeyMode guardrail preset: Unreal Engine 5 C++ under Source/. Comments stay allowed (noComments false) because Unreal turns UPROPERTY/UFUNCTION comments into editor tooltips. Partly checked against the Unreal Engine 5.9 docs. Not field-tested in a MonkeyMode project yet.",
+  "description": "MonkeyMode guardrail preset: Unreal Engine 5 C++ under Source/. Comments stay allowed (noComments false) because Unreal turns UPROPERTY/UFUNCTION comments into editor tooltips. Partly checked against the Unreal Engine 5.9 docs.",
   "engine": "unreal",
   "scopeRoot": "Source",
   "extensions": [

@@ -12,7 +12,7 @@
     }
   ],
   "verification": "docs-checked",
-  "verificationNote": "Checked against the official Godot 4.7 docs and the GUT/gdUnit4 docs; not field-tested in a MonkeyMode project. Items marked needs verification in the docs could not be confirmed.",
+  "verificationNote": "Checked against the official Godot 4.7 docs and the GUT/gdUnit4 docs. Items marked needs verification in the docs could not be confirmed.",
   "guardrailProfile": "guardrails/godot.json",
   "extraGuardrails": [],
   "multiplayerOnlyRules": [

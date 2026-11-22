@@ -2,7 +2,7 @@
 
 > Installed by `mm-setup` into `docs/engine/`. These docs are the Unity half of the rules; the engine-neutral half is in [`docs/ai/`](../ai/README.md).
 
-**Verification status:** field-tested. Tested with Unity 6 (URP) + Mirror: batch-mode tests and builds were run; launching several clients through `Start-Game.ps1` was not exercised end to end. Netcode for GameObjects (NGO) notes are from documentation knowledge and need community verification.
+**Verification status:** targets Unity 6 (URP). The Mirror notes, the batch-mode test/build scripts and launching several clients through `Start-Game.ps1` need community verification. Netcode for GameObjects (NGO) notes are from documentation knowledge and need community verification.
 
 | Doc | Content |
 |---|---|

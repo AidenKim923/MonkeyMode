@@ -71,7 +71,7 @@ Then:
 
 - Add detection to `detect_engine()` and the engine name to `ENGINES` in `plugins/mm-core/skills/mm-setup/scripts/setup_project.py`, and to the choice lists in `mm-setup/SKILL.md` and `docs/ONBOARDING.md`.
 - Add the plugin to `.claude-plugin/marketplace.json`.
-- Say how well it is verified: `adapter.json` `verification` (`field-tested`, `docs-checked`, `partly-docs-checked`), and mark every statement you could not confirm in official docs as *needs verification*.
+- Say how well it is verified: `adapter.json` `verification` (`docs-checked`, `partly-docs-checked`, `needs-verification`), and mark every statement you could not confirm in official docs as *needs verification*.
 - Run a setup into a throwaway project for the new engine (see Tests).
 
 ## Adding guardrail rules

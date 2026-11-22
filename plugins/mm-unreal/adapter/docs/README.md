@@ -2,7 +2,7 @@
 
 > Installed by `mm-setup` into `docs/engine/`. The engine-neutral half of the rules is in [`docs/ai/`](../ai/README.md).
 
-**Verification status: partly checked against the official Unreal Engine 5.9 docs** (RPCs, property replication, object handling, Iris, automation tests, BuildCookRun, UBT target reference, One File Per Actor). Items marked *needs verification* could not be confirmed there. Not yet field-tested in a MonkeyMode project.
+**Verification status: partly checked against the official Unreal Engine 5.9 docs** (RPCs, property replication, object handling, Iris, automation tests, BuildCookRun, UBT target reference, One File Per Actor). Items marked *needs verification* could not be confirmed there.
 
 | Doc | Content |
 |---|---|

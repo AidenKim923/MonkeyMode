@@ -1,5 +1,5 @@
 {
-  "description": "MonkeyMode guardrail preset: Bevy (Rust) under src/. Comments stay allowed (noComments false): Rust doc comments feed rustdoc and Clippy. Pair this with clippy.toml disallowed-methods for symbol-accurate checks (docs/engine/guardrails.md). Checked against Bevy 0.20. Not field-tested in a MonkeyMode project yet.",
+  "description": "MonkeyMode guardrail preset: Bevy (Rust) under src/. Comments stay allowed (noComments false): Rust doc comments feed rustdoc and Clippy. Pair this with clippy.toml disallowed-methods for symbol-accurate checks (docs/engine/guardrails.md). Checked against Bevy 0.20.",
   "engine": "bevy",
   "scopeRoot": "",
   "extensions": [

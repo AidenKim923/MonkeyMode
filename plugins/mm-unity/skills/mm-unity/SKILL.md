@@ -9,7 +9,7 @@ Adapter folder (pass it to `mm-setup` as `--adapter-dir`): `${CLAUDE_PLUGIN_ROOT
 
 If that path was not substituted (an agent without Claude Code plugins), the adapter is the `adapter/` folder next to this plugin's `skills/` folder.
 
-Verification status: field-tested (Unity 6 + Mirror). Read `adapter/adapter.json` for details.
+Verification status: targets Unity 6; Mirror, NGO and the batch-mode scripts need community verification. Read `adapter/adapter.json` for details.
 
 ## In a project that is set up
 

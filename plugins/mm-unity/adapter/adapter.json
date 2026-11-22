@@ -10,8 +10,8 @@
       "file": "ProjectSettings/ProjectVersion.txt"
     }
   ],
-  "verification": "field-tested",
-  "verificationNote": "Field-tested with Unity 6 + Mirror: batch-mode tests and builds were run; multi-client launch was not.",
+  "verification": "needs-verification",
+  "verificationNote": "Targets Unity 6 (URP). The Mirror notes, batch-mode scripts and multi-client launch need community verification; NGO notes are from the Unity docs and need verification too.",
   "guardrailProfile": "guardrails/unity.json",
   "extraGuardrails": [
     "guardrails/module-rules.json"

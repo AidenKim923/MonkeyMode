@@ -36,4 +36,4 @@ body:
       label: Verification
       options:
         - label: This resolves an item marked "needs verification"
-        - label: I tested this in a real project
+        - label: I checked this against the official docs or a reproducible test

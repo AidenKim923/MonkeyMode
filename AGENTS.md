@@ -18,7 +18,7 @@ This file is for agents working **on MonkeyMode itself**. To use MonkeyMode in a
 1. Every plugin must be self-contained: Claude Code installs a plugin folder on its own, so nothing may reference files outside it. Each plugin carries `LICENSE`, `NOTICE`, `THIRD_PARTY_NOTICES.md` and `licenses/`; keep them in sync with the root copies.
 2. Every skill name starts with `mm-`. Upstream project names appear only in `NOTICE`, `THIRD_PARTY_NOTICES.md`, `licenses/`, the README credit (all languages) and the name map in `docs/INVENTORY.md`.
 3. Everything is in English, except the translated `README.<lang>.md` files. No project-specific content: no game names, people, accounts, absolute personal paths, keys or server addresses. Placeholders use `<YourGame>`, `<AssemblyPrefix>` and the like; `setup_project.py` fills them.
-4. Engine-specific content goes in the engine plugin's `adapter/`, never in `plugins/mm-core/template/docs/ai/`. Adapters keep the same shape: README, project-context, architecture-addendum, guardrails, build-and-test, multiplayer, version-control. Mark content not tested in a real project as "needs community verification".
+4. Engine-specific content goes in the engine plugin's `adapter/`, never in `plugins/mm-core/template/docs/ai/`. Adapters keep the same shape: README, project-context, architecture-addendum, guardrails, build-and-test, multiplayer, version-control. Mark content you could not confirm in official docs as "needs community verification".
 5. Guardrail rules need one violating and one passing example run before they ship (`uv run plugins/mm-core/template/tools/guardrails/check.py --root <test project> --all`).
 6. Record every change to adapted upstream files in `THIRD_PARTY_NOTICES.md`.
 
