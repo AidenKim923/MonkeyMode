@@ -11,8 +11,8 @@
       "contains": "bevy"
     }
   ],
-  "verification": "needs-community-verification",
-  "verificationNote": "Written for recent Bevy releases (0.14-0.16 era APIs) from documentation knowledge; Bevy changes quickly. Not field-tested in a MonkeyMode project yet.",
+  "verification": "docs-checked",
+  "verificationNote": "Checked against Bevy 0.20 (docs.rs, migration guides) and the networking crates; not field-tested in a MonkeyMode project. Items marked needs verification could not be confirmed.",
   "guardrailProfile": "guardrails/bevy.json",
   "extraGuardrails": [],
   "multiplayerOnlyRules": [

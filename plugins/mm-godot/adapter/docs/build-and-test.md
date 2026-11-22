@@ -1,17 +1,17 @@
 # Build and test: Godot
 
-> Command-line reference for agents. Needs community verification. Replace `godot` with your editor binary (for example `godot4`, `Godot_v4.x-stable_win64_console.exe`; on Windows use the `_console` build to see output). Set it once in `project-context.md`.
+> Command-line reference for agents, checked against the Godot 4.7 command-line docs and the GUT and gdUnit4 docs. Replace `godot` with your editor binary (for example `godot4`, `Godot_v4.x-stable_win64_console.exe`; on Windows use the `_console` build to see output). Set it once in `project-context.md`.
 
 ## Commands
 
 | Goal | Command | Pass signal |
 |---|---|---|
 | Guardrails | `uv run tools/guardrails/check.py --all` | exit 0 |
-| Import and parse everything headless (catches script errors) | `godot --headless --path . --import` (Godot 4.2+; on older versions `--editor --quit`) | exit 0 and no `SCRIPT ERROR` / `Parse Error` lines in output |
-| GUT tests | `godot --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests -gexit` | exit 0 |
-| gdUnit4 tests | `godot --headless --path . -s res://addons/gdUnit4/bin/GdUnitCmdTool.gd --add res://tests --ignoreHeadlessMode` (or the `runtest` wrapper script shipped with gdUnit4) | exit 0 |
-| Export a build | `godot --headless --path . --export-release "<preset name>" build/<YourGame>.exe` | exit 0, file exists |
-| Run a scene for N seconds | `godot --path . res://scenes/test/test_scene.tscn --quit-after <frames>` | log contains the expected lines |
+| Import and parse everything headless (catches script errors) | `godot --headless --path . --import` ("waits for any resources to be imported, and then quits"; if your version lacks it, `--editor --quit`) | exit 0 and no `SCRIPT ERROR` / `Parse Error` lines in output |
+| GUT tests (GUT 9.x for Godot 4) | `godot --headless --path . -s addons/gut/gut_cmdln.gd -gdir=res://tests -gexit` | exit 0 (1 on failures) |
+| gdUnit4 tests | set `GODOT_BIN` to the editor binary, then `addons/gdUnit4/runtest.sh -a res://tests` (Linux/macOS) or `addons\gdUnit4\runtest.cmd -a res://tests` (Windows) | exit 0 (100 failures, 101 warnings) |
+| Export a build | `godot --headless --path . --export-release "<preset name>" build/<YourGame>.exe` (`--export-debug` for a debug template; the output folder must exist) | exit 0, file exists |
+| Run a scene for N frames | `godot --path . res://scenes/test/test_scene.tscn --quit-after <frames>` (iterations, not seconds) | log contains the expected lines |
 
 Export needs export templates installed and a preset in `export_presets.cfg`.
 
@@ -22,7 +22,7 @@ Export needs export templates installed and a preset in `export_presets.cfg`.
 
 ## Multi-instance runs
 
-The editor can launch several instances (Debug → Customize Run Instances, Godot 4.3+), each with its own arguments such as `--server` / `--client`. For builds, `pwsh tools/Start-Game.ps1 -Exe <exe> -Instances <n> -HostArgs "--host" -ClientArgs "--join 127.0.0.1"` once the game parses those arguments (`OS.get_cmdline_user_args()` reads arguments after `--`).
+The editor can launch several instances with their own arguments (Debug → Customize Run Instances; *needs verification* of the exact menu and the version that added it). For builds, `pwsh tools/Start-Game.ps1 -Exe <exe> -Instances <n> -HostArgs "--host" -ClientArgs "--join 127.0.0.1"` once the game parses those arguments (`OS.get_cmdline_user_args()` reads arguments after `--`).
 
 ## Typical failures
 

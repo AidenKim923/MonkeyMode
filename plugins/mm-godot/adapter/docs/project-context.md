@@ -30,4 +30,4 @@ res://
 ## Naming (Godot style guide)
 
 - Files and folders `snake_case`; node names `PascalCase`; `class_name` `PascalCase`; signals past tense (`health_changed`).
-- Static typing on: `var speed: float = 4.0`, typed function signatures. Turn on the `untyped_declaration` warning (Project Settings → Debug → GDScript) as an extra guardrail.
+- Static typing on: `var speed: float = 4.0`, typed function signatures. Raise the untyped-declaration warning to an error under Project Settings → Debug → GDScript (setting name `untyped_declaration` in recent 4.x; *needs verification* for your version) as an extra guardrail.

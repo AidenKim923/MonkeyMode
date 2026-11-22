@@ -2,7 +2,7 @@
 
 > Installed by `mm-setup` into `docs/engine/`. The engine-neutral half of the rules is in [`docs/ai/`](../ai/README.md).
 
-**Verification status: needs community verification.** Written from Bevy documentation knowledge (APIs of the 0.14-0.16 era). Bevy breaks APIs between minor releases: check every name against the version in your `Cargo.toml` and the official migration guides.
+**Verification status: checked against Bevy 0.20** (docs.rs and the 0.17 and 0.20 migration guides) and the docs of lightyear, bevy_replicon, bevy_renet and bevy_matchbox. Bevy breaks APIs between minor releases: check names against the version in your `Cargo.toml` and the official migration guides. Items marked *needs verification* could not be confirmed. Not yet field-tested in a MonkeyMode project.
 
 | Doc | Content |
 |---|---|

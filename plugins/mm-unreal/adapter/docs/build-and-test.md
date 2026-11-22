@@ -1,20 +1,20 @@
 # Build and test: Unreal Engine
 
-> Command lines for agents. Needs community verification. `UE_ROOT` is the engine folder (the one containing `Engine/`); `<Project>` is the path to `<YourGame>.uproject`. Windows paths shown; on Linux/macOS use `.sh` and the platform's binaries.
+> Command lines for agents, partly checked against the Unreal Engine 5.9 docs (items marked *needs verification* were not). `UE_ROOT` is the engine folder (the one containing `Engine/`); `<Project>` is the path to `<YourGame>.uproject`. Windows paths shown; on Linux/macOS use `.sh` and the platform's binaries.
 
 ## Commands
 
 | Goal | Command | Pass signal |
 |---|---|---|
 | Guardrails | `uv run tools/guardrails/check.py --all` | exit 0 |
-| Build editor target (compile check) | `"%UE_ROOT%/Engine/Build/BatchFiles/Build.bat" <YourGame>Editor Win64 Development -Project="<Project>" -WaitMutex` | exit 0 |
-| Run automation tests headless | `"%UE_ROOT%/Engine/Binaries/Win64/UnrealEditor-Cmd.exe" "<Project>" -ExecCmds="Automation RunTests <YourGame>.;Quit" -unattended -nullrhi -nosplash -nop4 -log -ReportExportPath="<abs path>/.agent-output/test-results"` | exit 0 and the report shows no failures |
-| Package a build | `"%UE_ROOT%/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun -project="<Project>" -platform=Win64 -clientconfig=Development -build -cook -stage -pak -archive -archivedirectory="<abs path>/.agent-output/builds"` | exit 0, archive exists |
-| Dedicated server build | add `-server -serverplatform=Win64 -noclient` (needs a `<YourGame>Server.Target.cs`) | exit 0 |
+| Build editor target (compile check) | `"%UE_ROOT%/Engine/Build/BatchFiles/Build.bat" <YourGame>Editor Win64 Development -Project="<Project>" -WaitMutex` (*needs verification*: widely used, not found in the docs read) | exit 0 |
+| Run automation tests headless | `"%UE_ROOT%/Engine/Binaries/Win64/UnrealEditor-Cmd.exe" "<Project>" -ExecCmds="Automation RunTest <YourGame>;Quit" -unattended -nullrhi -nosplash -log -ReportExportPath="<abs path>/.agent-output/test-results"` (several filters: `RunTest A+B`) | exit 0 and the report shows no failures |
+| Package a build | `"%UE_ROOT%/Engine/Build/BatchFiles/RunUAT.bat" BuildCookRun -project="<Project>" -clientconfig=Development -platform=Win64 -build -cook -stage -pak -archive -archivedirectory="<abs path>/.agent-output/builds"` (`-project` and `-clientconfig` are documented; the stage flags *need verification*) | exit 0, archive exists |
+| Dedicated server build | add `-server -serverplatform=Win64 -noclient` (needs a `<YourGame>Server.Target.cs`; *needs verification*) | exit 0 |
 
 ## Tests
 
-- **Automation tests** (`IMPLEMENT_SIMPLE_AUTOMATION_TEST`, or the newer `TEST_CLASS` / Low Level Tests) under `Source/<Module>/Private/Tests/`. Name them `<YourGame>.<Module>.<Behavior>` so `RunTests <YourGame>.<Module>` selects the affected module.
+- **Automation tests** (`IMPLEMENT_SIMPLE_AUTOMATION_TEST`, or the newer `TEST_CLASS` / Low Level Tests) under `Source/<Module>/Private/Tests/`. Name them `<YourGame>.<Module>.<Behavior>` so `Automation RunTest <YourGame>.<Module>` selects the affected module.
 - **Functional tests** (`AFunctionalTest` actors in test maps) for in-world behavior.
 - **Gauntlet** drives multi-process sessions (server + clients) for M2/M3-style checks.
 

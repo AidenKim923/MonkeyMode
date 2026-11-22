@@ -11,8 +11,8 @@
       "glob": "*.uproject"
     }
   ],
-  "verification": "needs-community-verification",
-  "verificationNote": "Written for Unreal Engine 5.x from documentation knowledge; not field-tested in a MonkeyMode project yet.",
+  "verification": "partly-docs-checked",
+  "verificationNote": "RPCs, replication, object handling, Iris status, automation command, BuildCookRun basics and TargetRules checked against the Unreal Engine 5.9 docs; build-script flags, network emulation names and Git LFS editor integration still need verification. Not field-tested in a MonkeyMode project.",
   "guardrailProfile": "guardrails/unreal.json",
   "extraGuardrails": [],
   "multiplayerOnlyRules": [

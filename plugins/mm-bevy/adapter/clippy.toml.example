@@ -3,6 +3,7 @@ disallowed-methods = [
     { path = "std::thread::spawn", reason = "escapes Bevy scheduling; use AsyncComputeTaskPool or IoTaskPool" },
     { path = "futures_lite::future::block_on", reason = "blocks a scheduler thread; poll the Task in a system" },
     { path = "pollster::block_on", reason = "blocks a scheduler thread; poll the Task in a system" },
+    { path = "bevy::tasks::block_on", reason = "blocks a scheduler thread; poll the Task with check_ready" },
 ]
 disallowed-macros = [
     { path = "std::println", reason = "use bevy info!/warn!/error! with a target" },

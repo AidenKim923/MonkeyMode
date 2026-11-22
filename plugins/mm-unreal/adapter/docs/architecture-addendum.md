@@ -1,6 +1,6 @@
 # Architecture addendum: Unreal Engine
 
-> Read by `mm-game-architecture`. Needs community verification.
+> Read by `mm-game-architecture`. Gameplay framework and object rules partly checked against the Unreal Engine 5.9 docs.
 
 ## Gameplay framework
 

@@ -1,6 +1,13 @@
-# Godot (added by MonkeyMode mm-setup)
+# Godot (added by MonkeyMode mm-setup; follows github/gitignore Godot.gitignore)
 .godot/
-.mono/
-export/
-build/
+.nomedia
+.import/
+export.cfg
+export_credentials.cfg
 *.tmp
+*.translation
+.mono/
+data_*/
+mono_crash.*.json
+~*.dll
+build/

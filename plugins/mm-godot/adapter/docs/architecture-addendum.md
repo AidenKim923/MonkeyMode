@@ -1,13 +1,13 @@
 # Architecture addendum: Godot
 
-> Read by `mm-game-architecture`. Needs community verification.
+> Read by `mm-game-architecture`. Checked against the Godot 4.7 docs.
 
 ## Scripting model
 
 - A game is a tree of **nodes**; reusable pieces are **scenes** (`.tscn`) instanced into other scenes. One script per node, typed GDScript (or C#).
 - **Call down, signal up.** A parent may call methods on its children; children never reach up. They emit signals and the parent (or whoever instanced them) connects.
 - **Autoloads** are global singletons. Keep them few: logger, event bus, session/network manager, save service. Game state that belongs to a level does not go in an autoload.
-- **Resources** (`.tres`, custom `Resource` classes with `@export` fields) hold data and tuning values. Note that a resource loaded from disk is shared between users unless duplicated (`resource_local_to_scene` or `.duplicate()`); mutating a shared resource at runtime changes it for everyone.
+- **Resources** (`.tres`, custom `Resource` classes with `@export` fields) hold data and tuning values. A resource loaded from disk is cached and shared: later loads of the same path return the same instance. Mutating it at runtime changes it for everyone unless it was duplicated (`resource_local_to_scene` duplicates it per scene instance; `duplicate()` is shallow by default, so nested resources stay shared unless you duplicate deep).
 - Groups (`add_to_group`) for loose collections ("enemies", "interactables"); prefer typed exports for specific references.
 
 ## Module boundaries
@@ -26,7 +26,7 @@ Godot has no assembly system for GDScript. Keep boundaries by folder and by conv
 
 ## Threads
 
-Scene tree access is main-thread only. Use `WorkerThreadPool` for pure computation and return results with `call_deferred` on a method reference.
+Scene tree access is main-thread only. Use `WorkerThreadPool` (`add_task`, then `wait_for_task_completion`: every task must be waited for) for pure computation and hand results back with `call_deferred` on a method reference.
 
 ## Physics in networked games
 

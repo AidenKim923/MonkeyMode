@@ -9,7 +9,7 @@ Adapter folder (pass it to `mm-setup` as `--adapter-dir`): `${CLAUDE_PLUGIN_ROOT
 
 If that path was not substituted (an agent without Claude Code plugins), the adapter is the `adapter/` folder next to this plugin's `skills/` folder.
 
-Verification status: needs community verification. Read `adapter/adapter.json` for details.
+Verification status: checked against the official Godot 4.7 docs; not field-tested in a project yet. Open items are marked *needs verification* in the adapter docs. Read `adapter/adapter.json` for details.
 
 ## In a project that is set up
 

@@ -4,7 +4,7 @@
 
 | Item | Value |
 |---|---|
-| Bevy version | `<0.x>` (from `Cargo.toml`) |
+| Bevy version | `<0.x>` (from `Cargo.toml`; these docs were checked against 0.20) |
 | Rust toolchain | `<stable 1.xx>` (pin with `rust-toolchain.toml`) |
 | Workspace crates | `<game>`, `<game_core>`, `<game_net>`, ... |
 | Key third-party crates | `<physics: avian / rapier>`, `<input: leafwing-input-manager>`, `<ui>`, `<networking>` (check each against your Bevy version) |

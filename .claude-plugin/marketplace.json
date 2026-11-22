@@ -33,7 +33,7 @@
     {
       "name": "mm-godot",
       "source": "./plugins/mm-godot",
-      "description": "Godot 4 adapter for MonkeyMode: GDScript node path and signal rules, headless test commands, high-level multiplayer notes. Needs community verification.",
+      "description": "Godot 4 adapter for MonkeyMode: GDScript node path and signal rules, headless test commands, high-level multiplayer notes. Checked against the Godot 4.7 docs.",
       "version": "0.1.0",
       "category": "game-development",
       "tags": [
@@ -44,7 +44,7 @@
     {
       "name": "mm-unreal",
       "source": "./plugins/mm-unreal",
-      "description": "Unreal Engine 5 adapter for MonkeyMode: UObject/GC rules, banned C++ patterns, UBT/automation test commands, replication notes. Needs community verification.",
+      "description": "Unreal Engine 5 adapter for MonkeyMode: UObject/GC rules, banned C++ patterns, UBT/automation test commands, replication notes. Partly checked against the Unreal Engine 5.9 docs.",
       "version": "0.1.0",
       "category": "game-development",
       "tags": [
@@ -56,7 +56,7 @@
     {
       "name": "mm-bevy",
       "source": "./plugins/mm-bevy",
-      "description": "Bevy adapter for MonkeyMode: no blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes. Needs community verification.",
+      "description": "Bevy adapter for MonkeyMode: no blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes. Checked against Bevy 0.20.",
       "version": "0.1.0",
       "category": "game-development",
       "tags": [

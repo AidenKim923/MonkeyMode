@@ -1,6 +1,6 @@
 # Build and test: Bevy
 
-> Needs community verification. All commands run from the workspace root.
+> Checked against Bevy 0.20 where Bevy APIs are involved. All commands run from the workspace root.
 
 ## Commands
 
@@ -25,11 +25,11 @@ let mut app = App::new();
 app.add_plugins(MinimalPlugins).add_plugins(MyGameplayPlugin);
 app.world_mut().spawn(Player::default());
 app.update();
-let count = app.world_mut().query::<&Player>().iter(app.world()).count();
-assert_eq!(count, 1);
+let mut players = app.world_mut().query::<&Player>();
+assert_eq!(players.iter(app.world()).count(), 1);
 ```
 
-Use `TimePlugin`/`Time::<Fixed>` manipulation or `app.world_mut().run_schedule(FixedUpdate)` to step fixed-timestep systems deterministically. Names differ between Bevy versions; check yours.
+`MinimalPlugins` does not include states: add `StatesPlugin` when your plugins use `States`. Step fixed-timestep systems deterministically with `app.world_mut().run_schedule(FixedUpdate)` (*needs verification* on your version). Names differ between Bevy versions; check yours.
 
 ## Running several instances
 
@@ -37,7 +37,7 @@ Build once, then `pwsh tools/Start-Game.ps1 -Exe target/release/<game>.exe -Inst
 
 ## Reading results
 
-Set `RUST_LOG=info,<game>=debug` and write logs per instance (`bevy::log::LogPlugin` with a custom layer, or redirect stdout) under `logs/{date}/`. Summarize with `pwsh tools/Read-LogErrors.ps1 -LogPath <log>`; panics show as `panicked at`.
+Set `RUST_LOG=info,<game>=debug` (Bevy's `LogPlugin` builds an `EnvFilter`; *needs verification* that your version reads `RUST_LOG`) and write logs per instance (`bevy::log::LogPlugin` with a custom layer, or redirect stdout) under `logs/{date}/`. Summarize with `pwsh tools/Read-LogErrors.ps1 -LogPath <log>`; panics show as `panicked at`.
 
 ## Typical failures
 

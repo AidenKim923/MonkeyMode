@@ -1,6 +1,6 @@
 ## Engine: Godot
 
-Engine rules live in [`docs/engine/`](docs/engine/README.md) (adapter status: needs community verification). The short version:
+Engine rules live in [`docs/engine/`](docs/engine/README.md) (checked against the Godot 4.7 docs). The short version:
 
 - Call down, signal up. No `../` or `/root/` node paths, no `find_child` lookups at runtime, no string-name `connect`/`call`/`rpc`. Use typed exports, `%UniqueName`, groups and Signal/Callable objects.
 - Typed GDScript; tuning values live in `Resource` files, not code. Duplicate shared resources before mutating them.

@@ -1,5 +1,5 @@
 {
-  "description": "MonkeyMode guardrail preset: Godot 4 (GDScript; C# files are covered by the Unity-style C# rules only if you add them). Applies to scripts under scopeRoot. GDScript uses # comments, which the comment detector does not see, so noComments stays false. Needs community verification: written from engine documentation knowledge, not field-tested in a MonkeyMode project yet.",
+  "description": "MonkeyMode guardrail preset: Godot 4 (GDScript; C# files are covered by the Unity-style C# rules only if you add them). Applies to scripts under scopeRoot. GDScript uses # comments, which the comment detector does not see, so noComments stays false. Checked against the Godot 4.7 docs. Not field-tested in a MonkeyMode project yet.",
   "engine": "godot",
   "scopeRoot": "",
   "extensions": [

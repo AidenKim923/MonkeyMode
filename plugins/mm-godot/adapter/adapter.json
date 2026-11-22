@@ -11,8 +11,8 @@
       "file": "project.godot"
     }
   ],
-  "verification": "needs-community-verification",
-  "verificationNote": "Written for Godot 4.x from documentation knowledge; not field-tested in a MonkeyMode project yet.",
+  "verification": "docs-checked",
+  "verificationNote": "Checked against the official Godot 4.7 docs and the GUT/gdUnit4 docs; not field-tested in a MonkeyMode project. Items marked needs verification in the docs could not be confirmed.",
   "guardrailProfile": "guardrails/godot.json",
   "extraGuardrails": [],
   "multiplayerOnlyRules": [

@@ -1,10 +1,11 @@
 # Architecture addendum: Bevy
 
-> Read by `mm-game-architecture`. Needs community verification; check names against your Bevy version.
+> Read by `mm-game-architecture`. Checked against Bevy 0.20; check names against your Bevy version.
 
 ## ECS model
 
-- **Entities** are IDs, **components** are plain data (`#[derive(Component)]`), **systems** are functions whose parameters (`Query`, `Res`, `ResMut`, `Commands`, `EventReader/Writer`) declare their data access. **Resources** are singletons.
+- **Entities** are IDs, **components** are plain data (`#[derive(Component)]`), **systems** are functions whose parameters (`Query`, `Res`, `ResMut`, `Commands`, `MessageReader`/`MessageWriter`) declare their data access. **Resources** are singletons.
+- Since Bevy 0.17, buffered events are **messages** (`#[derive(Message)]`, `app.add_message::<T>()`, `MessageReader`, `MessageWriter`); `Event` now means observer events, handled by observers taking `On<E>`. Older tutorials use `EventReader`/`EventWriter`/`add_event`.
 - Each feature is a **Plugin** that registers its components, resources, events and systems. `main.rs` only adds plugins.
 - Tuning values live in resources or assets (RON/TOML loaded through the `AssetServer`), not in code constants.
 
@@ -17,15 +18,15 @@
 
 ## Data-access conflicts
 
-Two `Query`s in one system that can both access the same component mutably panic at startup. Use `Without<T>` filters, a `ParamSet`, or split the system.
+Two `Query`s in one system that can both access the same component mutably panic when the system is initialized (app startup). Use `With`/`Without<T>` filters that make them disjoint, a `ParamSet` (`p0()`, `p1()`), or split the system.
 
 ## Async and blocking
 
-Systems must never block. File, network or heavy work goes to `IoTaskPool` / `AsyncComputeTaskPool`; store the `Task` in a component and poll it each frame. Never `block_on` inside the app.
+Systems must never block. File, network or heavy work goes to `IoTaskPool` / `AsyncComputeTaskPool`; store the `Task` in a component and poll it each frame with `bevy::tasks::futures::check_ready` (or `poll_once`). Never `block_on` inside the app.
 
 ## Module boundaries
 
-Crates in a workspace give compiler-enforced boundaries. Keep rendering out of the core crate so headless tests and a dedicated server can build without it. UI communicates through events and read-only queries.
+Crates in a workspace give compiler-enforced boundaries. Keep rendering out of the core crate so headless tests and a dedicated server can build without it. UI communicates through messages and read-only queries.
 
 ## Physics in networked games
 

@@ -1,6 +1,6 @@
 ## Engine: Unreal Engine
 
-Engine rules live in [`docs/engine/`](docs/engine/README.md) (adapter status: needs community verification). The short version:
+Engine rules live in [`docs/engine/`](docs/engine/README.md) (partly checked against the Unreal Engine 5.9 docs). The short version:
 
 - UObjects are garbage-collected: no raw `new`/`delete`; members are `UPROPERTY() TObjectPtr<>`; non-owning references are `TWeakObjectPtr` checked with `IsValid()`.
 - Server authority: rules in GameMode, shared state in replicated properties on GameState/PlayerState/actors, client requests via `Server` RPCs on owned actors with validation. Multicast RPCs are for effects only.

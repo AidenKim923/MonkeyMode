@@ -14,9 +14,9 @@ It was extracted from a real Unity + Mirror co-op project and generalized. It sh
 |---|---|
 | **`mm-core`** (required) | 42 `mm-` workflow skills (game brief, GDD, narrative, UX, architecture, epics and stories, dev story, code review, sprint planning and status, playtest plan, performance and test design, retrospective, research, quick dev, review, help, ...), `mm-setup` onboarding, agent operating docs (`docs/ai/`: execution policy, verification playbook, network authority, handoff, pre-commit procedure, guardrails, ...), the guardrail checker with an after-edit hook, a secrets/personal-path profile, a concept gallery and decision page |
 | **`mm-unity`** | C# banned APIs, assembly direction rules, batch-mode test/build scripts, Mirror and Netcode notes, asset import checklist. *Field-tested* |
-| **`mm-godot`** | GDScript node path and signal rules, headless test commands, high-level multiplayer notes. *Needs community verification* |
-| **`mm-unreal`** | UObject/GC rules, banned C++ patterns, UBT and automation-test commands, replication notes. *Needs community verification* |
-| **`mm-bevy`** | No blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes. *Needs community verification* |
+| **`mm-godot`** | GDScript node path and signal rules, headless test commands, high-level multiplayer notes. *Checked against the Godot 4.7 docs* |
+| **`mm-unreal`** | UObject/GC rules, banned C++ patterns, UBT and automation-test commands, replication notes. *Partly checked against the Unreal Engine 5.9 docs* |
+| **`mm-bevy`** | No blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes. *Checked against Bevy 0.20* |
 | `mm-agents` (optional) | Persona agents (game designer, architect, developer, solo dev, tech writer, analyst, PM, UX designer) and party mode |
 | `mm-art-tools` (optional) | `mm-concept-art` (ChatGPT prompts, Codex CLI, or alternatives) and CLI harnesses for Blender, RenderDoc, Nsight Graphics |
 
@@ -103,4 +103,4 @@ The last command starts Claude Code with the plugins loaded for one session, wit
 
 MonkeyMode is MIT-licensed ([LICENSE](LICENSE)). Its workflow skills are based on [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) and the BMad Game Dev Studio module (MIT), and the graphics-tool skills on [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode is independent and not endorsed by their authors. Details and every modification: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Corrections to the Godot, Unreal and Bevy adapters are especially welcome: they are written from documentation knowledge and marked as needing community verification.
+Corrections to the Godot, Unreal and Bevy adapters are especially welcome: they were checked against the official docs but not yet used in a real project, and the items still open are marked *needs verification* in each adapter.

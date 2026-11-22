@@ -1,6 +1,6 @@
 # Version control: Bevy
 
-`mm-setup` appends the adapter's `gitignore` and `gitattributes` lines to your project. Needs community verification.
+`mm-setup` appends the adapter's `gitignore` and `gitattributes` lines to your project.
 
 ## Ignore
 
