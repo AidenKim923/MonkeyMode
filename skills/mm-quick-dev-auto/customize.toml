@@ -1,0 +1,127 @@
+# MonkeyMode defaults. Override per project in _mm/custom/mm-quick-dev-auto.toml.
+#
+# Default customization values for mm-quick-dev-auto.
+# Override in _mm/custom/mm-quick-dev-auto.toml or
+# _mm/custom/mm-quick-dev-auto.user.toml.
+#
+# Merge rules:
+# - Strings replace the default.
+# - Lists append to the default list.
+# - Tables merge key by key.
+# - Arrays of tables merge by `id`: matching `id` replaces, new `id`s append.
+
+[workflow]
+
+# Extra instructions to run before config is loaded.
+
+activation_steps_prepend = []
+
+# Extra instructions to run after config is loaded and before step 01.
+
+activation_steps_append = []
+
+# Facts kept in context for the whole run.
+# Entries are literal text or file references prefixed with "file:".
+# File entries may use globs and are loaded during activation.
+
+persistent_facts = [
+  "MonkeyMode project rules in {project-root}/AGENTS.md and {project-root}/docs/ai/ take precedence over this skill wherever they conflict.",
+  "A claim is only as good as its evidence: tool output, a test result, a log, or a file. Mark anything you could not check as `unverified` (docs/ai/03_VERIFICATION_PLAYBOOK.md).",
+  "Items listed under 'Undecided' in AGENTS.md are the user's design decisions. Present options with their impact; never settle them silently.",
+  "Before reporting done, run the pre-commit procedure in docs/ai/09_PRE_COMMIT_PROCEDURE.md in order: read the diff, trace impact, run selective regression first (add tests where coverage is thin), then the self-fix loop. Stop after the same failure repeats 3 times or after 5 fix attempts in total, and report.",
+  "Never bypass a guardrail: no editing rules in guardrails/, no allowlist entries, no --no-verify. Fix the root cause the message points to; if the rule itself looks wrong, stop and ask.",
+  "Finish with the four-part completion report in docs/ai/06_RESPONSE_STYLE_GUIDE.md: changes, impact, verification, follow-ups and guardrail proposals.",
+  "Commit or push only when the user explicitly asks.",
+]
+
+# Instruction run by HALT after writing the terminal result.
+# Empty means no extra terminal behavior.
+
+on_complete = ""
+
+# Handoff for the implementation subagent in step 03. The whole execution
+# recipe — a subagent by default, but an override may run it any other way
+# (a different model, an external coding tool via bash). {spec_file} is
+# substituted at run time.
+
+implementation_handoff = """
+Launch a subagent with no prior conversation context, with this prompt:
+
+> Read {spec_file} fully and implement it — the spec is the sole source of truth. Load every file listed in its frontmatter `context:` before you start.
+>
+> When done, report what you changed, how you verified it, and anything left incomplete or risky.
+"""
+
+# Review layers for the review step. `instruction` is the layer's whole
+# execution recipe — subagents by default, but an override may run anything
+# (e.g. an external reviewer via bash). {diff_file} and {claims_file} are
+# substituted at run time; both are paths, and {diff_file} is the unified diff
+# file the layer reads. `when` (optional) gates a layer; empty `instruction`
+# disables it.
+
+[[workflow.review_layers]]
+id = "blind-hunter"
+name = "Blind Hunter"
+instruction = """
+Launch a context-free subagent with this prompt:
+
+Conduct a review of CONTENT.
+Look for what's missing, not only what's wrong.
+Compute your finding floor N from the diff file's size: N = min(floor(sqrt(kB) + 1), 10), where kB is the file's size in kilobytes. State the arithmetic in one line, then find at least N issues to fix or improve.
+Output a Markdown list of findings only — no severity, priority, or ranking.
+If the content is empty, stop and say so.
+If you have zero findings, re-check and keep thinking; do not stop with an empty list.
+
+CONTENT: the unified diff at `{diff_file}`. Read that file — it is the content under review.
+
+Do not invoke any skill, and do not spawn subagents of your own — you are the reviewer. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.
+
+"""
+
+[[workflow.review_layers]]
+id = "edge-case-hunter"
+name = "Edge Case Hunter"
+instruction = """
+Launch a context-free subagent with this prompt:
+
+Read `{skill-root}/review-prompts/edge-case-hunter.md` completely and follow it as your review instructions.
+
+claims_file (leave unread until your instructions call for it): {claims_file}
+
+Review content: the unified diff at `{diff_file}`. Read that file — it is the content under review.
+
+Do not invoke any skill, and do not spawn subagents of your own — you are the reviewer. If the instruction file is unreadable, report that exact failure and stop. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.
+
+"""
+
+[[workflow.review_layers]]
+id = "verification-gap"
+name = "Verification Gap Reviewer"
+instruction = """
+Launch a context-free subagent with this prompt:
+
+Read `{skill-root}/review-prompts/verification-gap.md` completely and follow it as your review instructions.
+
+Review content: the unified diff at `{diff_file}`. Read that file — it is the content under review.
+
+Do not invoke any skill, and do not spawn subagents of your own — you are the reviewer. If the instruction file is unreadable, report that exact failure and stop. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.
+
+"""
+
+[[workflow.review_layers]]
+id = "intent-alignment"
+name = "Intent Alignment Auditor"
+instruction = """
+Launch a subagent with this prompt:
+
+You are an intent-alignment auditor. You have no other context about how this change was produced. Here is the verbatim intent this work started from:
+
+{verbatim_intent}
+
+The diff is the unified diff at `{diff_file}`. Read that file — it is the change under review.
+
+Your task is strictly descriptive — do not prescribe additional work. Report: (1) the defensible readings of the intent, enumerated; (2) which reading this diff implements; (3) where the readings and the diff diverge — specifically, which surface the intent's expectations live at versus which surface the diff's changes and its tests exercise.
+
+Do not invoke any skill, and do not spawn subagents of your own — you are the reviewer. Return your findings as text in your final message; do not route them through any findings-reporting tool the host may offer.
+
+"""

@@ -1,0 +1,47 @@
+# MonkeyMode defaults. Override per project in _mm/custom/mm-quick-dev.toml.
+#
+# Workflow customization surface for mm-quick-dev. Mirrors the
+# agent customization shape under the [workflow] namespace.
+
+[workflow]
+
+# --- Configurable below. Overrides merge per MonkeyMode structural rules: ---
+#   scalars: override wins • arrays (persistent_facts, activation_steps_*): append
+#   arrays-of-tables with `code`/`id`: replace matching items, append new ones.
+
+# Steps to run before the standard activation (config load, greet).
+# Overrides append. Use for pre-flight loads, compliance checks, etc.
+
+activation_steps_prepend = []
+
+# Steps to run after greet but before the workflow begins.
+# Overrides append. Use for context-heavy setup that should happen
+# once the user has been acknowledged.
+
+activation_steps_append = []
+
+# Persistent facts the workflow keeps in mind for the whole run
+# (standards, compliance constraints, stylistic guardrails).
+# Distinct from the runtime memory sidecar — these are static context
+# loaded on activation. Overrides append.
+#
+# Each entry is either:
+#   - a literal sentence, e.g. "Quick dev work must follow the project's existing architecture and conventions, not invent new ones."
+#   - a file reference prefixed with `file:`, e.g. "file:{project-root}/docs/standards.md"
+#     (glob patterns are supported; the file's contents are loaded and treated as facts).
+
+persistent_facts = [
+  "MonkeyMode project rules in {project-root}/AGENTS.md and {project-root}/docs/ai/ take precedence over this skill wherever they conflict.",
+  "A claim is only as good as its evidence: tool output, a test result, a log, or a file. Mark anything you could not check as `unverified` (docs/ai/03_VERIFICATION_PLAYBOOK.md).",
+  "Items listed under 'Undecided' in AGENTS.md are the user's design decisions. Present options with their impact; never settle them silently.",
+  "Before reporting done, run the pre-commit procedure in docs/ai/09_PRE_COMMIT_PROCEDURE.md in order: read the diff, trace impact, run selective regression first (add tests where coverage is thin), then the self-fix loop. Stop after the same failure repeats 3 times or after 5 fix attempts in total, and report.",
+  "Never bypass a guardrail: no editing rules in guardrails/, no allowlist entries, no --no-verify. Fix the root cause the message points to; if the rule itself looks wrong, stop and ask.",
+  "Finish with the four-part completion report in docs/ai/06_RESPONSE_STYLE_GUIDE.md: changes, impact, verification, follow-ups and guardrail proposals.",
+  "Commit or push only when the user explicitly asks.",
+]
+
+# Scalar: executed when the workflow reaches step-05-present.md (final present/review
+# step), after the artifact is produced and reviewed. Override wins.
+# Leave empty for no custom post-completion behavior.
+
+on_complete = ""
