@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        This form follows the [Code of Conduct](https://github.com/<owner>/MonkeyMode/blob/main/CODE_OF_CONDUCT.md#enforcement).
+        This form follows the [Code of Conduct](https://github.com/AidenKim923/MonkeyMode/blob/main/CODE_OF_CONDUCT.md#enforcement).
 
-        **Issues are public.** If the report is sensitive (harassment, personal information, anything you do not want others to read), do not describe it here: open a [private security advisory](https://github.com/<owner>/MonkeyMode/security/advisories/new) instead, which only the maintainers can see. You may still open this issue with a one-line note that a private report follows.
+        **Issues are public.** If the report is sensitive (harassment, personal information, anything you do not want others to read), do not describe it here: open a [private security advisory](https://github.com/AidenKim923/MonkeyMode/security/advisories/new) instead, which only the maintainers can see. You may still open this issue with a one-line note that a private report follows.
   - type: textarea
     id: what
     attributes:

@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Check the [user guide](https://github.com/<owner>/MonkeyMode/blob/main/docs/GUIDE.md) and its FAQ first. Mark the answer that solved it so others can find it.
+        Check the [user guide](https://github.com/AidenKim923/MonkeyMode/blob/main/docs/GUIDE.md) and its FAQ first. Mark the answer that solved it so others can find it.
   - type: textarea
     id: question
     attributes:

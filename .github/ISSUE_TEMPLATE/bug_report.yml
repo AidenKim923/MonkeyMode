@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting! Please search [existing issues](https://github.com/<owner>/MonkeyMode/issues) first.
-        Security problems go to a [private security advisory](https://github.com/<owner>/MonkeyMode/security/advisories/new), not here.
+        Thanks for reporting! Please search [existing issues](https://github.com/AidenKim923/MonkeyMode/issues) first.
+        Security problems go to a [private security advisory](https://github.com/AidenKim923/MonkeyMode/security/advisories/new), not here.
   - type: textarea
     id: what
     attributes:

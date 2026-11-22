@@ -13,7 +13,7 @@ MonkeyMode is pre-1.0. Security fixes go into the latest release on `main` only.
 
 **Do not open a public issue.** Report it privately through GitHub's private vulnerability reporting:
 
-1. Go to the repository's **Security** tab → **Report a vulnerability**, or open <https://github.com/<owner>/MonkeyMode/security/advisories/new>.
+1. Go to the repository's **Security** tab → **Report a vulnerability**, or open <https://github.com/AidenKim923/MonkeyMode/security/advisories/new>.
 2. Describe the problem, the affected plugin and file, and how to reproduce it. A minimal proof of concept helps; do not include real secrets or other people's data.
 
 You should get a first reply within 7 days. We will keep you updated while we investigate, agree on a disclosure date with you, and credit you in the advisory unless you prefer not to be named.

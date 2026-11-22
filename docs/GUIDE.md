@@ -32,7 +32,7 @@ It adapts to you. If you say you don't read code, agents explain in plain words 
 ### Claude Code
 
 ```
-/plugin marketplace add <owner>/MonkeyMode
+/plugin marketplace add AidenKim923/MonkeyMode
 /plugin install mm-core@monkeymode
 /plugin install mm-unity@monkeymode   # or mm-godot, mm-unreal, mm-bevy
 ```
@@ -44,7 +44,7 @@ Optional packs:
 /plugin install mm-art-tools@monkeymode   # concept art, Blender/RenderDoc/Nsight CLIs
 ```
 
-Installing an engine plugin pulls in `mm-core` automatically. From a local clone you can use the path instead of `<owner>/MonkeyMode` (`/plugin marketplace add ./MonkeyMode`), or try it for one session without installing: `claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity`.
+Installing an engine plugin pulls in `mm-core` automatically. From a local clone you can use the path instead of `AidenKim923/MonkeyMode` (`/plugin marketplace add ./MonkeyMode`), or try it for one session without installing: `claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity`.
 
 **Plugin settings** (asked when you enable `mm-core`, changeable under `/plugin` → MonkeyMode core → configure, or `claude plugin configure mm-core@monkeymode`):
 

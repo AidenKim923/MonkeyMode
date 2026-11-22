@@ -10,6 +10,8 @@
       "source": "./plugins/mm-core",
       "description": "Engine-agnostic MonkeyMode: the design-to-ship game dev workflow (brief, GDD, narrative, UX, architecture, epics, stories, dev, review, playtest, retrospective), agent operating docs, guardrails with an after-edit hook, and the mm-setup onboarding.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "game-dev",
@@ -23,6 +25,8 @@
       "source": "./plugins/mm-unity",
       "description": "Unity adapter for MonkeyMode: C# banned APIs, assembly direction rules, batch-mode test/build scripts, Mirror and NGO multiplayer notes, asset import checklist.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "unity",
@@ -35,6 +39,8 @@
       "source": "./plugins/mm-godot",
       "description": "Godot 4 adapter for MonkeyMode: GDScript node path and signal rules, headless test commands, high-level multiplayer notes. Checked against the Godot 4.7 docs.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "godot",
@@ -46,6 +52,8 @@
       "source": "./plugins/mm-unreal",
       "description": "Unreal Engine 5 adapter for MonkeyMode: UObject/GC rules, banned C++ patterns, UBT/automation test commands, replication notes. Partly checked against the Unreal Engine 5.9 docs.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "unreal",
@@ -58,6 +66,8 @@
       "source": "./plugins/mm-bevy",
       "description": "Bevy adapter for MonkeyMode: no blocking in systems, system ordering, Clippy bans, cargo test commands, lightyear/replicon/renet notes. Checked against Bevy 0.20.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "bevy",
@@ -70,6 +80,8 @@
       "source": "./plugins/mm-agents",
       "description": "Optional MonkeyMode pack: persona agents (game designer, architect, developer, solo dev, tech writer, analyst, PM, UX designer) and party mode for multi-agent discussions.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "agents",
@@ -81,6 +93,8 @@
       "source": "./plugins/mm-art-tools",
       "description": "Optional MonkeyMode pack: concept art (ChatGPT prompts, Codex CLI or alternatives) and CLI harnesses for Blender, RenderDoc and Nsight Graphics.",
       "version": "0.1.0",
+      "homepage": "https://github.com/AidenKim923/MonkeyMode",
+      "repository": "https://github.com/AidenKim923/MonkeyMode",
       "category": "game-development",
       "tags": [
         "art",

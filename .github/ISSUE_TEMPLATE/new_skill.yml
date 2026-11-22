@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        A skill is one step an agent can run, with a clear trigger and a file it produces. Conventions: [CONTRIBUTING.md → Adding a skill](https://github.com/<owner>/MonkeyMode/blob/main/CONTRIBUTING.md#adding-a-skill).
+        A skill is one step an agent can run, with a clear trigger and a file it produces. Conventions: [CONTRIBUTING.md → Adding a skill](https://github.com/AidenKim923/MonkeyMode/blob/main/CONTRIBUTING.md#adding-a-skill).
   - type: input
     id: name
     attributes:

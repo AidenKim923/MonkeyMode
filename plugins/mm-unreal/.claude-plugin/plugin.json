@@ -7,6 +7,8 @@
     "name": "MonkeyMode contributors"
   },
   "license": "MIT",
+  "homepage": "https://github.com/AidenKim923/MonkeyMode",
+  "repository": "https://github.com/AidenKim923/MonkeyMode",
   "keywords": [
     "game-dev",
     "monkeymode",

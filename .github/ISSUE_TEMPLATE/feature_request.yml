@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         For a brand-new `mm-` skill use the **New skill** form; for guardrail rules use **Guardrail rule**.
-        Rough ideas are also welcome in [Discussions → Ideas](https://github.com/<owner>/MonkeyMode/discussions/categories/ideas).
+        Rough ideas are also welcome in [Discussions → Ideas](https://github.com/AidenKim923/MonkeyMode/discussions/categories/ideas).
   - type: textarea
     id: problem
     attributes:

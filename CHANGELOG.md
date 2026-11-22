@@ -20,5 +20,5 @@ First public release.
 - Setup for agents without Claude Code through `setup_project.py --copy-skills agents`.
 - README in 11 languages, user guide, onboarding and inventory docs, contributing guide, Code of Conduct, security and support policies, issue and discussion forms, CI.
 
-[Unreleased]: https://github.com/<owner>/MonkeyMode/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/<owner>/MonkeyMode/releases/tag/v0.1.0
+[Unreleased]: https://github.com/AidenKim923/MonkeyMode/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/AidenKim923/MonkeyMode/releases/tag/v0.1.0
