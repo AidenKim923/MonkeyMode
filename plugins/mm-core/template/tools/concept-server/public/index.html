@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MonkeyMode concepts &amp; decisions</title>
+<style>
+:root {
+  --bg: #f6f4ef; --panel: #ffffff; --ink: #1d1b16; --muted: #6b665b; --line: #e3ded2;
+  --accent: #b5541c; --accent-ink: #ffffff; --ok: #2f7d4f; --chip: #efe9da;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16140f; --panel: #201d16; --ink: #f1ece0; --muted: #a39d8e; --line: #34301f; --accent: #e08a4f; --accent-ink: #16140f; --ok: #6cc28c; --chip: #2d2918; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 "Segoe UI", "Malgun Gothic", system-ui, sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding: 14px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+h1 { font-size: 18px; margin: 0; letter-spacing: .01em; }
+nav { display: flex; gap: 6px; }
+nav button { border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 7px 14px; border-radius: 999px; font: inherit; cursor: pointer; }
+nav button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.badge[hidden] { display: none; }
+.badge { display: inline-block; min-width: 20px; padding: 0 6px; margin-left: 6px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 12px; text-align: center; }
+main { padding: 24px; max-width: 1400px; margin: 0 auto; }
+h2 { font-size: 15px; color: var(--muted); font-weight: 600; margin: 28px 0 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+.card img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: var(--chip); cursor: zoom-in; display: block; }
+.card .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.name { font-weight: 600; word-break: break-all; }
+.prompt { color: var(--muted); font-size: 13px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.empty { color: var(--muted); padding: 48px 0; text-align: center; }
+.decision { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin-bottom: 24px; }
+.decision.done { opacity: .92; }
+.decision h3 { margin: 0 0 4px; font-size: 18px; }
+.question { color: var(--muted); margin: 0 0 16px; }
+.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.opt { border: 2px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: var(--bg); }
+.opt.chosen { border-color: var(--ok); }
+.opt img { width: 100%; max-height: 360px; object-fit: contain; background: var(--chip); cursor: zoom-in; display: block; }
+.opt .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.opt .label { font-weight: 700; font-size: 16px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--chip); }
+.tag.rec { background: var(--accent); color: var(--accent-ink); }
+.tag.ok { background: var(--ok); color: var(--bg); }
+ul { margin: 0; padding-left: 18px; font-size: 13px; }
+.pros li::marker { color: var(--ok); }
+.cons li::marker { color: var(--accent); }
+.pick { margin-top: auto; border: 0; border-radius: 8px; padding: 10px 14px; background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 600; cursor: pointer; }
+.pick:disabled { background: var(--ok); color: var(--bg); cursor: default; }
+textarea { width: 100%; min-height: 56px; margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--bg); color: var(--ink); font: inherit; resize: vertical; }
+.meta { color: var(--muted); font-size: 12px; margin-top: 8px; }
+#lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.86); display: none; align-items: center; justify-content: center; z-index: 20; cursor: zoom-out; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 94vw; max-height: 94vh; object-fit: contain; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Concepts &amp; decisions</h1>
+  <nav role="tablist">
+    <button role="tab" id="tab-decisions" aria-selected="true">Decisions<span class="badge" id="pending" hidden></span></button>
+    <button role="tab" id="tab-gallery" aria-selected="false">Concept gallery</button>
+  </nav>
+</header>
+<main id="view"></main>
+<div id="lightbox"><img alt=""></div>
+<script>
+const view = document.getElementById('view');
+const pendingBadge = document.getElementById('pending');
+const lightbox = document.getElementById('lightbox');
+const tabs = { decisions: document.getElementById('tab-decisions'), gallery: document.getElementById('tab-gallery') };
+let tab = location.hash === '#gallery' ? 'gallery' : 'decisions';
+let state = { gallery: [], decisions: [] };
+let lastJson = '';
+const notes = {};
+
+function el(tag, props, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (k === 'class') node.className = v;
+    else if (k.startsWith('on')) node.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) node.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of children.flat()) if (c != null) node.append(c.nodeType ? c : document.createTextNode(c));
+  return node;
+}
+
+function zoom(url) { lightbox.querySelector('img').src = url; lightbox.classList.add('open'); }
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+function image(url, alt) { return el('img', { src: url, alt, loading: 'lazy', onclick: () => zoom(url) }); }
+
+function fmtTime(iso) { return iso ? new Date(iso).toLocaleString() : ''; }
+
+async function choose(decision, option) {
+  const note = notes[decision.id] || '';
+  const res = await fetch(`/api/decisions/${encodeURIComponent(decision.id)}/choice`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ optionId: option.id, note }) });
+  if (res.ok) await refresh(true);
+}
+
+function renderDecision(d) {
+  const chosen = d.choice && d.choice.optionId;
+  const noteBox = el('textarea', { placeholder: 'Note (optional)', oninput: e => { notes[d.id] = e.target.value; } });
+  noteBox.value = notes[d.id] ?? (d.choice ? d.choice.note : '') ?? '';
+  const opts = (d.options || []).map(o => el('div', { class: 'opt' + (chosen === o.id ? ' chosen' : '') },
+    o.imageUrl ? image(o.imageUrl, o.label) : null,
+    el('div', { class: 'body' },
+      el('div', { class: 'tags' }, o.recommended ? el('span', { class: 'tag rec' }, 'Recommended') : null, chosen === o.id ? el('span', { class: 'tag ok' }, 'Chosen') : null),
+      el('div', { class: 'label' }, o.label),
+      o.summary ? el('div', {}, o.summary) : null,
+      (o.pros || []).length ? el('ul', { class: 'pros' }, o.pros.map(t => el('li', {}, t))) : null,
+      (o.cons || []).length ? el('ul', { class: 'cons' }, o.cons.map(t => el('li', {}, t))) : null,
+      el('button', { class: 'pick', disabled: chosen === o.id, onclick: () => choose(d, o) }, chosen === o.id ? 'Chosen' : 'Choose this')
+    )));
+  return el('section', { class: 'decision' + (chosen ? ' done' : '') },
+    el('h3', {}, d.title || d.id),
+    d.question ? el('p', { class: 'question' }, d.question) : null,
+    el('div', { class: 'opts' }, opts),
+    noteBox,
+    el('div', { class: 'meta' }, chosen ? `Chosen: ${fmtTime(d.choice.chosenAt)} · pick another option to change it` : `Requested: ${fmtTime(d.created)}`)
+  );
+}
+
+function renderDecisions() {
+  const pending = state.decisions.filter(d => !d.choice);
+  const done = state.decisions.filter(d => d.choice);
+  if (!state.decisions.length) return [el('div', { class: 'empty' }, 'No decisions to make.')];
+  return [
+    ...(pending.length ? [el('h2', {}, `Waiting for you: ${pending.length}`), ...pending.map(renderDecision)] : [el('div', { class: 'empty' }, 'Nothing waiting for a decision.')]),
+    ...(done.length ? [el('h2', {}, `Decided: ${done.length}`), ...done.map(renderDecision)] : [])
+  ];
+}
+
+function renderGallery() {
+  if (!state.gallery.length) return [el('div', { class: 'empty' }, 'No concepts generated yet.')];
+  return state.gallery.flatMap(g => [
+    el('h2', {}, `${g.day} · ${g.items.length} image(s)`),
+    el('div', { class: 'grid' }, g.items.map(i => el('div', { class: 'card' },
+      image(i.url, i.name),
+      el('div', { class: 'body' }, el('div', { class: 'name' }, i.name), i.prompt ? el('div', { class: 'prompt', title: i.prompt }, i.prompt) : null)
+    )))
+  ]);
+}
+
+function render() {
+  const pending = state.decisions.filter(d => !d.choice).length;
+  pendingBadge.hidden = !pending;
+  pendingBadge.textContent = pending;
+  document.title = (pending ? `(${pending}) ` : '') + 'MonkeyMode concepts & decisions';
+  for (const [k, b] of Object.entries(tabs)) b.setAttribute('aria-selected', String(k === tab));
+  const active = document.activeElement;
+  const typing = active && active.tagName === 'TEXTAREA';
+  if (typing) return;
+  const scroll = window.scrollY;
+  view.replaceChildren(...(tab === 'gallery' ? renderGallery() : renderDecisions()));
+  window.scrollTo(0, scroll);
+}
+
+async function refresh(force) {
+  try {
+    const res = await fetch('/api/state', { cache: 'no-store' });
+    const text = await res.text();
+    if (!force && text === lastJson) return;
+    lastJson = text;
+    state = JSON.parse(text);
+    render();
+  } catch {}
+}
+
+for (const [k, b] of Object.entries(tabs)) b.addEventListener('click', () => { tab = k; location.hash = k === 'gallery' ? '#gallery' : ''; render(); });
+refresh(true);
+setInterval(refresh, 2500);
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# MonkeyMode module configuration, read directly by skills.
+# Written by mm-setup. Keep in sync with _mm/config.toml.
+
+project_name: <YourGame>
+user_name: <YourName>
+communication_language: <CommunicationLanguage>
+document_output_language: <DocumentLanguage>
+output_folder: _mm-output
+planning_artifacts: "{project-root}/_mm-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_mm-output/implementation-artifacts"
+project_knowledge: docs/project
+user_skill_level: <Experience>
+game_dev_experience: <Experience>
+primary_platform: <PrimaryPlatform>
+engine: <Engine>

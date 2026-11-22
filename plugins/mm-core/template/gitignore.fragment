@@ -1,0 +1,7 @@
+# MonkeyMode (added by mm-setup)
+.agent-output/
+logs/
+_mm/config.user.toml
+_mm/custom/*.user.toml
+_mm/render/
+.monkeymode/*.local.json
