@@ -58,7 +58,7 @@ Nó được phát hành dưới dạng marketplace plugin cho Claude Code và c
 **1. Cài đặt** (Claude Code)
 
 ```
-/plugin marketplace add <owner>/MonkeyMode
+/plugin marketplace add AidenKim923/MonkeyMode
 /plugin install mm-core@monkeymode
 /plugin install mm-unity@monkeymode   # pick your engine: mm-godot, mm-unity, mm-unreal, mm-bevy
 ```
@@ -307,13 +307,19 @@ Mọi đóng góp đều được hoan nghênh: xem [CONTRIBUTING.md](CONTRIBUTI
 
 MonkeyMode dùng giấy phép MIT ([LICENSE](LICENSE)). Các skill quy trình dựa trên [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) và module BMad Game Dev Studio (MIT), còn các skill công cụ đồ họa dựa trên [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode là dự án độc lập và không được các tác giả đó bảo chứng. Chi tiết và mọi thay đổi: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## Lịch sử sao
+
+<a href="https://www.star-history.com/#AidenKim923/MonkeyMode&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+ </picture>
+</a>
+
 ---
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
   <sub><strong>I'm Monkey Game Developer 🐒</strong> · Nếu MonkeyMode giúp ích cho game của bạn, hãy tặng một ngôi sao</sub>
 </p>
-
-<!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.
-<p align="center"><a href="https://www.star-history.com/#<owner>/MonkeyMode&Date"><img src="https://api.star-history.com/svg?repos=<owner>/MonkeyMode&type=Date" alt="Star history" width="600" /></a></p>
--->

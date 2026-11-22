@@ -58,7 +58,7 @@ Claude Code 플러그인 마켓플레이스로 배포되며, `AGENTS.md`를 읽�
 **1. 설치** (Claude Code)
 
 ```
-/plugin marketplace add <owner>/MonkeyMode
+/plugin marketplace add AidenKim923/MonkeyMode
 /plugin install mm-core@monkeymode
 /plugin install mm-unity@monkeymode   # pick your engine: mm-godot, mm-unity, mm-unreal, mm-bevy
 ```
@@ -307,13 +307,19 @@ claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 
 MonkeyMode는 MIT 라이선스입니다([LICENSE](LICENSE)). 워크플로 스킬은 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD)와 BMad Game Dev Studio 모듈(MIT)을, 그래픽 도구 스킬은 [CLI-Anything](https://github.com/HKUDS/CLI-Anything)(Apache-2.0)을 바탕으로 합니다. MonkeyMode는 독립 프로젝트이며 원저작자의 보증을 받지 않았습니다. 자세한 내용과 모든 수정 사항: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## 스타 히스토리
+
+<a href="https://www.star-history.com/#AidenKim923/MonkeyMode&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+ </picture>
+</a>
+
 ---
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
   <sub><strong>I'm Monkey Game Developer 🐒</strong> · MonkeyMode가 게임 만들기에 도움이 됐다면 스타를 눌러 주세요</sub>
 </p>
-
-<!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.
-<p align="center"><a href="https://www.star-history.com/#<owner>/MonkeyMode&Date"><img src="https://api.star-history.com/svg?repos=<owner>/MonkeyMode&type=Date" alt="Star history" width="600" /></a></p>
--->

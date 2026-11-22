@@ -58,7 +58,7 @@ Ele é distribuído como um marketplace de plugins do Claude Code e também func
 **1. Instale** (Claude Code)
 
 ```
-/plugin marketplace add <owner>/MonkeyMode
+/plugin marketplace add AidenKim923/MonkeyMode
 /plugin install mm-core@monkeymode
 /plugin install mm-unity@monkeymode   # pick your engine: mm-godot, mm-unity, mm-unreal, mm-bevy
 ```
@@ -307,13 +307,19 @@ Contribuições são bem-vindas: veja [CONTRIBUTING.md](CONTRIBUTING.md) e o [C�
 
 O MonkeyMode é licenciado sob MIT ([LICENSE](LICENSE)). As skills de fluxo de trabalho são baseadas no [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) e no módulo BMad Game Dev Studio (MIT), e as skills de ferramentas gráficas no [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). O MonkeyMode é independente e não tem o endosso dos autores. Detalhes e cada modificação: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## Histórico de estrelas
+
+<a href="https://www.star-history.com/#AidenKim923/MonkeyMode&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+ </picture>
+</a>
+
 ---
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
   <sub><strong>I'm Monkey Game Developer 🐒</strong> · Se o MonkeyMode ajudar no seu jogo, deixe uma estrela</sub>
 </p>
-
-<!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.
-<p align="center"><a href="https://www.star-history.com/#<owner>/MonkeyMode&Date"><img src="https://api.star-history.com/svg?repos=<owner>/MonkeyMode&type=Date" alt="Star history" width="600" /></a></p>
--->

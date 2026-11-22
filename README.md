@@ -58,7 +58,7 @@ It ships as a Claude Code plugin marketplace and also works for agents that read
 **1. Install** (Claude Code)
 
 ```
-/plugin marketplace add <owner>/MonkeyMode
+/plugin marketplace add AidenKim923/MonkeyMode
 /plugin install mm-core@monkeymode
 /plugin install mm-unity@monkeymode   # pick your engine: mm-godot, mm-unity, mm-unreal, mm-bevy
 ```
@@ -307,13 +307,19 @@ Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code 
 
 MonkeyMode is MIT-licensed ([LICENSE](LICENSE)). Its workflow skills are based on [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) and the BMad Game Dev Studio module (MIT), and the graphics-tool skills on [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode is independent and not endorsed by their authors. Details and every modification: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## Star History
+
+<a href="https://www.star-history.com/#AidenKim923/MonkeyMode&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AidenKim923/MonkeyMode&type=Date" />
+ </picture>
+</a>
+
 ---
 
 <p align="center">
   <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
   <sub><strong>I'm Monkey Game Developer 🐒</strong> · If MonkeyMode helps your game, give it a star</sub>
 </p>
-
-<!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.
-<p align="center"><a href="https://www.star-history.com/#<owner>/MonkeyMode&Date"><img src="https://api.star-history.com/svg?repos=<owner>/MonkeyMode&type=Date" alt="Star history" width="600" /></a></p>
--->
