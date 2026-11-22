@@ -1,0 +1,20 @@
+{
+  "name": "mm-unreal",
+  "displayName": "MonkeyMode for Unreal",
+  "version": "0.1.0",
+  "description": "Unreal Engine 5 adapter for MonkeyMode: UObject/GC rules, banned C++ patterns, UBT/automation test commands, replication notes. Needs community verification.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "unreal",
+    "cpp",
+    "replication"
+  ],
+  "dependencies": [
+    "mm-core"
+  ]
+}

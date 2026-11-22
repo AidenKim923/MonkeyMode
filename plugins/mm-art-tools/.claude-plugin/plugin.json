@@ -1,0 +1,21 @@
+{
+  "name": "mm-art-tools",
+  "displayName": "MonkeyMode art tools",
+  "version": "0.1.0",
+  "description": "Optional MonkeyMode pack: concept art (ChatGPT prompts, Codex CLI or alternatives) and CLI harnesses for Blender, RenderDoc and Nsight Graphics.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "art",
+    "blender",
+    "renderdoc",
+    "nsight"
+  ],
+  "dependencies": [
+    "mm-core"
+  ]
+}

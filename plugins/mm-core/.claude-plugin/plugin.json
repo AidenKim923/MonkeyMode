@@ -1,0 +1,43 @@
+{
+  "name": "mm-core",
+  "displayName": "MonkeyMode core",
+  "version": "0.1.0",
+  "description": "Engine-agnostic MonkeyMode: the design-to-ship game dev workflow (brief, GDD, narrative, UX, architecture, epics, stories, dev, review, playtest, retrospective), agent operating docs, guardrails with an after-edit hook, and the mm-setup onboarding.",
+  "author": {
+    "name": "MonkeyMode contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "game-dev",
+    "monkeymode",
+    "game-dev",
+    "gdd",
+    "workflow",
+    "guardrails"
+  ],
+  "engines": {
+    "claude-code": ">=2.1.271"
+  },
+  "userConfig": {
+    "coding_level": {
+      "type": "string",
+      "title": "Coding level",
+      "description": "Can you read code? MonkeyMode adapts how agents verify their work and explain it. People who do not read code always get strict guardrails.",
+      "options": [
+        "I can read code",
+        "I can't read code"
+      ],
+      "default": "I can't read code"
+    },
+    "uses_chatgpt": {
+      "type": "string",
+      "title": "Do you also use ChatGPT?",
+      "description": "For images we recommend ChatGPT. With yes, concept-art skills write ready-to-paste ChatGPT prompts; with no they suggest other routes.",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "default": "yes"
+    }
+  }
+}
