@@ -1,39 +1,61 @@
-# MonkeyMode
+<p align="center">
+  <img src="assets/banner.png" alt="MonkeyMode: a cartoon monkey game developer at a desk with a controller" width="100%" />
+</p>
+
+<h1 align="center">MonkeyMode</h1>
+
+<p align="center"><strong>I'm Monkey Game Developer 🐒</strong></p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
+  <a href="#install"><img src="https://img.shields.io/badge/Claude%20Code-plugin-D97757?logo=claude&logoColor=white" alt="Claude Code plugin" /></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/skills-60-8A2BE2" alt="60 skills" /></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" /></a>
+</p>
+
+<p align="center">
+  <a href="#engines"><img src="https://img.shields.io/badge/-Godot-478CBF?logo=godotengine&logoColor=white" alt="Godot" /></a>
+  <a href="#engines"><img src="https://img.shields.io/badge/-Unity-000000?logo=unity&logoColor=white" alt="Unity" /></a>
+  <a href="#engines"><img src="https://img.shields.io/badge/-Unreal%20Engine-0E1128?logo=unrealengine&logoColor=white" alt="Unreal Engine" /></a>
+  <a href="#engines"><img src="https://img.shields.io/badge/-Bevy-232326?logo=bevy&logoColor=white" alt="Bevy" /></a>
+  <a href="#without-claude-code"><img src="https://img.shields.io/badge/AGENTS.md-compatible-555555" alt="AGENTS.md compatible" /></a>
+</p>
+
+<div align="center">
 
 [English](README.md) · [한국어](README.ko.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [Español](README.es.md) · [Português (Brasil)](README.pt-BR.md) · **Français** · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Tiếng Việt](README.vi.md)
 
-> **I'm Monkey Game Developer 🐒**
->
-> Même un agent (ou un dev) pas très malin devient malin quand il travaille avec MonkeyMode.
+</div>
 
-MonkeyMode est un kit open source de développement de jeux pour les agents de programmation IA. Il donne à l'agent une méthode de travail éprouvée : un flux de travail de la conception à la sortie (brief → GDD → architecture → stories → développement → revue → playtest), des règles qui l'obligent à vérifier son propre travail au lieu de crier victoire, des garde-fous qui bloquent les erreurs que les agents répètent dans le code de jeu, et des connaissances propres à **Godot, Unity, Unreal et Bevy**.
+<p align="center"><a href="#install">Aller à l'installation ↓</a></p>
 
-Il est distribué comme une marketplace de plugins Claude Code et fonctionne aussi avec les agents qui lisent `AGENTS.md` (Codex et d'autres).
+---
 
-## Contenu
+> [!TIP]
+> Même un agent (ou un dev) pas très malin devient malin quand il tourne avec MonkeyMode.
 
-| Plugin | Ce que vous obtenez |
-|---|---|
-| **`mm-core`** (obligatoire) | 42 skills de flux `mm-` (brief du jeu, GDD, narration, UX, architecture, épopées et stories, story de développement, revue de code, planification et suivi de sprint, plan de playtest, conception des tests et des tests de performance, rétrospective, recherche, développement rapide, relecture, aide, ...), la configuration initiale `mm-setup`, des documents de fonctionnement pour l'agent (`docs/ai/` : politique d'exécution, guide de vérification, autorité réseau, passation, procédure avant commit, garde-fous, ...), le vérificateur de garde-fous avec un hook après chaque modification, un profil secrets et chemins personnels, ainsi qu'une galerie de concepts avec page de choix |
-| **`mm-unity`** | API C# interdites, règles de dépendances entre assemblies, scripts de tests et de build en mode batch, notes sur Mirror et Netcode, check-list d'import d'assets. *Éprouvé sur un vrai projet* |
-| **`mm-godot`** | Règles sur les chemins de nœuds et les signaux en GDScript, commandes de tests sans interface, notes sur le multijoueur haut niveau. *Vérifié avec la documentation de Godot 4.7* |
-| **`mm-unreal`** | Règles UObject/GC, motifs C++ interdits, commandes UBT et de tests automatisés, notes sur la réplication. *Vérifié en partie avec la documentation d'Unreal Engine 5.9* |
-| **`mm-bevy`** | Aucun blocage dans les systèmes, ordre des systèmes, interdictions Clippy, commandes de test cargo, notes sur lightyear/replicon/renet. *Vérifié avec Bevy 0.20* |
-| `mm-agents` (optionnel) | Agents à personnalité (game designer, architecte, développeur, développeur solo, rédacteur technique, analyste, PM, designer UX) et mode fête |
-| `mm-art-tools` (optionnel) | `mm-concept-art` (prompts ChatGPT, Codex CLI ou autres options) et outils en ligne de commande pour Blender, RenderDoc et Nsight Graphics |
+MonkeyMode est un kit open source de développement de jeux pour les agents de programmation IA. Votre agent sait déjà écrire du code ; MonkeyMode lui apprend à faire un **jeu** : le planifier, le concevoir, le construire histoire par histoire, vérifier son propre travail et ne plus refaire deux fois les mêmes erreurs de moteur.
 
-### Commun vs. par moteur
+```text
+idea → brief → GDD → architecture → stories → dev → review → playtest → retro
+```
 
-| Commun (mm-core) | Par moteur (mm-&lt;engine&gt;) |
-|---|---|
-| Modèles du flux : brief du jeu, GDD, narration, UX, PRD, architecture, épopées/stories, story, plan de playtest, plan de tests de performance, conception des tests, check-list de revue de code, rétrospective, journal des décisions, contexte du projet | Modèle de contexte du projet |
-| Comportement de l'agent, vérification, passation, maîtrise du périmètre, hygiène Git, flux d'équipe | Annexe d'architecture (structure des scènes et assets ; GDScript/C#, C#, C++/Blueprint, Rust/ECS) |
-| Vérificateur de garde-fous, hooks après modification et avant commit, profil secrets | Profil de garde-fous du moteur et motifs interdits |
-| Outils d'autovérification (logs, captures d'écran, lancement de plusieurs instances) | Commandes de build et de test (Unity fournit aussi des scripts) |
-| Règles d'autorité réseau et niveaux de test indépendants du moteur | Notes multijoueur (Mirror/NGO, réplication, multijoueur haut niveau, lightyear/renet) |
-| Guides de production d'assets et de personnages | Conseils `.gitignore` / LFS, import d'assets (Unity) |
+Il est distribué sous forme de marketplace de plugins Claude Code et fonctionne aussi avec les agents qui lisent `AGENTS.md` (Codex et autres).
 
-## Installation (Claude Code)
+| Inclus | Nombre | Ce que vous obtenez |
+|---|---:|---|
+| 🧭 Skills de workflow | 43 | `mm-core` : brief, GDD, narration, UX, architecture, épopées et histoires, développement, revue, tests, playtest, rétrospective, et `/mm-setup` |
+| 🎭 Agents à personnalité | 9 | `mm-agents` : game designer, architecte, développeur, dev solo, analyste, PM, designer UX, rédacteur technique, mode fête |
+| 🎨 Outils art et graphismes | 4 | `mm-art-tools` : concept art et CLI pour Blender, RenderDoc, Nsight Graphics |
+| 🎮 Adaptateurs de moteur | 4 | Godot, Unity, Unreal, Bevy : documentation, motifs interdits, commandes de build et de test, notes multijoueur |
+| 🛡️ Garde-fous | 3 niveaux | Des règles vérifiées automatiquement après chaque modification et, si vous le souhaitez, avant chaque commit |
+| 📜 Documents opérationnels pour agents | 15 | `docs/ai/` : politique d'exécution, guide de vérification, autorité réseau, passation, procédure avant commit |
+
+<a id="install"></a>
+
+## ⚡ Démarrage rapide
+
+**1. Installer** (Claude Code)
 
 ```
 /plugin marketplace add <owner>/MonkeyMode
@@ -43,22 +65,180 @@ Il est distribué comme une marketplace de plugins Claude Code et fonctionne aus
 
 Packs optionnels : `/plugin install mm-agents@monkeymode`, `/plugin install mm-art-tools@monkeymode`.
 
-Prérequis : Claude Code v2.1.271 ou plus récent (réglages de plugin à choix fixes), Python 3.11+ et [`uv`](https://docs.astral.sh/uv/) (scripts du flux et garde-fous), PowerShell 7 pour les outils `.ps1`, Node.js 18+ pour la page locale de concepts et de choix.
+**2. Configurer votre jeu.** Ouvrez votre projet de jeu dans Claude Code et lancez **`/mm-setup`**. Il vous pose quelques questions, installe tout et vous indique l'étape suivante.
 
-`mm-core` a deux réglages qui vous concernent, à définir dans `/plugin` → MonkeyMode core → configure (ou avec `claude plugin configure mm-core@monkeymode`). Si vous les laissez vides, `/mm-setup` vous pose la question.
+**3. Commencer à le faire.** Lancez la skill recommandée, par exemple `/mm-brainstorm-game` pour une nouvelle idée ou `/mm-document-project` pour un code existant. Demandez à `/mm-help` dès que vous ne savez plus quoi faire ensuite.
+
+> [!NOTE]
+> Prérequis : Claude Code v2.1.271 ou plus récent (réglages de plugin à choix fixes), Python 3.11+ et [`uv`](https://docs.astral.sh/uv/) (scripts du workflow et garde-fous), PowerShell 7 pour les outils `.ps1`, Node.js 18+ pour la page locale de concepts/décisions.
+
+<a id="features"></a>
+
+## ✨ Pourquoi MonkeyMode
+
+| | Fonction | Ce que cela veut dire |
+|---|---|---|
+| 🗺️ | **Workflow de la conception à la sortie** | Chaque étape est une skill qui écrit un vrai fichier que vous gardez : brief, GDD, architecture, histoires, notes de revue, plans de playtest |
+| ✅ | **Vérifier, pas affirmer** | Les agents compilent, testent, lancent et font des captures avant de dire « terminé » ; ce qui n'a pas été vérifié est noté `unverified` |
+| 🛡️ | **Garde-fous** | Recherches fragiles dans la scène, appels bloquants, réseau non sécurisé et secrets dans le dépôt sont bloqués après chaque modification |
+| 🎮 | **Connaissance des moteurs** | Godot, Unity, Unreal et Bevy ont chacun leurs règles, commandes et notes multijoueur ; tout le reste est commun |
+| 🙈 | **S'adapte à vous** | Si vous dites ne pas lire le code, les agents expliquent avec des mots simples et des captures, vérifient tout eux-mêmes et demandent avant les étapes risquées |
+| 🌐 | **Prêt pour le multijoueur** | Règles d'autorité indépendantes du moteur et niveaux de test (M0-M3) pour le travail en réseau |
+
+<a id="workflow"></a>
+
+## 🗺️ Le workflow
+
+```mermaid
+flowchart LR
+    A["💡 Idea<br/>mm-brainstorm-game"] --> B["📝 Brief<br/>mm-create-game-brief"]
+    B --> C["📖 GDD<br/>mm-gdd"]
+    C --> D["🏗️ Architecture<br/>mm-game-architecture"]
+    D --> E["🧩 Stories<br/>mm-create-epics-and-stories"]
+    E --> F["⌨️ Dev<br/>mm-dev-story"]
+    F --> G["🔍 Review<br/>mm-code-review"]
+    G --> H["🎮 Playtest<br/>mm-playtest-plan"]
+    H --> I["🔁 Retro<br/>mm-retrospective"]
+    I -.-> E
+```
+
+| Étape | Lancer | Produit |
+|---|---|---|
+| 1. Idée | `mm-brainstorm-game` | Une séance de brainstorming dans `_mm-output/` |
+| 2. Brief | `mm-create-game-brief` | Fantasme central, public, accroche, références, périmètre |
+| 3. Conception | `mm-gdd` (+ `mm-create-narrative`, `mm-ux`) | GDD, plan des épopées, journal des décisions |
+| 4. Architecture | `mm-game-architecture`, `mm-generate-project-context` | Architecture, propositions de garde-fous, fiche de règles du projet |
+| 5. Histoires | `mm-create-epics-and-stories`, `mm-check-implementation-readiness` | Épopées et histoires avec niveaux de risque et de vérification |
+| 6. Sprint | `mm-sprint-planning`, `mm-sprint-status` | `sprint-status.yaml` |
+| 7. Développement | `mm-create-story` → `mm-dev-story` | Code, tests et un rapport en quatre parties |
+| 8. Revue | `mm-code-review` | Constats de revue et tâches de suivi |
+| 9. Playtest | `mm-playtest-plan`, `mm-performance-test` | Plans de playtest et de test de performance |
+| 10. Rétro | `mm-retrospective` | Leçons après chaque épopée |
+
+<details>
+<summary><strong>Raccourcis, tests et définition de « terminé »</strong></summary>
+
+**Raccourcis :** `mm-quick-dev` pour de petits changements sans toute la chaîne ; `mm-correct-course` quand un sprint dérape ; `mm-document-project` pour décrire un code existant ; `mm-investigate` pour déboguer ; `mm-walkthrough` pour une visite guidée d'un changement ; `mm-write-handoff` quand vous vous arrêtez en cours de tâche.
+
+**Tests :** `mm-test-framework` met en place un framework de test pour votre moteur, `mm-test-design` planifie la couverture, `mm-test-automate` et `mm-e2e-scaffold` écrivent les tests, `mm-test-review` les vérifie.
+
+**Terminé :** chaque histoire est rapportée en quatre parties : ce qui a changé, ce que cela peut affecter, comment c'est vérifié (avec preuves) et les suites à donner. Les niveaux de vérification sont L1 (contrôles statiques), L2 (comportement observé) et L3 (intégration ; avec plusieurs joueurs connectés en multijoueur, niveaux M0-M3).
+
+Le tableau complet des étapes avec les chemins de sortie se trouve dans le [guide utilisateur](docs/GUIDE.md#4-the-end-to-end-process).
+
+</details>
+
+<a id="plugins"></a>
+
+## 📦 Plugins
+
+| Plugin | Contenu |
+|---|---|
+| **`mm-core`** (requis) | 43 skills de workflow `mm-`, l'accueil `/mm-setup`, des documents opérationnels pour agents (`docs/ai/`), le vérificateur de garde-fous avec un hook après modification, un profil secrets/chemins personnels, une galerie de concepts et une page de décision |
+| **`mm-unity`** | API C# interdites, règles de dépendance entre assemblies, scripts de test/build en mode batch, notes Mirror et Netcode, checklist d'import d'assets |
+| **`mm-godot`** | Règles de chemins de nœuds et de signaux GDScript, commandes de test headless, notes sur le multijoueur haut niveau |
+| **`mm-unreal`** | Règles UObject/GC, motifs C++ interdits, commandes UBT et de tests automatisés, notes de réplication |
+| **`mm-bevy`** | Aucun blocage dans les systèmes, ordre des systèmes, interdictions Clippy, commandes cargo test, notes lightyear/replicon/renet |
+| `mm-agents` (optionnel) | Agents à personnalité et mode fête |
+| `mm-art-tools` (optionnel) | `mm-concept-art` (prompts ChatGPT, Codex CLI ou alternatives) et CLI pour Blender, RenderDoc, Nsight Graphics |
+
+<details>
+<summary><strong>🧭 mm-core : les 43 skills</strong></summary>
+
+| Domaine | Skills |
+|---|---|
+| Idées et conception | `mm-brainstorm-game`, `mm-brainstorming`, `mm-forge-idea`, `mm-create-game-brief`, `mm-gdd`, `mm-create-narrative`, `mm-ux`, `mm-prd`, `mm-prfaq`, `mm-spec`, `mm-research` |
+| Architecture et planification | `mm-game-architecture`, `mm-generate-project-context`, `mm-create-epics-and-stories`, `mm-check-implementation-readiness`, `mm-sprint-planning`, `mm-sprint-status`, `mm-correct-course` |
+| Construction et revue | `mm-create-story`, `mm-dev-story`, `mm-quick-dev`, `mm-quick-dev-auto`, `mm-code-review`, `mm-review`, `mm-investigate`, `mm-walkthrough`, `mm-write-handoff`, `mm-document-project` |
+| Tests et playtests | `mm-test-framework`, `mm-test-design`, `mm-test-automate`, `mm-e2e-scaffold`, `mm-test-review`, `mm-performance-test`, `mm-playtest-plan`, `mm-retrospective` |
+| Assistants | `mm-setup`, `mm-help`, `mm-customize`, `mm-advanced-elicitation`, `mm-clarify-ambiguous-request`, `mm-present-alternatives`, `mm-decision-picker` |
+
+</details>
+
+<details>
+<summary><strong>🎭 mm-agents et 🎨 mm-art-tools</strong></summary>
+
+| Plugin | Skills |
+|---|---|
+| `mm-agents` | `mm-agent-game-designer`, `mm-agent-game-architect`, `mm-agent-game-dev`, `mm-agent-game-solo-dev`, `mm-agent-analyst`, `mm-agent-pm`, `mm-agent-ux-designer`, `mm-agent-tech-writer`, `mm-party-mode` |
+| `mm-art-tools` | `mm-concept-art`, `mm-cli-blender`, `mm-cli-renderdoc`, `mm-cli-nsight-graphics` |
+
+</details>
+
+<details>
+<summary><strong>Commun vs. par moteur</strong></summary>
+
+| Commun (mm-core) | Par moteur (mm-&lt;engine&gt;) |
+|---|---|
+| Modèles du workflow : brief, GDD, narration, UX, PRD, architecture, épopées/histoires, histoire, plan de playtest, plan de test de performance, conception des tests, checklist de revue de code, rétrospective, journal des décisions, contexte du projet | Modèle de contexte du projet |
+| Comportement des agents, vérification, passation, maîtrise du périmètre, hygiène git, workflow d'équipe | Annexe d'architecture (structure des scènes/assets ; GDScript/C#, C#, C++/Blueprint, Rust/ECS) |
+| Vérificateur de garde-fous, hooks après modification et avant commit, profil de secrets | Profil de garde-fous du moteur et motifs interdits |
+| Outils d'autovérification (logs, captures, lancement de plusieurs instances) | Commandes de build et de test (Unity fournit aussi des scripts) |
+| Règles d'autorité réseau et niveaux de test indépendants du moteur | Notes multijoueur (Mirror/NGO, réplication, multijoueur haut niveau, lightyear/renet) |
+| Guides du pipeline d'assets et de personnages | Conseils `.gitignore` / LFS, import d'assets (Unity) |
+
+</details>
+
+<a id="engines"></a>
+
+## 🎮 Moteurs
+
+| Moteur | Plugin | Points forts | Vérification |
+|---|---|---|---|
+| **Godot 4** | `mm-godot` | Appeler vers le bas, signaler vers le haut ; GDScript typé ; `@rpc("any_peer")` valide l'émetteur ; commandes GUT et gdUnit4 | Vérifié avec la documentation de Godot 4.7 |
+| **Unity** | `mm-unity` | Pas de `Find*` sur toute la scène, de `Resources.Load` ni d'`async void` ; règles `.asmdef` ; scripts en mode batch ; notes Mirror et NGO | Cible Unity 6 ; vérification par la communauté nécessaire |
+| **Unreal Engine 5** | `mm-unreal` | Membres `UPROPERTY() TObjectPtr<>` ; pas de chargement synchrone à l'exécution ; Server RPC validés ; `Automation RunTest` | Vérifié en partie avec la documentation d'UE 5.9 |
+| **Bevy** | `mm-bevy` | Les systèmes ne bloquent jamais ; ordre explicite ; simulation dans `FixedUpdate` ; Clippy `disallowed-methods` | Vérifié avec Bevy 0.20 |
+
+Tout ce qu'un adaptateur n'a pas pu confirmer est marqué *needs verification* dans sa documentation. Les moteurs « Autre » reçoivent un modèle à remplir.
+
+<a id="guardrails"></a>
+
+## 🛡️ Garde-fous et niveau en code
+
+`mm-core` a deux réglages vous concernant, à définir dans `/plugin` → MonkeyMode core → configure (ou `claude plugin configure mm-core@monkeymode`). Si vous les laissez vides, `/mm-setup` vous les demande.
 
 | Réglage | Choix |
 |---|---|
-| `coding_level` | I can read code / I can't read code (je sais lire du code / non) |
-| `uses_chatgpt` | yes / no (« Pour les images, nous recommandons ChatGPT ») |
+| `coding_level` | Je sais lire le code / Je ne sais pas lire le code |
+| `uses_chatgpt` | oui / non (« Pour les images, nous recommandons ChatGPT ») |
 
-## Démarrage rapide
+| Niveau en code | Garde-fous | Comment travaillent les agents |
+|---|---|---|
+| 🙈 **Je ne sais pas lire le code** | Toujours **strict** | Ils vérifient tout eux-mêmes (tests, build, lancement du jeu), expliquent avec des mots simples et des captures, et demandent avant de supprimer, refactoriser, installer, commiter ou pousser |
+| 👀 **Je sais lire le code** | **strict**, **standard** (par défaut) ou **relaxed** | Les rapports prennent la forme d'un résumé du diff avec la raison de chaque changement |
 
-1. Ouvrez votre projet de jeu dans Claude Code et lancez **`/mm-setup`**. Il vous demande le moteur, si vous travaillez seul ou en équipe, le genre et les plateformes, le multijoueur, l'étape du projet, le niveau des garde-fous (seulement si vous lisez du code) et le dossier de documentation, puis installe tout et vous indique l'étape suivante. Le déroulé complet avec ses embranchements est dans [`docs/ONBOARDING.md`](docs/ONBOARDING.md).
-2. Lancez la skill recommandée, par exemple `/mm-brainstorm-game` pour une nouvelle idée ou `/mm-document-project` pour une base de code existante.
-3. Demandez à `/mm-help` dès que vous ne savez pas quoi faire ensuite.
+| Niveau | Effet |
+|---|---|
+| **strict** | Chaque règle bloque la modification, y compris la règle « pas de commentaires » quand le profil du moteur l'a |
+| **standard** | Les règles bloquent ; les commentaires sont autorisés |
+| **relaxed** | Les violations s'affichent comme avertissements ; rien ne bloque (le hook optionnel avant commit vérifie toujours) |
 
-Ce qui est ajouté à votre projet :
+<a id="setup"></a>
+
+## 🧭 Ce que demande `/mm-setup`
+
+<details>
+<summary><strong>Les neuf questions</strong></summary>
+
+| # | Question | Ce que la réponse change |
+|---|---|---|
+| 1 | Savez-vous lire le code ? | « Non » impose des garde-fous strict et des agents qui s'autovérifient et parlent simplement |
+| 2 | Moteur : Godot / Unity / Unreal / Bevy / Autre | Installe l'adaptateur de ce moteur (le moteur détecté est présélectionné) |
+| 3 | Utilisez-vous aussi ChatGPT ? | Oui : le concept art arrive sous forme de prompts ChatGPT prêts à coller. Non : Codex CLI ou alternatives |
+| 4 | Seul ou en équipe ? | En équipe, ajoute des règles de branches et de pull requests et une checklist de revue |
+| 5 | Genre, plateformes cibles | Enregistrés dans `AGENTS.md` et la configuration |
+| 6 | Multijoueur ? (et nombre maximal de joueurs) | Ajoute les guides réseau et les garde-fous réservés au réseau |
+| 7 | Stade : idée / planification / production / finition | Choisit la première skill recommandée |
+| 8 | Niveau de garde-fous (seulement si vous lisez le code) | strict / standard / relaxed |
+| 9 | Dossier de documentation | Où va toute la documentation MonkeyMode (par défaut `docs/`) |
+
+Le parcours complet avec toutes ses branches est dans [`docs/ONBOARDING.md`](docs/ONBOARDING.md).
+
+</details>
+
+<details>
+<summary><strong>Ce qui arrive dans votre projet</strong></summary>
 
 ```
 AGENTS.md            MonkeyMode section (rules, your answers, engine snippet)
@@ -74,7 +254,13 @@ tools/               guardrail checker, verification tools
 .githooks/           optional pre-commit guardrails
 ```
 
-## Sans Claude Code (agents qui lisent AGENTS.md)
+Relancer `/mm-setup` affiche vos réponses actuelles et demande ce qu'il faut changer ; vos propres modifications en dehors des sections MonkeyMode sont conservées.
+
+</details>
+
+<a id="without-claude-code"></a>
+
+## 🤖 Sans Claude Code (agents AGENTS.md)
 
 ```
 git clone <MonkeyMode repo URL>
@@ -83,20 +269,16 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 Il pose les mêmes questions, installe les mêmes fichiers et copie les skills dans `.agents/skills/`. Voir [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents).
 
-## Documentation
+## 🧩 Personnalisation
 
-- [Guide de l'utilisateur](docs/GUIDE.md) : installation, l'entretien de configuration, le flux complet avec la skill et le fichier produit à chaque étape, garde-fous, images, notes par moteur, FAQ (en anglais)
-- [Prise en main](docs/ONBOARDING.md) : le schéma de configuration et ce que change chaque réponse (en anglais)
-- [Inventaire](docs/INVENTORY.md) : commun vs. par moteur, table des noms de skills (en anglais)
-- [Contribuer](CONTRIBUTING.md) : ajouter des skills, des adaptateurs de moteur et des règles de garde-fous ; tests ; check-list de PR (en anglais)
+| Quoi | Où |
+|---|---|
+| Règles du projet | `AGENTS.md` (en dehors des marqueurs MonkeyMode), `docs/ai/` et `docs/engine/` dans votre projet. Elles priment sur les instructions des skills |
+| Comportement des skills | `_mm/custom/<skill-name>.toml` (équipe) ou `<skill-name>.user.toml` (personnel) ; les tableaux comme `persistent_facts` s'ajoutent aux valeurs par défaut. `/mm-customize` vous guide |
+| Garde-fous | `guardrails/<engine>.json` ou un nouveau profil `guardrails/<name>.json` (format dans `docs/ai/12`). Les agents ne les assouplissent jamais d'eux-mêmes |
 
-## Personnalisation
-
-- Règles du projet : modifiez `AGENTS.md` (hors des marqueurs MonkeyMode), `docs/ai/` et `docs/engine/` dans votre projet. Ils priment sur les instructions des skills.
-- Comportement des skills : placez vos surcharges dans `_mm/custom/<skill-name>.toml` (équipe) ou `<skill-name>.user.toml` (personnel). Les tableaux comme `persistent_facts` s'ajoutent aux valeurs par défaut de la skill. `/mm-customize` vous guide.
-- Garde-fous : ajoutez des règles à `guardrails/<engine>.json` ou créez un nouveau profil `guardrails/<name>.json` (format dans `docs/ai/12`). Ne les modifiez que volontairement ; les agents ont pour consigne de ne jamais les assouplir d'eux-mêmes.
-
-## Tester l'installation
+<details>
+<summary><strong>🧪 Tester l'installation</strong></summary>
 
 ```
 claude plugin validate .                      # marketplace
@@ -104,10 +286,34 @@ claude plugin validate plugins/mm-core       # each plugin
 claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 ```
 
-La dernière commande lance Claude Code avec les plugins chargés pour une seule session, sans ajouter la marketplace. Les contributeurs lancent aussi les tests des scripts et `uv run tools/scrub.py` (voir [CONTRIBUTING.md](CONTRIBUTING.md)).
+La dernière commande lance Claude Code avec les plugins chargés le temps d'une session, sans ajouter la marketplace. Les contributeurs lancent aussi les tests des scripts et `uv run tools/scrub.py` (voir [CONTRIBUTING.md](CONTRIBUTING.md)).
 
-## Crédits et licence
+</details>
 
-MonkeyMode est sous licence MIT ([LICENSE](LICENSE)). Ses skills de flux s'appuient sur [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) et le module BMad Game Dev Studio (MIT), et ses skills d'outils graphiques sur [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode est indépendant et n'est pas approuvé par leurs auteurs. Détails et liste de toutes les modifications : [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## 📚 Documentation
 
-Les contributions sont les bienvenues : voir [CONTRIBUTING.md](CONTRIBUTING.md) et le [Code de conduite](CODE_OF_CONDUCT.md). Les corrections des adaptateurs Godot, Unreal et Bevy sont particulièrement appréciées : ils ont été vérifiés avec la documentation officielle mais n'ont pas encore servi sur un vrai projet, et les points encore ouverts sont marqués *needs verification* dans chaque adaptateur.
+| Document | Contenu |
+|---|---|
+| 📘 [Guide utilisateur](docs/GUIDE.md) | Installation, l'entretien de configuration, le workflow complet avec la skill et le fichier produit à chaque étape, garde-fous, images, notes sur les moteurs, FAQ |
+| 🧭 [Accueil](docs/ONBOARDING.md) | Le schéma du parcours de configuration et ce que change chaque réponse |
+| 📋 [Inventaire](docs/INVENTORY.md) | Commun vs. par moteur, table des noms de skills |
+| 🤝 [Contribuer](CONTRIBUTING.md) | Ajouter des skills, des adaptateurs de moteur et des règles de garde-fous ; tests ; checklist de PR |
+
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues : voir [CONTRIBUTING.md](CONTRIBUTING.md) et le [Code de conduite](CODE_OF_CONDUCT.md). Les corrections des adaptateurs de moteur sont particulièrement bienvenues : les points encore ouverts sont marqués *needs verification* dans chaque adaptateur.
+
+## 📜 Crédits et licence
+
+MonkeyMode est sous licence MIT ([LICENSE](LICENSE)). Ses skills de workflow s'appuient sur [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) et le module BMad Game Dev Studio (MIT), et les skills d'outils graphiques sur [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode est indépendant et n'est pas approuvé par leurs auteurs. Détails et chaque modification : [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+---
+
+<p align="center">
+  <img src="assets/logo.png" alt="MonkeyMode logo" width="96" /><br />
+  <sub><strong>I'm Monkey Game Developer 🐒</strong> · Si MonkeyMode vous aide pour votre jeu, laissez une ⭐</sub>
+</p>
+
+<!-- Star history: once the repository has a public owner, replace <owner> below and uncomment.
+<p align="center"><a href="https://www.star-history.com/#<owner>/MonkeyMode&Date"><img src="https://api.star-history.com/svg?repos=<owner>/MonkeyMode&type=Date" alt="Star history" width="600" /></a></p>
+-->
