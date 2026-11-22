@@ -1,5 +1,7 @@
 # MonkeyMode
 
+**English** · [한국어](README.ko.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [Español](README.es.md) · [Português (Brasil)](README.pt-BR.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Tiếng Việt](README.vi.md)
+
 > **I'm Monkey Game Developer 🐒**
 >
 > Even a not-so-smart agent (or dev) gets smart when it runs with MonkeyMode.
@@ -45,12 +47,12 @@ Optional packs: `/plugin install mm-agents@monkeymode`, `/plugin install mm-art-
 
 Requirements: Claude Code v2.1.271 or later (plugin settings with fixed choices), Python 3.11+ and [`uv`](https://docs.astral.sh/uv/) (workflow scripts and guardrails), PowerShell 7 for the `.ps1` tools, Node.js 18+ for the local concept/decision page.
 
-When you enable `mm-core`, Claude Code asks two questions about you (you can change them later under `/plugin` → MonkeyMode core → configure):
+`mm-core` has two settings about you, set in `/plugin` → MonkeyMode core → configure (or `claude plugin configure mm-core@monkeymode`). If you leave them unset, `/mm-setup` asks instead.
 
-| Setting | Choices | Default |
-|---|---|---|
-| `coding_level` | I can read code / I can't read code | I can't read code |
-| `uses_chatgpt` | yes / no ("For images we recommend ChatGPT") | yes |
+| Setting | Choices |
+|---|---|
+| `coding_level` | I can read code / I can't read code |
+| `uses_chatgpt` | yes / no ("For images we recommend ChatGPT") |
 
 ## Quick start
 
@@ -83,6 +85,13 @@ uv run MonkeyMode/plugins/mm-core/skills/mm-setup/scripts/setup_project.py --tar
 
 This asks the same questions, installs the same files, and copies the skills to `.agents/skills/`. See [`docs/ONBOARDING.md`](docs/ONBOARDING.md#without-claude-code-codex-and-other-agentsmd-agents).
 
+## Documentation
+
+- [User guide](docs/GUIDE.md): install, the setup interview, the full workflow with the skill and output file for each step, guardrails, images, engine notes, FAQ
+- [Onboarding](docs/ONBOARDING.md): the setup flow chart and what each answer changes
+- [Inventory](docs/INVENTORY.md): where every part came from, shared vs. per-engine, skill name map
+- [Contributing](CONTRIBUTING.md): adding skills, engine adapters and guardrail rules; tests; PR checklist
+
 ## Customizing
 
 - Project rules: edit `AGENTS.md` (outside the MonkeyMode markers), `docs/ai/` and `docs/engine/` in your project. They override skill instructions.
@@ -97,10 +106,10 @@ claude plugin validate plugins/mm-core       # each plugin
 claude --plugin-dir ./plugins/mm-core --plugin-dir ./plugins/mm-unity
 ```
 
-The last command starts Claude Code with the plugins loaded for one session, without adding the marketplace.
+The last command starts Claude Code with the plugins loaded for one session, without adding the marketplace. Contributors also run the script tests and `uv run tools/scrub.py` (see [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## Credits and license
 
 MonkeyMode is MIT-licensed ([LICENSE](LICENSE)). Its workflow skills are based on [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD) and the BMad Game Dev Studio module (MIT), and the graphics-tool skills on [CLI-Anything](https://github.com/HKUDS/CLI-Anything) (Apache-2.0). MonkeyMode is independent and not endorsed by their authors. Details and every modification: [NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Corrections to the Godot, Unreal and Bevy adapters are especially welcome: they were checked against the official docs but not yet used in a real project, and the items still open are marked *needs verification* in each adapter.
+Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Corrections to the Godot, Unreal and Bevy adapters are especially welcome: they were checked against the official docs but not yet used in a real project, and the items still open are marked *needs verification* in each adapter.

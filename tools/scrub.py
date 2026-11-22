@@ -57,7 +57,8 @@ def main() -> int:
             continue
         translation = bool(TRANSLATION.search(rel)) or rel in UPSTREAM_TEST_DATA
         for n, line in enumerate(text.splitlines(), 1):
-            if not translation and NON_ENGLISH.search(line):
+            language_switcher = "](README.ko.md)" in line and "](README.ja.md)" in line
+            if not translation and not language_switcher and NON_ENGLISH.search(line):
                 problems.append(f"NON_ENGLISH {rel}:{n}")
             if not UPSTREAM_ALLOWED.search(rel) and UPSTREAM.search(line):
                 problems.append(f"UPSTREAM_NAME {rel}:{n}: {line.strip()[:80]}")
