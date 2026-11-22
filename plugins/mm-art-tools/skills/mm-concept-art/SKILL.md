@@ -9,7 +9,7 @@ Request: $ARGUMENTS
 
 ## Pick the route
 
-1. Read `.monkeymode/config.json` (written by `mm-setup`). The person-level setting from the plugin is `${user_config.uses_chatgpt}`; the project file wins when both exist. If neither is set, ask: "Do you also use ChatGPT for images? (recommended)".
+1. Read `uses_chatgpt` from `.monkeymode/config.json` (written by `mm-setup` from the project interview and the mm-core plugin setting). If the file or the value is missing, ask: "Do you also use ChatGPT for images? (recommended)" and suggest running `mm-setup` so the answer is kept.
 2. Route:
    - `uses_chatgpt: yes` → **ChatGPT prompt route** (below).
    - `uses_chatgpt: no` and the `codex` CLI is on PATH → **Codex CLI route**.

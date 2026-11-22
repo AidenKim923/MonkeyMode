@@ -15,7 +15,7 @@ The script is `${CLAUDE_PLUGIN_ROOT}/skills/mm-setup/scripts/setup_project.py` (
 2. Person-level answers from the plugin settings, when set (empty means unset):
    - coding level: `${user_config.coding_level}` ("I can read code" → `can-read-code`, "I can't read code" → `cannot-read-code`)
    - uses ChatGPT: `${user_config.uses_chatgpt}`
-   The project file wins over these. Skip any question either source already answers. Both plugin settings have defaults (`I can't read code`, `yes`), so on a first run without a project config, confirm them in one line ("Your plugin settings say: you don't read code, you use ChatGPT. Right?") instead of asking the full question. The user changes plugin settings in `/plugin` → MonkeyMode core → configure (or `/config`).
+   If a value above still shows the literal placeholder text (it starts with a dollar sign and `{user_config.`), the setting is **unset**: ask the question. The project file wins over these. Skip any question either source already answers, and say in one line which answers you took from where ("From your plugin settings: you read code, no ChatGPT."). The user changes plugin settings in `/plugin` → MonkeyMode core → configure, or with `claude plugin configure mm-core@monkeymode`.
 3. **Re-run:** if the config file exists, first show the current values in a short plain list, then ask one question: what should change? Ask only those questions again, then apply.
 
 ## 2. Interview (in this order, skipping what is answered)

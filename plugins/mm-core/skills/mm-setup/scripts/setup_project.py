@@ -376,15 +376,26 @@ def apply(target: Path, cfg: dict, adapter_dir: str | None, force: bool, dry: bo
             inst.copy_tree(adapter / "tools", "tools/")
         for extra in sorted(adapter.glob("*.example")):
             inst.write(extra.name, inst.render(extra.read_text(encoding="utf-8")))
+        mp_only = set(meta.get("multiplayerOnlyRules", []))
         for g in sorted((adapter / "guardrails").glob("*.json")):
-            data = json.loads(g.read_text(encoding="utf-8"))
-            if "rules" in data:
-                if level != "strict":
-                    data["noComments"] = False
-                if not multiplayer:
-                    drop = set(meta.get("multiplayerOnlyRules", []))
-                    data["rules"] = [r for r in data["rules"] if r["id"] not in drop]
-            inst.write(f"guardrails/{g.name}", inst.render(json.dumps(data, indent=2) + "\n"))
+            preset = json.loads(inst.render(g.read_text(encoding="utf-8")))
+            dest = target / "guardrails" / g.name
+            if "rules" not in preset:
+                inst.write(f"guardrails/{g.name}", json.dumps(preset, indent=2) + "\n")
+                continue
+            if dest.is_file() and not force:
+                data = json.loads(dest.read_text(encoding="utf-8"))
+            else:
+                data = preset
+            data["noComments"] = bool(preset.get("noComments")) and level == "strict"
+            ids = {r["id"] for r in data["rules"]}
+            if multiplayer:
+                data["rules"] += [r for r in preset["rules"] if r["id"] in mp_only and r["id"] not in ids]
+            else:
+                data["rules"] = [r for r in data["rules"] if r["id"] not in mp_only]
+            new_text = json.dumps(data, indent=2) + "\n"
+            if not dest.is_file() or dest.read_text(encoding="utf-8") != new_text:
+                inst.write(f"guardrails/{g.name}", new_text, overwrite=True)
         for name in ("gitignore", "gitattributes"):
             if (adapter / name).is_file():
                 inst.append_lines("." + name, (adapter / name).read_text(encoding="utf-8"))
