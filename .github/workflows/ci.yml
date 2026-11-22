@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
       - name: Release scrub
         run: uv run tools/scrub.py
       - name: Manifest checks (offline stand-in for claude plugin validate)
@@ -39,7 +39,7 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
       - name: Run pytest suites
         run: |
           status=0
