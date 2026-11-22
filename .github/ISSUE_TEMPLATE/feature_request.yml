@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a new skill, rule, tool or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What goes wrong or is missing today when you work on a game with an agent?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should MonkeyMode do? Which plugin should it live in (core, an engine adapter, a pack)?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

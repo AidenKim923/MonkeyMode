@@ -1,0 +1,41 @@
+name: Bug report
+description: Something in MonkeyMode does not work as documented
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead. Paste error messages as text.
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill, hook or script
+      placeholder: "mm-setup, the guardrail hook, setup_project.py, ..."
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: Plugin
+      options: [mm-core, mm-unity, mm-godot, mm-unreal, mm-bevy, mm-agents, mm-art-tools, not sure]
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      options: [Claude Code (plugin), Claude Code (--plugin-dir), Codex, other AGENTS.md agent]
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "MonkeyMode 0.1.0, Claude Code 2.1.x, engine and version, OS"
+  - type: textarea
+    id: config
+    attributes:
+      label: .monkeymode/config.json
+      description: Paste it if the problem is project-specific. Remove anything private first.
+      render: json
