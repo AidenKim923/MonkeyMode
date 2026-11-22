@@ -100,7 +100,12 @@ claude plugin validate .
 for p in plugins/*; do claude plugin validate "$p" --strict; done
 for t in plugins/*/skills/*/scripts/tests; do (cd "$(dirname "$t")" && uv run --with pytest python -m pytest -q tests); done
 uv run tools/scrub.py
+uv run tools/readme_parity.py
 ```
+
+`tools/readme_parity.py` checks that the 11 READMEs share the same headings, anchors, tables, code blocks, images and links, and that local links resolve. Without the Claude Code CLI, `uv run tools/check_manifests.py` runs the offline manifest checks that CI uses in place of `claude plugin validate`.
+
+CI (`.github/workflows/ci.yml`) runs the scrub, manifest checks, README parity, every script test suite (Linux and Windows) and the setup smoke test below on each pull request. It needs no secrets.
 
 Setup smoke test (any engine, into an empty temporary folder):
 
@@ -120,7 +125,19 @@ The root `LICENSE`, `NOTICE`, `THIRD_PARTY_NOTICES.md` and `licenses/` are copie
 for p in plugins/*; do cp LICENSE NOTICE THIRD_PARTY_NOTICES.md "$p"/; cp licenses/* "$p"/licenses/; done
 ```
 
+## Labels
+
+The labels the issue and discussion forms use are listed in `.github/labels.yml`. After changing that file, a maintainer syncs it to GitHub with the `gh` CLI (creates missing labels and updates colors and descriptions; it never deletes labels):
+
+```
+uv run --with pyyaml python -I -c "import subprocess, yaml; [subprocess.run(['gh', 'label', 'create', l['name'], '--color', l['color'], '--description', l['description'], '--force'], check=True) for l in yaml.safe_load(open('.github/labels.yml', encoding='utf-8'))]"
+```
+
+Add new labels to `labels.yml` first, then to the forms that use them.
+
 ## Pull request checklist
+
+The [pull request template](.github/PULL_REQUEST_TEMPLATE.md) carries the full list. In short:
 
 - [ ] Skill names use the `mm-` prefix; folder name matches `name:`
 - [ ] No reference outside the plugin's own folder
@@ -128,6 +145,6 @@ for p in plugins/*; do cp LICENSE NOTICE THIRD_PARTY_NOTICES.md "$p"/; cp licens
 - [ ] New guardrail rules come with a violating and a passing example you ran
 - [ ] Engine statements are verified against official docs or marked *needs verification*
 - [ ] `claude plugin validate` passes for the marketplace and every changed plugin (`--strict`)
-- [ ] Script tests pass; `uv run tools/scrub.py` passes
-- [ ] Docs updated: README (and translations if the structure changed), GUIDE, INVENTORY, ONBOARDING as relevant
+- [ ] Script tests pass; `uv run tools/scrub.py` and `uv run tools/readme_parity.py` pass
+- [ ] Docs updated: README (and translations if the structure changed), GUIDE, INVENTORY, ONBOARDING, CHANGELOG as relevant
 - [ ] Changes to adapted third-party files are listed in `THIRD_PARTY_NOTICES.md`
