@@ -2,8 +2,8 @@
 name: mm-cli-renderdoc
 description: CLI harness for RenderDoc graphics debugger capture analysis
 version: 0.1.0
-command: mm-cli-renderdoc
-install: pip install mm-cli-renderdoc
+command: cli-anything-renderdoc
+install: pip install cli-anything-renderdoc
 requires:
   - renderdoc (Python bindings from RenderDoc installation)
   - click>=8.0
@@ -34,66 +34,66 @@ Headless command-line analysis of RenderDoc GPU frame captures (`.rdc` files).
 
 ### capture
 ```bash
-mm-cli-renderdoc -c frame.rdc capture info          # Metadata + sections
-mm-cli-renderdoc -c frame.rdc capture thumb -o t.png # Extract thumbnail
-mm-cli-renderdoc -c frame.rdc capture convert -o out.rdc --format rdc
+cli-anything-renderdoc -c frame.rdc capture info          # Metadata + sections
+cli-anything-renderdoc -c frame.rdc capture thumb -o t.png # Extract thumbnail
+cli-anything-renderdoc -c frame.rdc capture convert -o out.rdc --format rdc
 ```
 
 ### actions
 ```bash
-mm-cli-renderdoc -c frame.rdc actions list           # All actions
-mm-cli-renderdoc -c frame.rdc actions list --draws-only  # Draw calls only
-mm-cli-renderdoc -c frame.rdc actions summary        # Counts by type
-mm-cli-renderdoc -c frame.rdc actions find "Shadow"  # Search by name
-mm-cli-renderdoc -c frame.rdc actions get 42         # Single action
+cli-anything-renderdoc -c frame.rdc actions list           # All actions
+cli-anything-renderdoc -c frame.rdc actions list --draws-only  # Draw calls only
+cli-anything-renderdoc -c frame.rdc actions summary        # Counts by type
+cli-anything-renderdoc -c frame.rdc actions find "Shadow"  # Search by name
+cli-anything-renderdoc -c frame.rdc actions get 42         # Single action
 ```
 
 ### textures
 ```bash
-mm-cli-renderdoc -c frame.rdc textures list
-mm-cli-renderdoc -c frame.rdc textures get <id>
-mm-cli-renderdoc -c frame.rdc textures save <id> -o out.png --format png
-mm-cli-renderdoc -c frame.rdc textures save-outputs 42 -o ./renders/
-mm-cli-renderdoc -c frame.rdc textures pick <id> 100 200
+cli-anything-renderdoc -c frame.rdc textures list
+cli-anything-renderdoc -c frame.rdc textures get <id>
+cli-anything-renderdoc -c frame.rdc textures save <id> -o out.png --format png
+cli-anything-renderdoc -c frame.rdc textures save-outputs 42 -o ./renders/
+cli-anything-renderdoc -c frame.rdc textures pick <id> 100 200
 ```
 
 ### pipeline
 ```bash
-mm-cli-renderdoc -c frame.rdc pipeline state 42
+cli-anything-renderdoc -c frame.rdc pipeline state 42
 
 # Export shader in human-readable form
 # Text shaders (GLSL/HLSL) → saved directly
 # Binary shaders (DXBC/SPIR-V) → embedded source (HLSL/GLSL) or disassembly
-mm-cli-renderdoc -c frame.rdc pipeline shader-export 42 --stage Fragment
-mm-cli-renderdoc -c frame.rdc pipeline shader-export 42 --stage Vertex -o ./shaders/
+cli-anything-renderdoc -c frame.rdc pipeline shader-export 42 --stage Fragment
+cli-anything-renderdoc -c frame.rdc pipeline shader-export 42 --stage Vertex -o ./shaders/
 
-mm-cli-renderdoc -c frame.rdc pipeline cbuffer 42 --stage Vertex --index 0
+cli-anything-renderdoc -c frame.rdc pipeline cbuffer 42 --stage Vertex --index 0
 
 # Compare pipeline state between two events
 # Default output: same directory as the capture file  ;  use -o to override
-mm-cli-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc
-mm-cli-renderdoc -c frame.rdc pipeline diff 100 200              # same capture
-mm-cli-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc -o result.json
-mm-cli-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc --no-compact
+cli-anything-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc
+cli-anything-renderdoc -c frame.rdc pipeline diff 100 200              # same capture
+cli-anything-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc -o result.json
+cli-anything-renderdoc -c a.rdc pipeline diff 100 200 -b b.rdc --no-compact
 ```
 
 ### resources
 ```bash
-mm-cli-renderdoc -c frame.rdc resources list
-mm-cli-renderdoc -c frame.rdc resources buffers
-mm-cli-renderdoc -c frame.rdc resources read-buffer <id> --format float32
+cli-anything-renderdoc -c frame.rdc resources list
+cli-anything-renderdoc -c frame.rdc resources buffers
+cli-anything-renderdoc -c frame.rdc resources read-buffer <id> --format float32
 ```
 
 ### mesh
 ```bash
-mm-cli-renderdoc -c frame.rdc mesh inputs 42 --max-vertices 10
-mm-cli-renderdoc -c frame.rdc mesh outputs 42
+cli-anything-renderdoc -c frame.rdc mesh inputs 42 --max-vertices 10
+cli-anything-renderdoc -c frame.rdc mesh outputs 42
 ```
 
 ### counters
 ```bash
-mm-cli-renderdoc -c frame.rdc counters list
-mm-cli-renderdoc -c frame.rdc counters fetch --ids 1,2,3
+cli-anything-renderdoc -c frame.rdc counters list
+cli-anything-renderdoc -c frame.rdc counters fetch --ids 1,2,3
 ```
 
 ## Preview Bundles
@@ -103,17 +103,17 @@ creative preview.
 
 ```bash
 # List preview recipes
-mm-cli-renderdoc -c frame.rdc --json preview recipes
+cli-anything-renderdoc -c frame.rdc --json preview recipes
 
 # Capture a preview bundle for the active capture or a specific event
-mm-cli-renderdoc -c frame.rdc --json preview capture --recipe quick --event-id 42
+cli-anything-renderdoc -c frame.rdc --json preview capture --recipe quick --event-id 42
 
 # Capture a diff preview bundle for two events or captures
-mm-cli-renderdoc -c frame.rdc --json preview diff 100 200
-mm-cli-renderdoc -c a.rdc --json preview diff 100 200 --capture-b b.rdc
+cli-anything-renderdoc -c frame.rdc --json preview diff 100 200
+cli-anything-renderdoc -c a.rdc --json preview diff 100 200 --capture-b b.rdc
 
 # Return the latest existing bundle for the capture
-mm-cli-renderdoc -c frame.rdc --json preview latest --recipe quick
+cli-anything-renderdoc -c frame.rdc --json preview latest --recipe quick
 ```
 
 Typical preview bundle contents:
@@ -144,7 +144,7 @@ cli-hub previews open /path/to/bundle
 
 All commands support `--json` for machine-readable output:
 ```bash
-mm-cli-renderdoc -c frame.rdc --json actions summary
+cli-anything-renderdoc -c frame.rdc --json actions summary
 ```
 
 ## Environment Variables

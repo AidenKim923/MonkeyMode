@@ -4,16 +4,16 @@ description: >-
   Command-line interface for Blender - A stateful command-line interface for 3D scene editing, following the same patterns as the GIMP CLI ...
 ---
 
-# mm-cli-blender
+# cli-anything-blender
 
 A stateful command-line interface for 3D scene editing, following the same patterns as the GIMP CLI harness. Uses a JSON scene description format with bpy script generation for actual Blender rendering.
 
 ## Installation
 
-This CLI is installed as part of the mm-cli-blender package:
+This CLI is installed as part of the cli-anything-blender package:
 
 ```bash
-pip install mm-cli-blender
+pip install cli-anything-blender
 ```
 
 **Prerequisites:**
@@ -27,16 +27,16 @@ pip install mm-cli-blender
 
 ```bash
 # Show help
-mm-cli-blender --help
+cli-anything-blender --help
 
 # Start interactive REPL mode
-mm-cli-blender
+cli-anything-blender
 
 # Create a new scene project
-mm-cli-blender scene new -o scene.blend-cli.json
+cli-anything-blender scene new -o scene.blend-cli.json
 
 # Run with JSON output (for agent consumption)
-mm-cli-blender --json --project scene.blend-cli.json scene info
+cli-anything-blender --json --project scene.blend-cli.json scene info
 ```
 
 ### REPL Mode
@@ -44,7 +44,7 @@ mm-cli-blender --json --project scene.blend-cli.json scene info
 When invoked without a subcommand, the CLI enters an interactive REPL session:
 
 ```bash
-mm-cli-blender
+cli-anything-blender
 # Enter commands interactively with tab-completion and history
 ```
 
@@ -211,9 +211,9 @@ Session management commands.
 Create a new Blender scene project file.
 
 ```bash
-mm-cli-blender scene new -o myscene.blend-cli.json
+cli-anything-blender scene new -o myscene.blend-cli.json
 # Or with JSON output for programmatic use
-mm-cli-blender --json scene new -o myscene.blend-cli.json
+cli-anything-blender --json scene new -o myscene.blend-cli.json
 ```
 
 
@@ -222,7 +222,7 @@ mm-cli-blender --json scene new -o myscene.blend-cli.json
 Start an interactive session with undo/redo support.
 
 ```bash
-mm-cli-blender
+cli-anything-blender
 # Enter commands interactively
 # Use 'help' to see available commands
 # Use 'undo' and 'redo' for history navigation
@@ -246,10 +246,10 @@ All commands support dual output modes:
 
 ```bash
 # Human output
-mm-cli-blender --project scene.blend-cli.json scene info
+cli-anything-blender --project scene.blend-cli.json scene info
 
 # JSON output for agents
-mm-cli-blender --json --project scene.blend-cli.json scene info
+cli-anything-blender --json --project scene.blend-cli.json scene info
 ```
 
 ## Preview Workflow
@@ -258,16 +258,16 @@ Use Blender previews when the agent needs truthful visual checkpoints:
 
 ```bash
 # List preview recipes
-mm-cli-blender --project scene.blend-cli.json preview recipes
+cli-anything-blender --project scene.blend-cli.json preview recipes
 
 # Capture a real preview bundle
-mm-cli-blender --json --project scene.blend-cli.json preview capture --recipe quick
+cli-anything-blender --json --project scene.blend-cli.json preview capture --recipe quick
 
 # Start a live preview loop
-mm-cli-blender --json --project scene.blend-cli.json preview live start --recipe quick --mode poll --source-poll-ms 500
+cli-anything-blender --json --project scene.blend-cli.json preview live start --recipe quick --mode poll --source-poll-ms 500
 
 # Query current live head without rendering
-mm-cli-blender --json --project scene.blend-cli.json preview live status --recipe quick
+cli-anything-blender --json --project scene.blend-cli.json preview live status --recipe quick
 ```
 
 For agents, `preview capture --json` returns bundle metadata plus artifact file
@@ -285,7 +285,7 @@ When using this CLI programmatically:
 5. **Use `preview capture` or `preview live ...` for visual verification** instead of inferring scene quality from JSON alone
 6. **Read returned artifact paths** such as `hero.png` and `workbench.png`; the JSON payload references files, it does not inline image bytes
 7. **Treat `_bundle_dir` as one snapshot only**; for stable live history, use `_session_dir` plus `_trajectory_path`
-8. **Use `cli-hub previews ...` only to inspect/open existing previews**; preview generation itself always happens through `mm-cli-blender preview ...`
+8. **Use `cli-hub previews ...` only to inspect/open existing previews**; preview generation itself always happens through `cli-anything-blender preview ...`
 
 ## More Information
 

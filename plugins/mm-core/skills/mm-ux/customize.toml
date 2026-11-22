@@ -15,7 +15,8 @@ activation_steps_append = []
 # Persistent facts loaded at activation and kept in mind for the run.
 # Entries: literal sentence, `skill:NAME`, or `file:PATH` (glob ok).
 persistent_facts = [
-  "MonkeyMode project rules in {project-root}/AGENTS.md and {project-root}/docs/ai/ take precedence over this skill wherever they conflict.",
+  "MonkeyMode project rules in {project-root}/AGENTS.md and the docs folder AGENTS.md names (docs/ai/ by default) take precedence over this skill wherever they conflict.",
+  "Read {project-root}/.monkeymode/config.json if it exists. If coding_level is \"cannot-read-code\": verify your own work by running tests, the build or the game before saying done; explain results in plain words and screenshots instead of code; ask before risky actions (deleting files, large refactors, pushing). Otherwise report in reviewable form: a diff summary and why each change was made. If the file is missing, ask the user or suggest running mm-setup.",
   "A claim is only as good as its evidence: tool output, a test result, a log, or a file. Mark anything you could not check as `unverified` (docs/ai/03_VERIFICATION_PLAYBOOK.md).",
   "Items listed under 'Undecided' in AGENTS.md are the user's design decisions. Present options with their impact; never settle them silently.",
   "Numbers written before playtesting (speeds, timings, budgets, durations, counts) are initial assumptions. Label them as assumptions and plan for them to live in tunable data assets, not code constants.",

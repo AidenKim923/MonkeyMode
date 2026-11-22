@@ -2,8 +2,8 @@
 name: mm-cli-nsight-graphics
 description: Windows-first CLI harness for Nsight Graphics capture, GPU Trace summary, and ngfx-replay analysis
 version: 0.2.0
-command: mm-cli-nsight-graphics
-install: pip install mm-cli-nsight-graphics
+command: cli-anything-nsight-graphics
+install: pip install cli-anything-nsight-graphics
 requires:
   - NVIDIA Nsight Graphics installation
   - Windows host recommended
@@ -34,22 +34,22 @@ Command-line orchestration of official NVIDIA Nsight Graphics activities.
 ### doctor
 
 ```bash
-mm-cli-nsight-graphics --json doctor info
-mm-cli-nsight-graphics --json doctor versions
-mm-cli-nsight-graphics --nsight-path "C:\Path\To\Nsight Graphics 2024.2\host\windows-desktop-nomad-x64" --json doctor info
+cli-anything-nsight-graphics --json doctor info
+cli-anything-nsight-graphics --json doctor versions
+cli-anything-nsight-graphics --nsight-path "C:\Path\To\Nsight Graphics 2024.2\host\windows-desktop-nomad-x64" --json doctor info
 ```
 
 ### launch
 
 ```bash
-mm-cli-nsight-graphics launch detached --activity "Graphics Capture" --exe "C:\Path\To\App.exe"
-mm-cli-nsight-graphics launch attach --activity "Graphics Capture" --pid 12345
+cli-anything-nsight-graphics launch detached --activity "Graphics Capture" --exe "C:\Path\To\App.exe"
+cli-anything-nsight-graphics launch attach --activity "Graphics Capture" --pid 12345
 ```
 
 ### frame capture
 
 ```bash
-mm-cli-nsight-graphics --output-dir D:\captures frame capture ^
+cli-anything-nsight-graphics --output-dir D:\captures frame capture ^
   --exe "C:\Path\To\App.exe" ^
   --wait-frames 10
 ```
@@ -57,21 +57,21 @@ mm-cli-nsight-graphics --output-dir D:\captures frame capture ^
 ### GPU Trace
 
 ```bash
-mm-cli-nsight-graphics --output-dir D:\traces gpu-trace capture ^
+cli-anything-nsight-graphics --output-dir D:\traces gpu-trace capture ^
   --exe "C:\Path\To\App.exe" ^
   --start-after-ms 1000 ^
   --limit-to-frames 1 ^
   --auto-export ^
   --summarize
 
-mm-cli-nsight-graphics gpu-trace summarize ^
+cli-anything-nsight-graphics gpu-trace summarize ^
   --input-dir D:\traces
 ```
 
 ### Replay analysis
 
 ```bash
-mm-cli-nsight-graphics --json replay analyze ^
+cli-anything-nsight-graphics --json replay analyze ^
   --capture-file D:\captures\frame.ngfx-capture ^
   --output-dir D:\analysis
 ```
@@ -79,7 +79,7 @@ mm-cli-nsight-graphics --json replay analyze ^
 ### Generate C++ Capture
 
 ```bash
-mm-cli-nsight-graphics --output-dir D:\cpp cpp capture ^
+cli-anything-nsight-graphics --output-dir D:\cpp cpp capture ^
   --exe "C:\Path\To\App.exe" ^
   --wait-seconds 5
 ```
@@ -106,5 +106,5 @@ mm-cli-nsight-graphics --output-dir D:\cpp cpp capture ^
   outputs; it is not a RenderDoc-style shader, pipeline, texture, or resource inspector.
 - Frame/GPU/C++ capture commands require a launch target through `--exe` or a
   preconfigured root-level `--project`.
-- If a global `mm-cli-nsight-graphics` command points at an old worktree,
+- If a global `cli-anything-nsight-graphics` command points at an old worktree,
   reinstall from `nsight-graphics/agent-harness` with `python -m pip install -e .`.
